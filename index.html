@@ -682,7 +682,7 @@ G('btn-save').addEventListener('click',function(){
 });
 
 // ── FORM SUBMISSION (Web3Forms) ────────────────────────────────────
-function submitEnquiry(){
+window.submitEnquiry = function(){
   var key = document.getElementById('w3-key').value.trim();
   var name = document.getElementById('f-name').value.trim();
   var email = document.getElementById('f-email').value.trim();
