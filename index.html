@@ -85,6 +85,19 @@ a{text-decoration:none;color:inherit;}
 .sn{font-family:var(--hf);font-weight:800;font-size:44px;line-height:1;letter-spacing:-1px;background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .slb{font-family:var(--hf);font-size:10.5px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--mu);margin-top:10px;}
 
+/* BRAND ORBIT around hero logo */
+.hero-vis{container-type:inline-size;}
+.hero-vis img{width:72%;z-index:1;}
+.orbit{position:absolute;inset:0;z-index:2;animation:spin 48s linear infinite;pointer-events:none;}
+.orbit{--rad:-45cqw;}
+.orbit .bn{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translateY(var(--rad)) rotate(calc(-1 * var(--a))) translate(-50%,-50%);}
+@keyframes spinBack{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+.orbit .bn b{display:flex;align-items:center;justify-content:center;animation:spinBack 48s linear infinite;height:clamp(30px,8cqw,48px);padding:0 clamp(9px,2.4cqw,16px);border-radius:999px;background:linear-gradient(180deg,#ffffff,#eef2f7);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.06);}
+.orbit .bn img{display:block;height:58%;width:auto;max-width:clamp(70px,22cqw,130px);object-fit:contain;}
+.orbit .bn img[alt="Tsudakoma"]{height:80%;}
+.orbit .bn img[alt="Smit"]{height:74%;}
+.hero-vis:hover .orbit,.hero-vis:hover .orbit .bn b{animation-play-state:paused;}
+
 /* MARQUEE */
 .mq{position:relative;overflow:hidden;border-top:1px solid var(--b);border-bottom:1px solid var(--b);background:linear-gradient(90deg,#0a1630,#0d1d3d,#0a1630);padding:18px 0;}
 .mq-t{display:flex;gap:56px;width:max-content;animation:mq 38s linear infinite;}
@@ -299,7 +312,10 @@ html.js .rv.in{opacity:1;transform:none;}
   #topnav .nav-links a{padding:17px 20px;border-radius:0;border-top:1px solid var(--b);font-size:12px;}
   .hero{padding:104px 16px 64px;}
   .hero-in{grid-template-columns:1fr;gap:28px;}
-  .hero-vis{order:-1;max-width:250px;justify-self:center;}
+  .hero-vis{order:-1;max-width:330px;justify-self:center;margin:6px 0 10px;}
+  .hero-vis img{width:60%;}
+  .orbit{--rad:-41cqw;}
+
   .ey{font-size:9.5px;letter-spacing:1.6px;}
   .hsts{grid-template-columns:repeat(2,1fr);}
   .hsts>div:nth-child(3){border-left:none;}
@@ -336,7 +352,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="hbads"><div class="badge"><div class="badge-dot"></div>Repair Loom</div><div class="badge"><div class="badge-dot"></div>Air Jet Loom</div><div class="badge"><div class="badge-dot"></div>Water Jet Loom</div><div class="badge"><div class="badge-dot"></div>Spare Parts</div></div>
 <div class="hbtns"><button class="btn-r" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Buy a Machine</button><button class="btn-o" onclick="document.getElementById('machines').scrollIntoView({behavior:'smooth'})">See All Machines</button></div>
 </div>
-<div class="hero-vis" aria-hidden="true"><div class="hv-ring r3"></div><div class="hv-ring r1"></div><div class="hv-ring r2"></div><img src="assets/emblem-3d.webp" alt="" width="1200" height="714"></div>
+<div class="hero-vis" aria-label="Brands we supply: Toyota, Somet, Sulzer, Picanol, Dornier, Itema, Smit, Tsudakoma, Stäubli" role="img"><div class="hv-ring r3"></div><div class="hv-ring r1"></div><div class="hv-ring r2"></div><div class="orbit notranslate" translate="no"><span class="bn" style="--a:0.0deg"><b><img src="assets/brands/toyota.webp" alt="Toyota" loading="lazy"></b></span><span class="bn" style="--a:40.0deg"><b><img src="assets/brands/somet.webp" alt="Somet" loading="lazy"></b></span><span class="bn" style="--a:80.0deg"><b><img src="assets/brands/sulzer.webp" alt="Sulzer" loading="lazy"></b></span><span class="bn" style="--a:120.0deg"><b><img src="assets/brands/picanol.webp" alt="Picanol" loading="lazy"></b></span><span class="bn" style="--a:160.0deg"><b><img src="assets/brands/dornier.webp" alt="Dornier" loading="lazy"></b></span><span class="bn" style="--a:200.0deg"><b><img src="assets/brands/itema.webp" alt="Itema" loading="lazy"></b></span><span class="bn" style="--a:240.0deg"><b><img src="assets/brands/smit.webp" alt="Smit" loading="lazy"></b></span><span class="bn" style="--a:280.0deg"><b><img src="assets/brands/tsudakoma.webp" alt="Tsudakoma" loading="lazy"></b></span><span class="bn" style="--a:320.0deg"><b><img src="assets/brands/staubli.webp" alt="Stäubli" loading="lazy"></b></span></div><img src="assets/emblem-3d.webp" alt="" width="1200" height="714"></div>
 <div class="hsts"><div><div class="sn" id="stat1n">10+</div><div class="slb" id="stat1l">Years Experience</div></div><div><div class="sn" id="stat2n">3</div><div class="slb" id="stat2l">Offices in 2 Countries</div></div><div><div class="sn" id="stat3n">100%</div><div class="slb" id="stat3l">Genuine Parts</div></div><div><div class="sn" id="stat4n">4</div><div class="slb" id="stat4l">Machine Types</div></div></div>
 </div></section>
 <div class="mq" aria-hidden="true"><div class="mq-t"><span>Air Jet Looms</span><span>Water Jet Looms</span><span>Repair Looms</span><span>Genuine Spare Parts</span><span>Customs Clearance</span><span>Door-to-Factory Delivery</span><span>Installation &amp; Training</span><span>Air Jet Looms</span><span>Water Jet Looms</span><span>Repair Looms</span><span>Genuine Spare Parts</span><span>Customs Clearance</span><span>Door-to-Factory Delivery</span><span>Installation &amp; Training</span></div></div>
