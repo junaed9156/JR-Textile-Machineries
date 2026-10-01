@@ -10,6 +10,12 @@
 <link rel="canonical" href="https://www.jrtextiles.com/">
 <link rel="alternate" hreflang="en" href="https://www.jrtextiles.com/">
 <link rel="alternate" hreflang="x-default" href="https://www.jrtextiles.com/">
+<link rel="alternate" hreflang="bn" href="https://www.jrtextiles.com/?lang=bn">
+<link rel="alternate" hreflang="hi" href="https://www.jrtextiles.com/?lang=hi">
+<link rel="alternate" hreflang="ur" href="https://www.jrtextiles.com/?lang=ur">
+<link rel="alternate" hreflang="zh" href="https://www.jrtextiles.com/?lang=zh">
+<link rel="alternate" hreflang="tr" href="https://www.jrtextiles.com/?lang=tr">
+<script src="assets/i18n.js?v=2" defer></script>
 <meta property="og:site_name" content="JR Textile Machineries">
 <meta property="og:url" content="https://www.jrtextiles.com/">
 <meta property="og:locale" content="en_US">
@@ -233,18 +239,41 @@ footer::before{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1
 footer p{font-size:13px;color:var(--mu);line-height:1.8;text-align:right;}
 
 
-/* LANGUAGE (Google Translate) */
-.lang{display:flex;align-items:center;gap:8px;height:42px;padding:0 6px 0 12px;border:1px solid var(--b2);border-radius:12px;background:rgba(255,255,255,.04);color:var(--li);}
-.lang>svg{width:17px;height:17px;flex-shrink:0;}
-.lang .goog-te-gadget{font-size:0!important;color:transparent!important;line-height:0;}
-.lang .goog-te-gadget>span,.lang .goog-te-gadget a{display:none!important;}
-.lang .goog-te-combo,.lang select{margin:0!important;appearance:none;-webkit-appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c4d0de' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 4px center/14px;border:none;outline:none;color:var(--w);font-family:var(--hf);font-size:11.5px;font-weight:600;letter-spacing:.5px;padding:8px 24px 8px 2px;cursor:pointer;max-width:150px;}
-.lang .goog-te-combo option{background:var(--navy2);color:var(--w);}
-#google_translate_element:empty::before{content:"Language";font-family:var(--hf);font-size:11.5px;font-weight:600;color:var(--li);padding-right:8px;}
-/* hide Google's top bar, tooltips and highlight so the design stays clean */
-body{top:0!important;position:static!important;}
-.goog-te-banner-frame,iframe.skiptranslate,body>.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,.VIpgJd-yAWNEb-L7lbkb{display:none!important;visibility:hidden!important;}
-font[style]{background:none!important;box-shadow:none!important;}
+/* LANGUAGE PICKER */
+.lang{position:relative;}
+.lang-btn{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border:1px solid var(--b2);border-radius:12px;background:rgba(255,255,255,.04);color:var(--w);font-family:var(--hf);font-size:12px;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s;}
+.lang-btn:hover,.lang.open .lang-btn{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08);}
+.lang-btn svg{width:17px;height:17px;flex-shrink:0;color:var(--li);}
+.lang-btn .lang-chev{width:14px;height:14px;transition:transform .2s;}
+.lang.open .lang-chev{transform:rotate(180deg);}
+.lang-menu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;min-width:190px;list-style:none;padding:6px;border-radius:14px;background:#0b1730;border:1px solid var(--b2);box-shadow:0 20px 50px rgba(0,0,0,.55);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s;z-index:120;}
+.lang.open .lang-menu{opacity:1;transform:none;pointer-events:auto;}
+.lang-menu li{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:10px;cursor:pointer;color:var(--li);font-size:14px;}
+.lang-menu li small{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:var(--mu);}
+.lang-menu li:hover,.lang-menu li:focus{background:rgba(255,255,255,.07);color:#fff;outline:none;}
+.lang-menu li[aria-selected="true"]{background:rgba(211,37,46,.18);color:#fff;}
+.lang-menu li[aria-selected="true"] small{color:#ff8a8f;}
+/* per-language fonts & spacing */
+html[lang="bn"]{--hf:"Hind Siliguri","Montserrat",sans-serif;--bf:"Hind Siliguri","Inter",sans-serif;}
+html[lang="hi"]{--hf:"Hind","Montserrat",sans-serif;--bf:"Hind","Inter",sans-serif;}
+html[lang="ur"]{--hf:"Noto Naskh Arabic","Montserrat",sans-serif;--bf:"Noto Naskh Arabic","Inter",sans-serif;}
+html[lang="zh"]{--hf:"Noto Sans SC","Montserrat",sans-serif;--bf:"Noto Sans SC","Inter",sans-serif;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"],[lang="zh"]) body *{letter-spacing:0!important;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) .ht{line-height:1.3;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) :is(.st,.ah){line-height:1.35;}
+html[lang="zh"] .ht{line-height:1.15;}
+/* Bangla, Hindi and Urdu letters read small at Latin sizes — bump the small UI text */
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) .nav-links a{font-size:14px;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) :is(.ey,.badge,.atag,.sl,.slb,.tg,.mc-foot,.nav-cta,.btn-r,.btn-o,.fg label,.fti,.fs2){font-size:13.5px;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) .ht{font-size:clamp(36px,4.6vw,66px);}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) :is(.hd,.ap2,.ss,.ipt p,.wc p,.mc p,.ps p,.fq p,.fab,.fbi){font-size:16.5px;}
+html:is([lang="bn"],[lang="hi"],[lang="ur"]) .hd,html:is([lang="bn"],[lang="hi"],[lang="ur"]) .ss{line-height:1.9;}
+html[dir="rtl"] :is(#f-phone,#f-email,.jc-acts a){direction:ltr;}
+html[dir="rtl"] #f-phone,html[dir="rtl"] #f-email{text-align:right;}
+/* phone with country code */
+.ph{display:flex;gap:8px;}
+.ph select{flex:0 0 auto;width:auto;max-width:48%;}
+.ph input{flex:1;min-width:0;}
 
 /* FAQ */
 .faq{background:radial-gradient(900px 500px at 15% 10%,rgba(40,86,160,.18),transparent 60%),var(--bg);}
@@ -385,8 +414,8 @@ html.js .rv.in{opacity:1;transform:none;}
   #topnav{padding:0 16px;height:72px;background:rgba(6,14,29,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--b);}
   .nav-logo img,#topnav.scrolled .nav-logo img{height:38px;}
   .nav-cta{padding:10px 14px;}
-  .lang{margin-left:auto;height:40px;}
-  .lang .goog-te-combo{max-width:96px;}
+  .lang{margin-inline-start:auto;}
+  .lang-btn{height:40px;}
   .nav-tg{order:5;}
   #topnav{gap:10px;}
   #topnav .nav-links{flex-direction:column;gap:0;padding:0;border:none;border-radius:0;position:absolute;top:100%;left:0;right:0;background:rgba(6,14,29,.97);border-bottom:1px solid var(--b);max-height:0;overflow:hidden;transition:max-height .35s ease;}
@@ -415,7 +444,7 @@ html.js .rv.in{opacity:1;transform:none;}
   .wa-float{left:16px;bottom:16px;width:54px;height:54px;}
   .ap-nav{width:160px;}
 }
-@media(max-width:560px){.fll{flex-wrap:wrap;gap:12px;}.fll img{height:44px;}.fs2{white-space:normal;}.lang{padding:0 2px 0 9px;gap:4px;}.lang .goog-te-combo{max-width:72px;font-size:11px;padding-right:20px;}.nav-logo img,#topnav.scrolled .nav-logo img{height:32px;}#google_translate_element:empty::before{content:"Lang";}.pst{grid-template-columns:1fr 1fr;}.nav-cta{display:none;}.fpr{flex-direction:column;align-items:flex-start;}.fb3,.fdc{padding:24px;}.sn{font-size:34px;}.oc{padding:28px 22px;}.btn-r,.btn-o{width:100%;text-align:center;}}
+@media(max-width:560px){.fll{flex-wrap:wrap;gap:12px;}.fll img{height:44px;}.fs2{white-space:normal;}.lang-btn{padding:0 9px;gap:6px;}.lang-btn .lang-chev{display:none;}.nav-logo img,#topnav.scrolled .nav-logo img{height:32px;}.pst{grid-template-columns:1fr 1fr;}.nav-cta{display:none;}.fpr{flex-direction:column;align-items:flex-start;}.fb3,.fdc{padding:24px;}.sn{font-size:34px;}.oc{padding:28px 22px;}.btn-r,.btn-o{width:100%;text-align:center;}}
 </style>
 </head>
 <body>
@@ -423,7 +452,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="nav-logo"><img id="site-logo" src="assets/logo-3d-horizontal.webp" width="900" height="215" alt="JR Textile Machineries"></div>
 <button class="nav-tg" id="nav-tg" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 <div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#machines">Machines</a><a href="#process">How to Buy</a><a href="#offices">Offices</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
-<div class="lang notranslate" translate="no" title="Translate this website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><div id="google_translate_element"></div></div>
+<div class="lang" id="lang"><button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang-cur">English</span><svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Choose language"></ul></div>
 <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </nav>
 <section class="hero">
@@ -531,21 +560,21 @@ html.js .rv.in{opacity:1;transform:none;}
   <div class="fg"><label>Company / Factory</label><input type="text" id="f-company" placeholder="Factory name"></div>
 </div>
 <div class="fg"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"></div>
-<div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="f-phone" placeholder="+880..."></div>
+<div class="fg"><label for="f-phone">Phone / WhatsApp</label><div class="ph"><select id="f-cc" aria-label="Country"></select><input type="tel" id="f-phone" placeholder="Phone number" inputmode="tel" autocomplete="tel-national"></div></div>
 <div class="fg"><label>Machine Type</label>
   <select id="f-machine">
     <option value="">Select machine type...</option>
-    <option>Repair Loom</option><option>Air Jet Loom</option>
-    <option>Water Jet Loom</option><option>Spare Parts Only</option>
-    <option>Multiple / Not Sure</option>
+    <option value="Repair Loom">Repair Loom</option><option value="Air Jet Loom">Air Jet Loom</option>
+    <option value="Water Jet Loom">Water Jet Loom</option><option value="Spare Parts Only">Spare Parts Only</option>
+    <option value="Multiple / Not Sure">Multiple / Not Sure</option>
   </select>
 </div>
 <div class="fg"><label>Import License?</label>
   <select id="f-license">
     <option value="">Select...</option>
-    <option>Yes, I have my own license</option>
-    <option>No - please handle import for me</option>
-    <option>Not sure, need guidance</option>
+    <option value="Yes, I have my own license">Yes, I have my own license</option>
+    <option value="No - please handle import for me">No - please handle import for me</option>
+    <option value="Not sure, need guidance">Not sure, need guidance</option>
   </select>
 </div>
 <div class="fg"><label>Your Message</label>
@@ -728,20 +757,111 @@ html.js .rv.in{opacity:1;transform:none;}
 </div>
 </div>
 <script>
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element');
-  var t=setInterval(function(){var c=document.querySelector('.goog-te-combo');if(c&&c.options.length>1){c.options[0].text=window.innerWidth<560?'Lang':'Language';clearInterval(t);}},300);
-  setTimeout(function(){clearInterval(t);},15000);
-}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
-<script>
 document.addEventListener("DOMContentLoaded", function() {
 
 function G(id){ return document.getElementById(id); }
 function T(id){ var el=G(id); return el ? el.textContent : ''; }
 function S(id,val){ var el=G(id); if(el && val !== undefined && val !== null) el.textContent=val; }
 function V(id){ var el=G(id); return el ? el.value.trim() : ''; }
+
+// ── LANGUAGES (hand-written translations in assets/i18n.js) ─────────
+var DICT=window.JR_I18N||{};
+var LANGS=[['en','English','EN'],['bn','বাংলা','BN'],['hi','हिन्दी','HI'],['ur','اردو','UR'],['zh','中文','ZH'],['tr','Türkçe','TR']];
+var FONTS={bn:'Hind+Siliguri:wght@400;500;600;700',hi:'Hind:wght@400;500;600;700',ur:'Noto+Naskh+Arabic:wght@400;500;600;700',zh:'Noto+Sans+SC:wght@400;500;700;900'};
+var EN={
+ 'c.hello1':'Assalamu Alaikum! 👋 Welcome to JR Textile Machineries.',
+ 'c.hello2':'We supply Air Jet Looms, Water Jet Looms, Repair Looms and genuine spare parts from China to Bangladesh, India and Pakistan.\n\nAsk a question below, or tap a quick option.',
+ 'c.remind':'📞 For more details, WhatsApp or call us:','c.wa':'WhatsApp:','c.call':'Call:','c.email':'Email:','c.still':'Still there? 😊 ',
+ 'c.fallback':'Thanks for your message! Our team will get back to you shortly.\n\nFor the fastest reply, continue on WhatsApp or email us:',
+ 'c.price':'We give a full quotation within 24 hours — price, specifications, lead time and delivery cost, with no hidden fees.\n\nTell us the machine type, width/model and quantity. The quickest way is WhatsApp:',
+ 'c.airjet':'Yes, we supply high-speed Air Jet Looms for fine and medium-weight fabrics, sourced directly from leading Chinese manufacturers, with installation and training.\n\nWhich reed width and quantity do you need?',
+ 'c.waterjet':'We supply precision Water Jet Looms for synthetic and blended yarns, with full maintenance support.\n\nShare your reed width and quantity and we will quote quickly.',
+ 'c.repair':'We supply heavy-duty Repair Looms with spare parts and installation support. Send us the model you are looking for and we will check availability.',
+ 'c.spare':'We stock genuine spare parts for all major loom brands — Toyota, Tsudakoma, Picanol, Dornier, Itema, Somet, Sulzer, Smit and Stäubli.\n\nSend a photo or part number on WhatsApp for the fastest answer.',
+ 'c.license':'No import license needed. We handle customs clearance, port documentation and duties under our license — from China right to your factory.',
+ 'c.country':'Yes — besides Bangladesh we supply looms and spare parts to textile factories in India and Pakistan. Tell us your city and requirement and we will quote with delivery.',
+ 'c.delivery':'Delivery time depends on the machine and stock. We confirm the exact lead time in your quotation, and our Yangzhou (China) office keeps shipments moving fast.',
+ 'c.address':'Our offices:\n• Bangladesh: 175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi\n• Bangladesh: Adla, Atlapur Bazar, Rupganj, Narayanganj\n• China: 196 Yangzijin, Hanjiang District, Yangzhou, Jiangsu',
+ 'c.install':'Our technicians support installation, operator training and after-sales maintenance for every machine we sell.',
+ 'c.contact':'Of course! You can reach our team directly:',
+ 'c.hi':'Hello! 👋 How can we help you today? You can ask about prices, machines, spare parts, import or delivery.'
+};
+var curLang='en';
+var I18N_SKIP='#ap,#lm,script,style,noscript,.orbit,#jc-msgs,#jc-quick,.lang,#f-cc,#form-status';
+var I18N_ATTRS=['placeholder','aria-label','title','alt'];
+function norm(x){ return x.replace(/\s+/g,' ').trim(); }
+function t(k){ var d=DICT[curLang]; return (curLang!=='en'&&d&&d[k])||EN[k]||k; }
+function applyLang(code,opt){
+  opt=opt||{};
+  if(code!=='en' && !DICT[code]) code='en';
+  var fromEn=(curLang==='en');
+  var d=DICT[code]||{};
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){ var p=n.parentElement; return (!p||!n.nodeValue.trim()||p.closest(I18N_SKIP))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT; }});
+  var n; while((n=w.nextNode())){
+    if(fromEn||n.__jrEn===undefined) n.__jrEn=n.nodeValue;
+    var en=n.__jrEn, tr=(code!=='en')?d[norm(en)]:null;
+    if(tr){ var m=en.match(/^(\s*)[\s\S]*?(\s*)$/); n.nodeValue=m[1]+tr+m[2]; } else if(n.nodeValue!==en) n.nodeValue=en;
+  }
+  document.querySelectorAll('['+I18N_ATTRS.join('],[')+']').forEach(function(el){
+    if(el.closest(I18N_SKIP)) return; el.__jrA=el.__jrA||{};
+    I18N_ATTRS.forEach(function(a){ if(!el.hasAttribute(a)) return;
+      if(fromEn||el.__jrA[a]===undefined) el.__jrA[a]=el.getAttribute(a);
+      var en=el.__jrA[a], tr=(code!=='en')?d[norm(en)]:null; el.setAttribute(a,tr||en); });
+  });
+  curLang=code;
+  var h=document.documentElement; h.setAttribute('lang',code);
+  if(code==='ur') h.setAttribute('dir','rtl'); else h.removeAttribute('dir');
+  if(FONTS[code] && !document.querySelector('link[data-jr-font="'+code+'"]')){
+    var l=document.createElement('link'); l.rel='stylesheet'; l.setAttribute('data-jr-font',code);
+    l.href='https://fonts.googleapis.com/css2?family='+FONTS[code]+'&display=swap'; document.head.appendChild(l);
+  }
+  var cur=LANGS.filter(function(x){return x[0]===code;})[0];
+  var lc=G('lang-cur'); if(lc) lc.textContent=(window.innerWidth<560?cur[2]:cur[1]);
+  document.querySelectorAll('#lang-menu li').forEach(function(li){ li.setAttribute('aria-selected',li.getAttribute('data-l')===code?'true':'false'); });
+  if(!opt.temp){ try{ localStorage.setItem('jrLang',code); }catch(_){} }
+  document.dispatchEvent(new CustomEvent('jr:lang',{detail:code}));
+}
+(function(){
+  var box=G('lang'), btn=G('lang-btn'), menu=G('lang-menu'); if(!box) return;
+  LANGS.forEach(function(L){ var li=document.createElement('li'); li.setAttribute('role','option'); li.setAttribute('tabindex','0'); li.setAttribute('data-l',L[0]); li.setAttribute('lang',L[0]);
+    if(L[0]==='ur') li.setAttribute('dir','rtl');
+    li.innerHTML='<span></span><small>'+L[2]+'</small>'; li.firstChild.textContent=L[1];
+    function pick(){ applyLang(L[0]); box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+    li.addEventListener('click',pick); li.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
+    menu.appendChild(li); });
+  btn.addEventListener('click',function(e){ e.stopPropagation(); var o=box.classList.toggle('open'); btn.setAttribute('aria-expanded',o?'true':'false'); });
+  document.addEventListener('click',function(e){ if(!box.contains(e.target)){ box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+})();
+function startLang(){
+  var pick=null, q=(location.search.match(/[?&]lang=([a-z]{2})/)||[])[1];
+  if(q && (q==='en'||DICT[q])) pick=q;
+  if(!pick){ try{ pick=localStorage.getItem('jrLang'); }catch(_){} }
+  if(!pick){ (navigator.languages||[navigator.language||'en']).some(function(l){ l=(l||'').slice(0,2).toLowerCase(); if(DICT[l]){ pick=l; return true; } return l==='en'; }); }
+  applyLang(pick||'en',{temp:!q && !pick});
+}
+
+// ── PHONE: country picker fills the code ─────────────────────────────
+var COUNTRIES=[['BD','880','Bangladesh'],['IN','91','India'],['PK','92','Pakistan'],['CN','86','China'],['TR','90','Turkey'],['LK','94','Sri Lanka'],['NP','977','Nepal'],['VN','84','Vietnam'],['ID','62','Indonesia'],['EG','20','Egypt'],['AE','971','United Arab Emirates'],['SA','966','Saudi Arabia'],['UZ','998','Uzbekistan'],['XX','','Other']];
+var LANG_CC={en:'BD',bn:'BD',hi:'IN',ur:'PK',zh:'CN',tr:'TR'}, ccTouched=false;
+function buildCountries(){
+  var sel=G('f-cc'); if(!sel) return; var v=sel.value; sel.innerHTML='';
+  COUNTRIES.forEach(function(c){ var o=document.createElement('option'); o.value=c[0]; o.textContent=t(c[2])+(c[1]?'  +'+c[1]:''); sel.appendChild(o); });
+  sel.value=(!ccTouched && LANG_CC[curLang])||v||'BD';
+  updatePhoneHint();
+}
+function updatePhoneHint(){ var sel=G('f-cc'), ph=G('f-phone'); if(!sel||!ph) return; var c=COUNTRIES.filter(function(x){return x[0]===sel.value;})[0]; ph.placeholder=(c&&c[1]?'+'+c[1]+' ':'+')+t('Phone number'); }
+(function(){ var sel=G('f-cc'); if(!sel) return; sel.addEventListener('change',function(){ ccTouched=true; updatePhoneHint(); }); })();
+document.addEventListener('jr:lang',buildCountries);
+function fullPhone(){
+  var raw=(G('f-phone').value||'').trim(); if(!raw) return {num:'',country:''};
+  var c=COUNTRIES.filter(function(x){return x[0]===G('f-cc').value;})[0]||COUNTRIES[0];
+  var digits=raw.replace(/[^\d+]/g,'');
+  if(digits.charAt(0)==='+'||!c[1]) return {num:digits,country:c[2]};
+  digits=digits.replace(/^00/,'+'); if(digits.charAt(0)==='+') return {num:digits,country:c[2]};
+  if(digits.indexOf(c[1])===0 && digits.length>c[1].length+6) return {num:'+'+digits,country:c[2]};
+  return {num:'+'+c[1]+' '+digits.replace(/^0+/,''),country:c[2]};
+}
 
 // Only a SHA-256 hash of "jrtm-v1|username|password" is stored — the password itself is not in this file.
 var ADMIN_HASH = 'aa6fe967d9f09320229087092e542d943488fd333651de1f40a37ebc7cee3614';
@@ -799,6 +919,7 @@ G('l-submit').addEventListener('click', function(){
   sha256hex('jrtm-v1|'+u+'|'+p).then(function(h){
     if(h===ADMIN_HASH){
       G('lm').classList.remove('open');
+      adminPrevLang=curLang; if(curLang!=='en') applyLang('en',{temp:true});
       populateForms();
       G('ap').classList.add('open');
     } else {
@@ -810,7 +931,8 @@ G('l-submit').addEventListener('click', function(){
 G('l-pass').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-submit').click(); });
 G('l-user').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-pass').focus(); });
 G('l-cancel').addEventListener('click', function(){ G('lm').classList.remove('open'); });
-G('btn-close').addEventListener('click', function(){ G('ap').classList.remove('open'); });
+var adminPrevLang='en';
+G('btn-close').addEventListener('click', function(){ G('ap').classList.remove('open'); if(adminPrevLang!=='en') applyLang(adminPrevLang,{temp:true}); });
 
 // POPULATE FORMS
 function populateForms(){
@@ -981,23 +1103,25 @@ function pickFile(cb){
 }
 
 G('btn-save').addEventListener('click',function(){
-  var hc=document.documentElement.className;
-  if(/translated-(ltr|rtl)/.test(hc)){ alert('Please switch the Language menu back to English before saving, otherwise the translated text would be saved.'); return; }
   G('ap').classList.remove('open');
+  var keepLang=curLang; if(curLang!=='en') applyLang('en',{temp:true});
   setTimeout(function(){
     var clone=document.documentElement.cloneNode(true);
     clone.classList.remove('js');
     clone.querySelectorAll('.rv').forEach(function(el){ el.classList.remove('rv','in'); el.style.transitionDelay=''; if(!el.getAttribute('style')) el.removeAttribute('style'); });
     var tn=clone.querySelector('#topnav'); if(tn){ tn.classList.remove('scrolled','open'); }
-    var gte=clone.querySelector('#google_translate_element'); if(gte) gte.innerHTML='';
+    clone.setAttribute('lang','en'); clone.removeAttribute('dir');
+    clone.querySelectorAll('link[data-jr-font]').forEach(function(el){ el.remove(); });
+    var lm=clone.querySelector('#lang-menu'); if(lm) lm.innerHTML=''; var lb=clone.querySelector('#lang'); if(lb) lb.className='lang'; var lcur=clone.querySelector('#lang-cur'); if(lcur) lcur.textContent='English';
+    var fcc=clone.querySelector('#f-cc'); if(fcc) fcc.innerHTML='';
     var cm=clone.querySelector('#jc-msgs'); if(cm) cm.innerHTML=''; var cq=clone.querySelector('#jc-quick'); if(cq) cq.innerHTML='';
     var cj=clone.querySelector('#jc'); if(cj) cj.className='jc'; var ct=clone.querySelector('#jc-tip'); if(ct) ct.className='jc-tip';
-    clone.querySelectorAll('body>.skiptranslate,iframe.skiptranslate,#goog-gt-tt,.goog-te-spinner-pos,script[src*="translate"]:not([src*="element.js"])').forEach(function(el){ el.remove(); });
-    var cb=clone.querySelector('body'); if(cb){ cb.style.top=''; cb.style.position=''; if(!cb.getAttribute('style')) cb.removeAttribute('style'); }
     var html='<!DOCTYPE html>\n'+clone.outerHTML;
     var blob=new Blob([html],{type:'text/html'});
     var a=document.createElement('a');a.href=URL.createObjectURL(blob);
     a.download='jr-textile-machineries.html';a.click();URL.revokeObjectURL(a.href);
+    var back=(adminPrevLang!=='en')?adminPrevLang:keepLang; adminPrevLang='en';
+    if(back!=='en') applyLang(back,{temp:true});
   },200);
 });
 
@@ -1006,7 +1130,7 @@ window.submitEnquiry = function(){
   var key = document.getElementById('w3-key').value.trim();
   var name = document.getElementById('f-name').value.trim();
   var email = document.getElementById('f-email').value.trim();
-  var phone = document.getElementById('f-phone').value.trim();
+  var ph = fullPhone(), phone = ph.num, country = ph.country;
   var company = document.getElementById('f-company').value.trim();
   var machine = document.getElementById('f-machine').value;
   var license = document.getElementById('f-license').value;
@@ -1014,19 +1138,19 @@ window.submitEnquiry = function(){
   var btn = document.getElementById('form-submit-btn');
   var status = document.getElementById('form-status');
 
-  if(!name){ alert('Please enter your name.'); return; }
-  if(!email && !phone){ alert('Please enter email or phone number.'); return; }
+  if(!name){ alert(t('Please enter your name.')); return; }
+  if(!email && !phone){ alert(t('Please enter email or phone number.')); return; }
 
   // If no Web3Forms key, use mailto fallback
   if(!key){
-    var body = 'Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPhone: '+phone+'\nMachine: '+machine+'\nLicense: '+license+'\nMessage: '+message;
+    var body = 'Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nCountry: '+country+'\nPhone: '+phone+'\nMachine: '+machine+'\nLicense: '+license+'\nMessage: '+message;
     window.location.href = 'mailto:junaedm333@gmail.com?subject=New Machine Inquiry&body='+encodeURIComponent(body);
     return;
   }
 
   // Send via Web3Forms API
   btn.disabled = true;
-  btn.textContent = 'Sending...';
+  btn.textContent = t('Sending...');
 
   var data = {
     access_key: key,
@@ -1035,6 +1159,7 @@ window.submitEnquiry = function(){
     name: name,
     email: email || 'no-email@provided.com',
     phone: phone,
+    country: country,
     company: company,
     machine_type: machine,
     import_license: license,
@@ -1053,8 +1178,8 @@ window.submitEnquiry = function(){
       status.style.background = 'rgba(26,122,58,0.2)';
       status.style.border = '1px solid rgba(26,122,58,0.4)';
       status.style.color = '#4ade80';
-      status.textContent = '✓ Enquiry sent! We will contact you within 24 hours.';
-      btn.textContent = '✓ Sent!';
+      status.textContent = t('✓ Enquiry sent! We will contact you within 24 hours.');
+      btn.textContent = t('✓ Sent!');
       btn.style.background = '#1a7a3a';
       document.getElementById('f-name').value='';
       document.getElementById('f-email').value='';
@@ -1072,9 +1197,9 @@ window.submitEnquiry = function(){
     status.style.background = 'rgba(192,32,42,0.15)';
     status.style.border = '1px solid rgba(192,32,42,0.4)';
     status.style.color = '#ff6b6b';
-    status.textContent = '✗ Error: ' + err.message + '. Please contact us directly via WhatsApp.';
+    status.textContent = '✗ ' + t('Could not send. Please contact us directly via WhatsApp.') + ' (' + err.message + ')';
     btn.disabled = false;
-    btn.textContent = 'Send Enquiry →';
+    btn.textContent = t('Send Enquiry →');
   });
 }
 
@@ -1121,14 +1246,9 @@ if('IntersectionObserver' in window){
   });
 }
 function buyNow(card){
-  var h=card.querySelector('h3'); var sel=G('f-machine');
-  if(h && sel){
-    var name=h.textContent.trim().toLowerCase();
-    for(var i=0;i<sel.options.length;i++){
-      var o=sel.options[i].text.toLowerCase();
-      if(o===name || (name.indexOf('spare')>-1 && o.indexOf('spare')>-1)){ sel.selectedIndex=i; break; }
-    }
-  }
+  var sel=G('f-machine');
+  var MAP={'mc-m1':'Repair Loom','mc-m2':'Air Jet Loom','mc-m3':'Water Jet Loom','mc-m4':'Spare Parts Only'};
+  if(sel) sel.value=MAP[card.id]||'Multiple / Not Sure';
   G('contact').scrollIntoView({behavior:'smooth'});
 }
 G('machine-grid').addEventListener('click', function(e){
@@ -1166,45 +1286,48 @@ G('machine-grid').addEventListener('keydown', function(e){
     setTimeout(function(){ t.remove(); add(text,'bot',acts); }, delay||Math.min(1400,500+text.length*6));
   }
   var R=[
-    {k:/(price|cost|quot|rate|dam|daam|koto|কত|দাম|budget)/i, a:'We give a full quotation within 24 hours — price, specifications, lead time and delivery cost, with no hidden fees.\n\nTell us the machine type, width/model and quantity. The quickest way is WhatsApp:', x:['wa','mail']},
-    {k:/(air ?jet)/i, a:'Yes, we supply high-speed Air Jet Looms for fine and medium-weight fabrics, sourced directly from leading Chinese manufacturers, with installation and training.\n\nWhich reed width and quantity do you need?', x:['wa']},
-    {k:/(water ?jet)/i, a:'We supply precision Water Jet Looms for synthetic and blended yarns, with full maintenance support.\n\nShare your reed width and quantity and we will quote quickly.', x:['wa']},
-    {k:/(repair|rapier|used|second)/i, a:'We supply heavy-duty Repair Looms with spare parts and installation support. Send us the model you are looking for and we will check availability.', x:['wa']},
-    {k:/(spare|part|parts|nozzle|reed|heald|motor|board)/i, a:'We stock genuine spare parts for all major loom brands — Toyota, Tsudakoma, Picanol, Dornier, Itema, Somet, Sulzer, Smit and Stäubli.\n\nSend a photo or part number on WhatsApp for the fastest answer.', x:['wa']},
-    {k:/(licen|import|custom|lc|duty|port)/i, a:'No import license needed. We handle customs clearance, port documentation and duties under our license — from China right to your factory.', x:['wa','mail']},
-    {k:/(india|pakistan|kolkata|surat|faisalabad|karachi|lahore|delhi|mumbai)/i, a:'Yes — besides Bangladesh we supply looms and spare parts to textile factories in India and Pakistan. Tell us your city and requirement and we will quote with delivery.', x:['wa','mail']},
-    {k:/(deliver|ship|time|kobe|days|lead)/i, a:'Delivery time depends on the machine and stock. We confirm the exact lead time in your quotation, and our Yangzhou (China) office keeps shipments moving fast.', x:['wa']},
-    {k:/(address|office|location|where|thikana|ঠিকানা|narsingdi|rupganj|narayanganj|china|yangzhou)/i, a:'Our offices:\n• Bangladesh: 175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi\n• Bangladesh: Adla, Atlapur Bazar, Rupganj, Narayanganj\n• China: 196 Yangzijin, Hanjiang District, Yangzhou, Jiangsu', x:['call','wa']},
-    {k:/(install|training|service|support|technician|warranty)/i, a:'Our technicians support installation, operator training and after-sales maintenance for every machine we sell.', x:['wa']},
-    {k:/(human|person|agent|talk|call|phone|number|contact|whats|email|mail)/i, a:'Of course! You can reach our team directly:', x:['wa','mail','call']},
-    {k:/^(hi|hello|hey|salam|assalam|aslam|hlw|helo|good)/i, a:'Hello! 👋 How can we help you today? You can ask about prices, machines, spare parts, import or delivery.', x:null}
+    {id:'price',  k:/(price|cost|quot|rate|dam|daam|koto|কত|দাম|budget|कीमत|दाम|कितन|قیمت|ریٹ|کتنے|价格|价钱|报价|多少钱|fiyat|teklif|ücret|kaça)/i, x:['wa','mail']},
+    {id:'country',k:/(india|pakistan|kolkata|surat|faisalabad|karachi|lahore|delhi|mumbai|ভারত|পাকিস্তান|भारत|पाकिस्तान|بھارت|پاکستان|印度|巴基斯坦|hindistan)/i, x:['wa','mail']},
+    {id:'airjet', k:/(air ?jet|এয়ার জেট|एयर जेट|ایئر جیٹ|喷气|hava jet)/i, x:['wa']},
+    {id:'waterjet',k:/(water ?jet|ওয়াটার জেট|वॉटर जेट|واٹر جیٹ|喷水|su jet)/i, x:['wa']},
+    {id:'repair', k:/(repair|rapier|used|second|রেপিয়ার|रेपियर|ریپیئر|剑杆)/i, x:['wa']},
+    {id:'spare',  k:/(spare|parts?\b|nozzle|reed|heald|motor|board|স্পেয়ার|পার্টস|স্পেয়ার|स्पेयर|पार्ट|اسپیئر|پارٹ|配件|零件|yedek|parça)/i, x:['wa']},
+    {id:'license',k:/(licen|import|custom|\blc\b|duty|\bport\b|লাইসেন্স|আমদানি|কাস্টমস|लाइसेंस|इम्पोर्ट|आयात|لائسنس|امپورٹ|کسٹم|许可证|进口|清关|lisans|ithalat|gümrük)/i, x:['wa','mail']},
+    {id:'delivery',k:/(deliver|ship|\btime\b|kobe|days|lead|ডেলিভারি|কবে|কতদিন|डिलीवरी|कब तक|ڈیلیوری|کب تک|交货|发货|多久|teslim|kargo|ne zaman)/i, x:['wa']},
+    {id:'address',k:/(address|office|location|where|thikana|ঠিকানা|অফিস|কোথায়|पता|ऑफिस|कहाँ|پتہ|دفتر|کہاں|地址|办公室|在哪|adres|ofis|nerede|narsingdi|rupganj|narayanganj|yangzhou)/i, x:['call','wa']},
+    {id:'install',k:/(install|training|service|support|technician|warranty|ইনস্টল|ট্রেনিং|इंस्टॉल|ट्रेनिंग|انسٹال|ٹریننگ|安装|培训|售后|kurulum|eğitim|servis)/i, x:['wa']},
+    {id:'contact',k:/(human|person|agent|talk|call|phone|number|contact|whats|email|mail|ফোন|নম্বর|যোগাযোগ|फ़ोन|फोन|नंबर|संपर्क|فون|نمبر|رابطہ|电话|联系|人工|telefon|iletişim)/i, x:['wa','mail','call']},
+    {id:'hi',     k:/^(hi|hello|hey|salam|assalam|aslam|hlw|helo|good|হ্যালো|আসসালামু|नमस्ते|हैलो|السلام|سلام|你好|您好|merhaba|selam)/i, x:null}
   ];
-  function remindText(){ return '📞 For more details, WhatsApp or call us:\nWhatsApp: +'+waNum().replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/,'$1 $2 $3 $4')+'\nCall: '+phone()+'\nEmail: '+email(); }
+  var RID={}; R.forEach(function(r){ RID[r.id]=r; });
+  function remindText(){ return t('c.remind')+'\n'+t('c.wa')+' +'+waNum().replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/,'$1 $2 $3 $4')+'\n'+t('c.call')+' '+phone()+'\n'+t('c.email')+' '+email(); }
   function remind(delay){ setTimeout(function(){ botSay(remindText(),['wa','call','mail']); },delay); }
   function armIdle(){
     clearTimeout(idleT);
     if(nudges>=2) return;
-    idleT=setTimeout(function(){ if(jc.classList.contains('open')){ nudges++; botSay('Still there? 😊 '+remindText(),['wa','call']); } },30000);
+    idleT=setTimeout(function(){ if(jc.classList.contains('open')){ nudges++; botSay(t('c.still')+remindText(),['wa','call']); } },30000);
   }
-  function answer(q){
+  function answer(q,forceId){
     lastQ=q; refreshFoot(); answers++;
-    var hit=null;
-    for(var i=0;i<R.length;i++){ if(R[i].k.test(q)){ hit=R[i]; break; } }
-    if(hit){ botSay(hit.a,hit.x); }
-    else botSay('Thanks for your message! Our team will get back to you shortly.\n\nFor the fastest reply, continue on WhatsApp or email us:',['wa','mail']);
+    var hit=forceId?RID[forceId]:null;
+    if(!hit) for(var i=0;i<R.length;i++){ if(R[i].k.test(q)){ hit=R[i]; break; } }
+    if(hit){ botSay(t('c.'+hit.id),hit.x); }
+    else botSay(t('c.fallback'),['wa','mail']);
     // every second answer, remind visitors how to reach a person
     if(answers%2===0 && !(hit && hit.x && hit.x.length>=3)) remind(1800);
     armIdle();
   }
-  var QUICK=['💰 Get a price','Air Jet Loom','Water Jet Loom','Spare parts','No import license?','Office address','Talk to a person'];
-  QUICK.forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=q;
-    b.addEventListener('click',function(){ add(q,'me'); answer(q.replace(/^\W+\s*/,'')); }); quick.appendChild(b); });
+  var QUICK=[['💰 Get a price','price'],['Air Jet Loom','airjet'],['Water Jet Loom','waterjet'],['Spare parts','spare'],['No import license?','license'],['Office address','address'],['Talk to a person','contact']];
+  function buildQuick(){ quick.innerHTML='';
+    QUICK.forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=t(q[0]);
+      b.addEventListener('click',function(){ add(t(q[0]),'me'); answer(q[0],q[1]); }); quick.appendChild(b); }); }
+  buildQuick(); document.addEventListener('jr:lang',buildQuick);
   function open(){
     jc.classList.add('open','seen'); G('jc-launch').setAttribute('aria-expanded','true'); G('jc-tip').classList.remove('show');
     refreshFoot();
     if(!started){ started=true;
-      botSay('Assalamu Alaikum! 👋 Welcome to JR Textile Machineries.',null,500);
-      setTimeout(function(){ botSay('We supply Air Jet Looms, Water Jet Looms, Repair Looms and genuine spare parts from China to Bangladesh, India and Pakistan.\n\nAsk a question below in English (or Banglish), or tap a quick option.',null,900); },700);
+      botSay(t('c.hello1'),null,500);
+      setTimeout(function(){ botSay(t('c.hello2'),null,900); },700);
       setTimeout(function(){ botSay(remindText(),['wa','call'],700); },2700);
       armIdle();
     }
@@ -1221,6 +1344,7 @@ G('machine-grid').addEventListener('keydown', function(e){
   if(!tipSeen) setTimeout(function(){ if(!jc.classList.contains('open')){ G('jc-tip').classList.add('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} } },4000);
 })();
 
+startLang();
 }); // end DOMContentLoaded
 </script>
 </body>
