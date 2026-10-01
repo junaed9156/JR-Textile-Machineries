@@ -262,6 +262,59 @@ font[style]{background:none!important;box-shadow:none!important;}
 .fq[open] .fq-i::after{transform:rotate(0deg);}
 .fq p{padding:0 26px 24px;font-size:15px;color:var(--li);line-height:1.85;}
 
+/* LIVE CHAT */
+.jc{position:fixed;right:24px;bottom:24px;z-index:9996;font-family:var(--bf);}
+.jc-launch{position:relative;width:62px;height:62px;border-radius:50%;border:none;cursor:pointer;color:#fff;background:var(--redg);box-shadow:0 14px 34px rgba(211,37,46,.55),inset 0 1px 0 rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:transform .25s;}
+.jc-launch:hover{transform:scale(1.06);}
+.jc-launch svg{width:28px;height:28px;position:absolute;transition:opacity .25s,transform .25s;}
+.jc-ic-x{opacity:0;transform:rotate(-90deg);}
+.jc.open .jc-ic-chat{opacity:0;transform:rotate(90deg);}
+.jc.open .jc-ic-x{opacity:1;transform:none;}
+.jc-badge{position:absolute;top:-3px;right:-3px;min-width:22px;height:22px;border-radius:11px;background:#fff;color:var(--red);font:800 12px/22px var(--hf);text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.35);animation:jcPop .5s 2.5s both;}
+.jc.seen .jc-badge{display:none;}
+@keyframes jcPop{from{transform:scale(0);}70%{transform:scale(1.25);}to{transform:scale(1);}}
+.jc-tip{position:absolute;right:0;bottom:78px;width:250px;padding:14px 34px 14px 16px;border-radius:16px 16px 4px 16px;background:#fff;color:#1b2333;font-size:13.5px;line-height:1.5;box-shadow:0 18px 40px rgba(0,0,0,.45);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s,transform .35s;}
+.jc-tip b{display:block;font-family:var(--hf);font-size:14px;margin-bottom:2px;}
+.jc-tip.show{opacity:1;transform:none;pointer-events:auto;}
+.jc-tip-x{position:absolute;top:6px;right:8px;border:none;background:none;font-size:18px;line-height:1;color:#8a93a3;cursor:pointer;}
+.jc-panel{position:absolute;right:0;bottom:80px;width:370px;height:560px;max-height:calc(100vh - 120px);display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:#0b1730;border:1px solid var(--b2);box-shadow:0 30px 70px rgba(0,0,0,.6);opacity:0;transform:translateY(16px) scale(.97);transform-origin:bottom right;pointer-events:none;visibility:hidden;transition:opacity .3s,transform .3s,visibility 0s .3s;}
+.jc.open .jc-panel{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .3s,transform .3s;}
+.jc-head{display:flex;align-items:center;gap:12px;padding:16px 16px 16px 18px;background:linear-gradient(135deg,#13284f,#0d1d3d);border-bottom:1px solid var(--b);}
+.jc-head img{width:44px;height:auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));}
+.jc-head div{flex:1;min-width:0;}
+.jc-head b{display:block;font-family:var(--hf);font-size:14.5px;color:#fff;}
+.jc-head span{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--li);}
+.jc-head i{width:8px;height:8px;border-radius:50%;background:#3be37a;box-shadow:0 0 8px #3be37a;}
+.jc-close{border:none;background:rgba(255,255,255,.08);color:#fff;width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;}
+.jc-msgs{flex:1;overflow-y:auto;padding:18px 14px 8px;display:flex;flex-direction:column;gap:10px;background:radial-gradient(500px 300px at 100% 0,rgba(40,86,160,.25),transparent 60%);scroll-behavior:smooth;}
+.jc-m{max-width:86%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.55;white-space:pre-line;animation:jcIn .3s ease both;}
+@keyframes jcIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.jc-m.bot{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid var(--b);color:var(--w);border-bottom-left-radius:4px;}
+.jc-m.me{align-self:flex-end;background:var(--redg);color:#fff;border-bottom-right-radius:4px;}
+.jc-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.jc-acts a{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:10px;font:700 11.5px var(--hf);letter-spacing:.3px;color:#fff;cursor:pointer;}
+.jc-acts a svg{width:14px;height:14px;}
+.jc-acts .a-wa{background:#1fae55;}.jc-acts .a-mail{background:#1463d8;}.jc-acts .a-call{background:rgba(255,255,255,.14);}
+.jc-typing{align-self:flex-start;display:flex;gap:4px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid var(--b);}
+.jc-typing i{width:7px;height:7px;border-radius:50%;background:var(--li);animation:jcDot 1s infinite;}
+.jc-typing i:nth-child(2){animation-delay:.15s;}.jc-typing i:nth-child(3){animation-delay:.3s;}
+@keyframes jcDot{0%,60%,100%{opacity:.3;transform:none;}30%{opacity:1;transform:translateY(-4px);}}
+.jc-quick{display:flex;gap:6px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;}
+.jc-quick::-webkit-scrollbar{display:none;}
+.jc-quick button{flex:none;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,90,96,.45);background:rgba(211,37,46,.1);color:#ffd6d8;font:600 12px var(--hf);cursor:pointer;white-space:nowrap;}
+.jc-quick button:hover{background:var(--redg);color:#fff;border-color:transparent;}
+.jc-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--b);background:#0a1429;}
+.jc-form input{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid var(--b2);border-radius:12px;padding:12px 14px;color:#fff;font:14px var(--bf);outline:none;}
+.jc-form input:focus{border-color:rgba(255,90,96,.7);}
+.jc-form button{width:46px;border:none;border-radius:12px;background:var(--redg);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.jc-form button svg{width:19px;height:19px;}
+.jc-foot{display:flex;border-top:1px solid var(--b);background:#08111f;}
+.jc-foot a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 4px;font:700 11.5px var(--hf);color:var(--li);letter-spacing:.3px;}
+.jc-foot a+a{border-left:1px solid var(--b);}
+.jc-foot a:hover{color:#fff;background:rgba(255,255,255,.05);}
+.jc-foot svg{width:15px;height:15px;color:#3be37a;}
+@media(max-width:560px){.jc{right:14px;bottom:14px;}.jc-launch{width:56px;height:56px;}.jc-panel{position:fixed;right:10px;left:10px;bottom:82px;width:auto;height:min(560px,calc(100vh - 100px));}.jc-tip{width:220px;}}
+
 /* FLOATING WHATSAPP */
 .wa-float{position:fixed;left:24px;bottom:24px;z-index:9997;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#3be37a,#1fae55);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .25s;}
 .wa-float svg{width:30px;height:30px;}
@@ -322,7 +375,7 @@ html.js .rv.in{opacity:1;transform:none;}
 .ipb span{color:var(--mu);font-size:13px;}
 .ipb::after{content:"Click to change";position:absolute;inset:0;background:rgba(192,32,42,.75);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;opacity:0;transition:opacity .2s;}
 .ipb:hover::after{opacity:1;}
-.ap-btn{position:fixed;bottom:26px;right:26px;z-index:9998;background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:4px;}
+.ap-btn{position:fixed;bottom:30px;left:96px;z-index:9998;background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:4px;}
 .ap-btn:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.orbit{animation:spin 48s linear infinite!important;}.orbit .bn b{animation:spinBack 48s linear infinite!important;}html.js .rv{opacity:1;transform:none;}html{scroll-behavior:auto;}}
@@ -384,7 +437,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="hbads"><div class="badge"><div class="badge-dot"></div>Repair Loom</div><div class="badge"><div class="badge-dot"></div>Air Jet Loom</div><div class="badge"><div class="badge-dot"></div>Water Jet Loom</div><div class="badge"><div class="badge-dot"></div>Spare Parts</div></div>
 <div class="hbtns"><button class="btn-r" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Buy a Machine</button><button class="btn-o" onclick="document.getElementById('machines').scrollIntoView({behavior:'smooth'})">See All Machines</button></div>
 </div>
-<div class="hero-vis" aria-label="Brands we supply: Toyota, Somet, Sulzer, Picanol, Dornier, Itema, Smit, Tsudakoma, Stäubli" role="img"><div class="hv-ring r3"></div><div class="hv-ring r1"></div><div class="hv-ring r2"></div><div class="orbit notranslate" translate="no"><span class="bn" style="--a:0.0deg"><b class="lg" role="img" aria-label="Toyota" style="background-image:url(assets/brands/toyota.webp?v=4)"></b></span><span class="bn" style="--a:40.0deg"><b class="lg" role="img" aria-label="Somet" style="background-image:url(assets/brands/somet.webp?v=4)"></b></span><span class="bn" style="--a:80.0deg"><b class="lg" role="img" aria-label="Sulzer" style="background-image:url(assets/brands/sulzer.webp?v=4)"></b></span><span class="bn" style="--a:120.0deg"><b class="lg" role="img" aria-label="Picanol" style="background-image:url(assets/brands/picanol.webp?v=4)"></b></span><span class="bn" style="--a:160.0deg"><b class="lg" role="img" aria-label="Dornier" style="background-image:url(assets/brands/dornier.webp?v=4)"></b></span><span class="bn" style="--a:200.0deg"><b class="lg" role="img" aria-label="Itema" style="background-image:url(assets/brands/itema.webp?v=4)"></b></span><span class="bn" style="--a:240.0deg"><b class="lg big" role="img" aria-label="Smit" style="background-image:url(assets/brands/smit.webp?v=4)"></b></span><span class="bn" style="--a:280.0deg"><b class="lg big" role="img" aria-label="Tsudakoma" style="background-image:url(assets/brands/tsudakoma.webp?v=4)"></b></span><span class="bn" style="--a:320.0deg"><b class="lg" role="img" aria-label="Stäubli" style="background-image:url(assets/brands/staubli.webp?v=4)"></b></span></div><img src="assets/emblem-3d.webp" alt="" width="1200" height="714"></div>
+<div class="hero-vis" aria-label="Brands we supply: Toyota, Somet, Sulzer, Picanol, Dornier, Itema, Smit, Tsudakoma, Stäubli" role="img"><div class="hv-ring r3"></div><div class="hv-ring r1"></div><div class="hv-ring r2"></div><div class="orbit notranslate" translate="no"><span class="bn" style="--a:0.0deg"><b class="lg" role="img" aria-label="Toyota" style="background-image:url(assets/brands/toyota.webp?v=5)"></b></span><span class="bn" style="--a:40.0deg"><b class="lg" role="img" aria-label="Somet" style="background-image:url(assets/brands/somet.webp?v=5)"></b></span><span class="bn" style="--a:80.0deg"><b class="lg" role="img" aria-label="Sulzer" style="background-image:url(assets/brands/sulzer.webp?v=5)"></b></span><span class="bn" style="--a:120.0deg"><b class="lg" role="img" aria-label="Picanol" style="background-image:url(assets/brands/picanol.webp?v=5)"></b></span><span class="bn" style="--a:160.0deg"><b class="lg" role="img" aria-label="Dornier" style="background-image:url(assets/brands/dornier.webp?v=5)"></b></span><span class="bn" style="--a:200.0deg"><b class="lg" role="img" aria-label="Itema" style="background-image:url(assets/brands/itema.webp?v=5)"></b></span><span class="bn" style="--a:240.0deg"><b class="lg big" role="img" aria-label="Smit" style="background-image:url(assets/brands/smit.webp?v=5)"></b></span><span class="bn" style="--a:280.0deg"><b class="lg big" role="img" aria-label="Tsudakoma" style="background-image:url(assets/brands/tsudakoma.webp?v=5)"></b></span><span class="bn" style="--a:320.0deg"><b class="lg" role="img" aria-label="Stäubli" style="background-image:url(assets/brands/staubli.webp?v=5)"></b></span></div><img src="assets/emblem-3d.webp" alt="" width="1200" height="714"></div>
 <div class="hsts"><div><div class="sn" id="stat1n">10+</div><div class="slb" id="stat1l">Years Experience</div></div><div><div class="sn" id="stat2n">3</div><div class="slb" id="stat2l">Offices in 2 Countries</div></div><div><div class="sn" id="stat3n">100%</div><div class="slb" id="stat3l">Genuine Parts</div></div><div><div class="sn" id="stat4n">4</div><div class="slb" id="stat4l">Machine Types</div></div></div>
 </div></section>
 <div class="mq" aria-hidden="true"><div class="mq-t"><span>Air Jet Looms</span><span>Water Jet Looms</span><span>Repair Looms</span><span>Genuine Spare Parts</span><span>Customs Clearance</span><span>Door-to-Factory Delivery</span><span>Installation &amp; Training</span><span>Air Jet Looms</span><span>Water Jet Looms</span><span>Repair Looms</span><span>Genuine Spare Parts</span><span>Customs Clearance</span><span>Door-to-Factory Delivery</span><span>Installation &amp; Training</span></div></div>
@@ -660,6 +713,20 @@ html.js .rv.in{opacity:1;transform:none;}
 </div>
 </div></div></div>
 <a class="wa-float" href="https://wa.me/8619505274754" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<div id="jc" class="jc">
+<div class="jc-tip" id="jc-tip" role="status"><button class="jc-tip-x" id="jc-tip-x" aria-label="Dismiss">&times;</button><b>Hi there! 👋</b>Need a price for a loom or spare parts? Chat with us.</div>
+<button class="jc-launch" id="jc-launch" aria-label="Open chat" aria-expanded="false" aria-controls="jc-panel">
+<svg class="jc-ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.6 8.6 0 0 1-3.9-.9L3 21l1.9-5.6a8.4 8.4 0 0 1-.9-3.9A8.5 8.5 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/><path d="M8 11h.01M12.5 11h.01M17 11h.01" stroke-width="3" stroke-linecap="round"/></svg>
+<svg class="jc-ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+<span class="jc-badge" id="jc-badge">1</span></button>
+<div class="jc-panel" id="jc-panel" role="dialog" aria-label="Chat with JR Textile Machineries">
+<div class="jc-head"><img src="assets/emblem-3d.webp" alt="" width="44" height="26"><div><b>JR Textile Machineries</b><span><i></i>Online · usually replies in minutes</span></div><button class="jc-close" id="jc-close" aria-label="Close chat">&times;</button></div>
+<div class="jc-msgs" id="jc-msgs" aria-live="polite"></div>
+<div class="jc-quick" id="jc-quick"></div>
+<form class="jc-form" id="jc-form" autocomplete="off"><input id="jc-in" type="text" placeholder="Type your question…" aria-label="Type your question" maxlength="400"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></form>
+<div class="jc-foot"><a id="jc-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a id="jc-mail">✉ Email</a><a id="jc-call">✆ Call</a></div>
+</div>
+</div>
 <button class="ap-btn" id="open-ap">&#9998; admin</button>
 <script>
 function googleTranslateElementInit(){
@@ -892,6 +959,8 @@ G('btn-save').addEventListener('click',function(){
     clone.querySelectorAll('.rv').forEach(function(el){ el.classList.remove('rv','in'); el.style.transitionDelay=''; if(!el.getAttribute('style')) el.removeAttribute('style'); });
     var tn=clone.querySelector('#topnav'); if(tn){ tn.classList.remove('scrolled','open'); }
     var gte=clone.querySelector('#google_translate_element'); if(gte) gte.innerHTML='';
+    var cm=clone.querySelector('#jc-msgs'); if(cm) cm.innerHTML=''; var cq=clone.querySelector('#jc-quick'); if(cq) cq.innerHTML='';
+    var cj=clone.querySelector('#jc'); if(cj) cj.className='jc'; var ct=clone.querySelector('#jc-tip'); if(ct) ct.className='jc-tip';
     clone.querySelectorAll('body>.skiptranslate,iframe.skiptranslate,#goog-gt-tt,.goog-te-spinner-pos,script[src*="translate"]:not([src*="element.js"])').forEach(function(el){ el.remove(); });
     var cb=clone.querySelector('body'); if(cb){ cb.style.top=''; cb.style.position=''; if(!cb.getAttribute('style')) cb.removeAttribute('style'); }
     var html='<!DOCTYPE html>\n'+clone.outerHTML;
@@ -1038,6 +1107,73 @@ G('machine-grid').addEventListener('keydown', function(e){
   var f=e.target.closest && e.target.closest('.mc-foot');
   if(f && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); buyNow(f.closest('.mc')); }
 });
+
+// ── LIVE CHAT with auto replies ─────────────────────────────────────
+(function(){
+  var jc=G('jc'); if(!jc) return;
+  var msgs=G('jc-msgs'), quick=G('jc-quick'), inp=G('jc-in'), started=false, lastQ='';
+  function waNum(){ var a=G('wa-btn'); var m=a&&a.href.match(/wa\.me\/(\d+)/); return m?m[1]:'8619505274754'; }
+  function email(){ return (T('co-email')||'junaedm333@gmail.com').trim(); }
+  function phone(){ return (T('bd-phone')||'+880 1876 284203').trim(); }
+  function waLink(q){ return 'https://wa.me/'+waNum()+'?text='+encodeURIComponent('Hello JR Textile Machineries! '+(q?('I have a question: '+q):'I would like a quotation.')); }
+  function mailLink(q){ return 'mailto:'+email()+'?subject='+encodeURIComponent('Enquiry from website')+'&body='+encodeURIComponent((q?'My question: '+q+'\n\n':'')+'Name:\nCompany / Factory:\nCountry:\nMachine type & quantity:\n'); }
+  function telLink(){ return 'tel:'+phone().replace(/[^\d+]/g,''); }
+  var WAICON=G('jc-wa').innerHTML.split('WhatsApp')[0];
+  function refreshFoot(){ G('jc-wa').href=waLink(lastQ); G('jc-mail').href=mailLink(lastQ); G('jc-call').href=telLink(); }
+  function scroll(){ msgs.scrollTop=msgs.scrollHeight; }
+  function add(text,who,acts){
+    var d=document.createElement('div'); d.className='jc-m '+who; d.textContent=text;
+    if(acts){ var w=document.createElement('div'); w.className='jc-acts';
+      if(acts.indexOf('wa')>-1) w.insertAdjacentHTML('beforeend','<a class="a-wa" target="_blank" rel="noopener" href="'+waLink(lastQ)+'">'+WAICON+'WhatsApp '+('+'+waNum()).replace(/^\+(\d{2})(\d{3})(\d{4})(\d+)$/,'+$1 $2 $3 $4')+'</a>');
+      if(acts.indexOf('mail')>-1) w.insertAdjacentHTML('beforeend','<a class="a-mail" href="'+mailLink(lastQ)+'">✉ '+email()+'</a>');
+      if(acts.indexOf('call')>-1) w.insertAdjacentHTML('beforeend','<a class="a-call" href="'+telLink()+'">✆ '+phone()+'</a>');
+      d.appendChild(w); }
+    msgs.appendChild(d); scroll();
+  }
+  function botSay(text,acts,delay){
+    var t=document.createElement('div'); t.className='jc-typing'; t.innerHTML='<i></i><i></i><i></i>'; msgs.appendChild(t); scroll();
+    setTimeout(function(){ t.remove(); add(text,'bot',acts); }, delay||Math.min(1400,500+text.length*6));
+  }
+  var R=[
+    {k:/(price|cost|quot|rate|dam|daam|koto|কত|দাম|budget)/i, a:'We give a full quotation within 24 hours — price, specifications, lead time and delivery cost, with no hidden fees.\n\nTell us the machine type, width/model and quantity. The quickest way is WhatsApp:', x:['wa','mail']},
+    {k:/(air ?jet)/i, a:'Yes, we supply high-speed Air Jet Looms for fine and medium-weight fabrics, sourced directly from leading Chinese manufacturers, with installation and training.\n\nWhich reed width and quantity do you need?', x:['wa']},
+    {k:/(water ?jet)/i, a:'We supply precision Water Jet Looms for synthetic and blended yarns, with full maintenance support.\n\nShare your reed width and quantity and we will quote quickly.', x:['wa']},
+    {k:/(repair|rapier|used|second)/i, a:'We supply heavy-duty Repair Looms with spare parts and installation support. Send us the model you are looking for and we will check availability.', x:['wa']},
+    {k:/(spare|part|parts|nozzle|reed|heald|motor|board)/i, a:'We stock genuine spare parts for all major loom brands — Toyota, Tsudakoma, Picanol, Dornier, Itema, Somet, Sulzer, Smit and Stäubli.\n\nSend a photo or part number on WhatsApp for the fastest answer.', x:['wa']},
+    {k:/(licen|import|custom|lc|duty|port)/i, a:'No import license needed. We handle customs clearance, port documentation and duties under our license — from China right to your factory.', x:['wa','mail']},
+    {k:/(deliver|ship|time|kobe|days|lead)/i, a:'Delivery time depends on the machine and stock. We confirm the exact lead time in your quotation, and our Yangzhou (China) office keeps shipments moving fast.', x:['wa']},
+    {k:/(india|pakistan|kolkata|surat|faisalabad|karachi|lahore|delhi|mumbai)/i, a:'Yes — besides Bangladesh we supply looms and spare parts to textile factories in India and Pakistan. Tell us your city and requirement and we will quote with delivery.', x:['wa','mail']},
+    {k:/(address|office|location|where|thikana|ঠিকানা|narsingdi|rupganj|narayanganj|china|yangzhou)/i, a:'Our offices:\n• Bangladesh: 175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi\n• Bangladesh: Adla, Atlapur Bazar, Rupganj, Narayanganj\n• China: 196 Yangzijin, Hanjiang District, Yangzhou, Jiangsu', x:['call','wa']},
+    {k:/(install|training|service|support|technician|warranty)/i, a:'Our technicians support installation, operator training and after-sales maintenance for every machine we sell.', x:['wa']},
+    {k:/(human|person|agent|talk|call|phone|number|contact|whats|email|mail)/i, a:'Of course! You can reach our team directly:', x:['wa','mail','call']},
+    {k:/^(hi|hello|hey|salam|assalam|aslam|hlw|helo|good)/i, a:'Hello! 👋 How can we help you today? You can ask about prices, machines, spare parts, import or delivery.', x:null}
+  ];
+  function answer(q){
+    lastQ=q; refreshFoot();
+    for(var i=0;i<R.length;i++){ if(R[i].k.test(q)){ botSay(R[i].a,R[i].x); return; } }
+    botSay('Thanks for your message! Our team will get back to you shortly.\n\nFor the fastest reply, continue on WhatsApp or email us:',['wa','mail']);
+  }
+  var QUICK=['💰 Get a price','Air Jet Loom','Water Jet Loom','Spare parts','No import license?','Office address','Talk to a person'];
+  QUICK.forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=q;
+    b.addEventListener('click',function(){ add(q,'me'); answer(q.replace(/^\W+\s*/,'')); }); quick.appendChild(b); });
+  function open(){
+    jc.classList.add('open','seen'); G('jc-launch').setAttribute('aria-expanded','true'); G('jc-tip').classList.remove('show');
+    refreshFoot();
+    if(!started){ started=true;
+      botSay('Assalamu Alaikum! 👋 Welcome to JR Textile Machineries.',null,500);
+      setTimeout(function(){ botSay('We supply Air Jet Looms, Water Jet Looms, Repair Looms and genuine spare parts from China to Bangladesh, India and Pakistan.\n\nAsk a question below, or tap a quick option.',null,900); },700);
+    }
+    setTimeout(function(){ if(window.innerWidth>560) inp.focus(); },350);
+  }
+  function close(){ jc.classList.remove('open'); G('jc-launch').setAttribute('aria-expanded','false'); }
+  G('jc-launch').addEventListener('click',function(){ jc.classList.contains('open')?close():open(); });
+  G('jc-close').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  G('jc-form').addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; add(q,'me'); answer(q); });
+  G('jc-tip').addEventListener('click',function(e){ if(e.target.id==='jc-tip-x'){ G('jc-tip').classList.remove('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} return; } open(); });
+  var tipSeen=false; try{ tipSeen=!!sessionStorage.getItem('jcTip'); }catch(_){}
+  if(!tipSeen) setTimeout(function(){ if(!jc.classList.contains('open')){ G('jc-tip').classList.add('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} } },4000);
+})();
 
 }); // end DOMContentLoaded
 </script>
