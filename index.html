@@ -77,7 +77,7 @@ a{text-decoration:none;color:inherit;}
 .hv-ring.r2{inset:16%;border-style:dashed;border-color:rgba(255,255,255,.1);animation:spin 60s linear infinite;}
 .hv-ring.r3{inset:-4%;border-color:rgba(211,37,46,.18);}
 @keyframes spin{to{transform:rotate(360deg);}}
-.hero-vis img{position:relative;width:92%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));animation:float 7s ease-in-out infinite;}
+.hero-vis>img{position:relative;width:92%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));animation:float 7s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
 .hsts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--b);border-radius:var(--r);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;box-shadow:var(--sh);}
 .hsts>div{padding:26px 28px;border-left:1px solid var(--b);}
@@ -87,15 +87,15 @@ a{text-decoration:none;color:inherit;}
 
 /* BRAND ORBIT around hero logo */
 .hero-vis{container-type:inline-size;}
-.hero-vis img{width:72%;z-index:1;}
+.hero-vis>img{width:72%;z-index:1;}
 .orbit{position:absolute;inset:0;z-index:2;animation:spin 48s linear infinite;pointer-events:none;}
 .orbit{--rad:-45cqw;}
 .orbit .bn{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translateY(var(--rad)) rotate(calc(-1 * var(--a))) translate(-50%,-50%);}
 @keyframes spinBack{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
-.orbit .bn b{display:flex;align-items:center;justify-content:center;animation:spinBack 48s linear infinite;height:clamp(30px,8cqw,48px);padding:0 clamp(9px,2.4cqw,16px);border-radius:999px;background:linear-gradient(180deg,#ffffff,#eef2f7);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.06);}
-.orbit .bn img{display:block;height:58%;width:auto;max-width:clamp(70px,22cqw,130px);object-fit:contain;}
-.orbit .bn img[alt="Tsudakoma"]{height:80%;}
-.orbit .bn img[alt="Smit"]{height:74%;}
+.orbit{--bw:clamp(86px,22cqw,138px);--bh:clamp(34px,8.6cqw,52px);}
+.orbit .bn b{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--bw);height:var(--bh);padding:0 12px;overflow:hidden;animation:spinBack 48s linear infinite;border-radius:999px;background:linear-gradient(180deg,#ffffff,#eef2f7);border:1px solid #fff;box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.06);}
+.orbit .bn img{display:block;flex:none;width:auto;height:auto;max-width:100%;max-height:calc(var(--bh) * .56);object-fit:contain;}
+.orbit .bn img[alt="Tsudakoma"],.orbit .bn img[alt="Smit"]{max-height:calc(var(--bh) * .72);}
 .hero-vis:hover .orbit,.hero-vis:hover .orbit .bn b{animation-play-state:paused;}
 
 /* MARQUEE */
@@ -313,7 +313,7 @@ html.js .rv.in{opacity:1;transform:none;}
   .hero{padding:104px 16px 64px;}
   .hero-in{grid-template-columns:1fr;gap:28px;}
   .hero-vis{order:-1;max-width:330px;justify-self:center;margin:6px 0 10px;}
-  .hero-vis img{width:60%;}
+  .hero-vis>img{width:60%;}
   .orbit{--rad:-41cqw;}
 
   .ey{font-size:9.5px;letter-spacing:1.6px;}
