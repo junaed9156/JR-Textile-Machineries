@@ -375,7 +375,7 @@ html.js .rv.in{opacity:1;transform:none;}
 .ipb span{color:var(--mu);font-size:13px;}
 .ipb::after{content:"Click to change";position:absolute;inset:0;background:rgba(192,32,42,.75);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;opacity:0;transition:opacity .2s;}
 .ipb:hover::after{opacity:1;}
-.ap-btn{position:fixed;bottom:30px;left:96px;z-index:9998;background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:4px;}
+.ap-btn{display:none!important;position:fixed;bottom:30px;left:96px;z-index:9998;background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:4px;}
 .ap-btn:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.orbit{animation:spin 48s linear infinite!important;}.orbit .bn b{animation:spinBack 48s linear infinite!important;}html.js .rv{opacity:1;transform:none;}html{scroll-behavior:auto;}}
@@ -744,8 +744,27 @@ function T(id){ var el=G(id); return el ? el.textContent : ''; }
 function S(id,val){ var el=G(id); if(el && val !== undefined && val !== null) el.textContent=val; }
 function V(id){ var el=G(id); return el ? el.value.trim() : ''; }
 
-var ADMIN_USER = 'Junaed009156';
-var ADMIN_PASS = 'Jun@ed009156';
+// Only a SHA-256 hash of "jrtm-v1|username|password" is stored — the password itself is not in this file.
+var ADMIN_HASH = 'aa6fe967d9f09320229087092e542d943488fd333651de1f40a37ebc7cee3614';
+function sha256hex(str){
+  var bytes=new TextEncoder().encode(str);
+  if(window.crypto && crypto.subtle && window.isSecureContext){
+    return crypto.subtle.digest('SHA-256',bytes).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2);}).join('');});
+  }
+  // fallback for browsers without WebCrypto (e.g. an old browser or a plain-http copy)
+  var K=[],H=[],i,j; function f(x){return (x-Math.floor(x))*4294967296|0;}
+  for(var n=2,c=0;c<64;n++){var p=true;for(j=2;j*j<=n;j++)if(n%j===0){p=false;break;} if(p){if(c<8)H[c]=f(Math.pow(n,1/2));K[c++]=f(Math.pow(n,1/3));}}
+  var l=bytes.length,m=new Uint8Array(((l+9+63)>>6)<<6);m.set(bytes);m[l]=0x80;var bl=l*8;m[m.length-4]=bl>>>24;m[m.length-3]=bl>>>16;m[m.length-2]=bl>>>8;m[m.length-1]=bl;
+  var w=new Array(64),r=function(x,y){return (x>>>y)|(x<<(32-y));};
+  for(i=0;i<m.length;i+=64){
+    for(j=0;j<16;j++)w[j]=(m[i+4*j]<<24)|(m[i+4*j+1]<<16)|(m[i+4*j+2]<<8)|m[i+4*j+3];
+    for(j=16;j<64;j++){var s0=r(w[j-15],7)^r(w[j-15],18)^(w[j-15]>>>3),s1=r(w[j-2],17)^r(w[j-2],19)^(w[j-2]>>>10);w[j]=(w[j-16]+s0+w[j-7]+s1)|0;}
+    var a=H[0],b=H[1],c2=H[2],d=H[3],e=H[4],g=H[5],h2=H[6],k=H[7];
+    for(j=0;j<64;j++){var t1=(k+(r(e,6)^r(e,11)^r(e,25))+((e&g)^(~e&h2))+K[j]+w[j])|0,t2=((r(a,2)^r(a,13)^r(a,22))+((a&b)^(a&c2)^(b&c2)))|0;k=h2;h2=g;g=e;e=(d+t1)|0;d=c2;c2=b;b=a;a=(t1+t2)|0;}
+    H[0]=(H[0]+a)|0;H[1]=(H[1]+b)|0;H[2]=(H[2]+c2)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+g)|0;H[6]=(H[6]+h2)|0;H[7]=(H[7]+k)|0;
+  }
+  return Promise.resolve(H.map(function(x){return ('00000000'+(x>>>0).toString(16)).slice(-8);}).join(''));
+}
 
 // TAB SWITCHING
 document.querySelectorAll('.ap-nb').forEach(function(btn){
@@ -759,22 +778,36 @@ document.querySelectorAll('.ap-nb').forEach(function(btn){
 });
 
 // LOGIN FLOW
-G('open-ap').addEventListener('click', function(){
+function openLogin(){
   G('l-user').value=''; G('l-pass').value='';
   G('l-err').classList.remove('show');
   G('lm').classList.add('open');
   setTimeout(function(){ G('l-user').focus(); }, 150);
-});
+}
+G('open-ap').addEventListener('click', openLogin);
+// Hidden ways in: open the site with #admin, or tap the copyright line 5 times quickly.
+function checkAdminHash(){
+  if(location.hash.toLowerCase()==='#admin'){
+    try{ history.replaceState(null,'',location.pathname+location.search); }catch(_){}
+    openLogin();
+  }
+}
+window.addEventListener('hashchange',checkAdminHash); checkAdminHash();
+(function(){ var fc=G('footer-copy'), n=0, t=null; if(!fc) return;
+  fc.addEventListener('click',function(){ n++; clearTimeout(t); t=setTimeout(function(){ n=0; },2500); if(n>=5){ n=0; openLogin(); } });
+})();
 G('l-submit').addEventListener('click', function(){
   var u=G('l-user').value.trim(), p=G('l-pass').value;
-  if(u===ADMIN_USER && p===ADMIN_PASS){
-    G('lm').classList.remove('open');
-    populateForms();
-    G('ap').classList.add('open');
-  } else {
-    G('l-err').classList.add('show');
-    G('l-pass').value=''; G('l-pass').focus();
-  }
+  sha256hex('jrtm-v1|'+u+'|'+p).then(function(h){
+    if(h===ADMIN_HASH){
+      G('lm').classList.remove('open');
+      populateForms();
+      G('ap').classList.add('open');
+    } else {
+      G('l-err').classList.add('show');
+      G('l-pass').value=''; G('l-pass').focus();
+    }
+  });
 });
 G('l-pass').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-submit').click(); });
 G('l-user').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-pass').focus(); });
