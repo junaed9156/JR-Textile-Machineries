@@ -7,7 +7,7 @@
  <stop offset=".78" stop-color="#7f8894"/><stop offset="1" stop-color="#c9d0d8"/></linearGradient>
 <linearGradient id="redmetal" gradientUnits="userSpaceOnUse" x1="410" y1="100" x2="470" y2="200">
  <stop offset="0" stop-color="#ff5a52"/><stop offset=".45" stop-color="#c3161f"/><stop offset="1" stop-color="#6e0a10"/></linearGradient>
-<linearGradient id="textsilver" gradientUnits="userSpaceOnUse" x1="0" y1="402" x2="0" y2="466"><stop offset="0" stop-color="#e6bb55"/><stop offset=".38" stop-color="#c08a26"/><stop offset=".52" stop-color="#8e5f12"/><stop offset=".58" stop-color="#b17c1f"/><stop offset=".85" stop-color="#dcb050"/><stop offset="1" stop-color="#9a6a17"/></linearGradient>
+<linearGradient id="textsilver" gradientUnits="userSpaceOnUse" x1="0" y1="402" x2="0" y2="466"><stop offset="0" stop-color="#a87a22"/><stop offset=".38" stop-color="#7e5410"/><stop offset=".52" stop-color="#523405"/><stop offset=".58" stop-color="#6b470b"/><stop offset=".85" stop-color="#93691d"/><stop offset="1" stop-color="#5a3a07"/></linearGradient>
 <linearGradient id="textred" gradientUnits="userSpaceOnUse" x1="0" y1="495" x2="0" y2="525">
  <stop offset="0" stop-color="#e2453f"/><stop offset="1" stop-color="#9c1820"/></linearGradient>
 <filter id="metal3d" x="-15%" y="-15%" width="130%" height="140%" color-interpolation-filters="sRGB">
@@ -34,7 +34,7 @@
  <feGaussianBlur in="SourceAlpha" stdDeviation=".9" result="bump"/>
  <feSpecularLighting in="bump" surfaceScale="2" specularConstant=".7" specularExponent="18" lighting-color="#fff" result="spec"><feDistantLight azimuth="235" elevation="45"/></feSpecularLighting>
  <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
- <feComposite in="specIn" in2="SourceGraphic" operator="arithmetic" k1="0" k2=".18" k3="1" k4="0" result="lit"/>
+ <feComposite in="specIn" in2="SourceGraphic" operator="arithmetic" k1="0" k2=".10" k3="1" k4="0" result="lit"/>
  <feGaussianBlur in="SourceAlpha" stdDeviation="2.4" result="sb"/><feOffset in="sb" dx="2" dy="4" result="so"/>
  <feFlood flood-color="#0d1b33" flood-opacity=".25"/><feComposite in2="so" operator="in" result="shadow"/>
  <feMerge><feMergeNode in="shadow"/><feMergeNode in="lit"/></feMerge>
