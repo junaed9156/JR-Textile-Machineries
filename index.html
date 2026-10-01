@@ -92,10 +92,10 @@ a{text-decoration:none;color:inherit;}
 .orbit{--rad:-45cqw;}
 .orbit .bn{position:absolute;left:50%;top:50%;transform:rotate(var(--a)) translateY(var(--rad)) rotate(calc(-1 * var(--a))) translate(-50%,-50%);}
 @keyframes spinBack{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
-.orbit .bn b{display:flex;align-items:center;justify-content:center;animation:spinBack 48s linear infinite;height:clamp(30px,8cqw,48px);padding:0 clamp(9px,2.4cqw,16px);border-radius:999px;background:linear-gradient(180deg,#ffffff,#eef2f7);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.06);}
-.orbit .bn img{display:block;height:58%;width:auto;max-width:clamp(70px,22cqw,130px);object-fit:contain;}
-.orbit .bn img[alt="Tsudakoma"]{height:80%;}
-.orbit .bn img[alt="Smit"]{height:74%;}
+.orbit{--bw:clamp(86px,22cqw,138px);--bh:clamp(34px,8.6cqw,52px);}
+.orbit .bn b{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:var(--bw);height:var(--bh);padding:0 12px;overflow:hidden;animation:spinBack 48s linear infinite;border-radius:999px;background:linear-gradient(180deg,#ffffff,#eef2f7);border:1px solid #fff;box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.06);}
+.orbit .bn img{display:block;flex:none;width:auto;height:auto;max-width:100%;max-height:calc(var(--bh) * .56);object-fit:contain;}
+.orbit .bn img[alt="Tsudakoma"],.orbit .bn img[alt="Smit"]{max-height:calc(var(--bh) * .72);}
 .hero-vis:hover .orbit,.hero-vis:hover .orbit .bn b{animation-play-state:paused;}
 
 /* MARQUEE */
