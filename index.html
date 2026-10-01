@@ -206,6 +206,20 @@ footer::before{content:"";position:absolute;top:-1px;left:10%;right:10%;height:1
 .fs2{font-family:var(--hf);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:#ff8a8f;font-weight:600;margin-top:4px;}
 footer p{font-size:13px;color:var(--mu);line-height:1.8;text-align:right;}
 
+
+/* LANGUAGE (Google Translate) */
+.lang{display:flex;align-items:center;gap:8px;height:42px;padding:0 6px 0 12px;border:1px solid var(--b2);border-radius:12px;background:rgba(255,255,255,.04);color:var(--li);}
+.lang>svg{width:17px;height:17px;flex-shrink:0;}
+.lang .goog-te-gadget{font-size:0!important;color:transparent!important;line-height:0;}
+.lang .goog-te-gadget>span,.lang .goog-te-gadget a{display:none!important;}
+.lang .goog-te-combo,.lang select{margin:0!important;appearance:none;-webkit-appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c4d0de' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 4px center/14px;border:none;outline:none;color:var(--w);font-family:var(--hf);font-size:11.5px;font-weight:600;letter-spacing:.5px;padding:8px 24px 8px 2px;cursor:pointer;max-width:150px;}
+.lang .goog-te-combo option{background:var(--navy2);color:var(--w);}
+#google_translate_element:empty::before{content:"Language";font-family:var(--hf);font-size:11.5px;font-weight:600;color:var(--li);padding-right:8px;}
+/* hide Google's top bar, tooltips and highlight so the design stays clean */
+body{top:0!important;position:static!important;}
+.goog-te-banner-frame,iframe.skiptranslate,body>.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,.VIpgJd-yAWNEb-L7lbkb{display:none!important;visibility:hidden!important;}
+font[style]{background:none!important;box-shadow:none!important;}
+
 /* FLOATING WHATSAPP */
 .wa-float{position:fixed;left:24px;bottom:24px;z-index:9997;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#3be37a,#1fae55);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .25s;}
 .wa-float svg{width:30px;height:30px;}
@@ -275,7 +289,11 @@ html.js .rv.in{opacity:1;transform:none;}
   .nav-tg{display:flex;}
   #topnav{padding:0 16px;height:72px;background:rgba(6,14,29,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--b);}
   .nav-logo img,#topnav.scrolled .nav-logo img{height:38px;}
-  .nav-cta{padding:10px 14px;margin-left:auto;}
+  .nav-cta{padding:10px 14px;}
+  .lang{margin-left:auto;height:40px;}
+  .lang .goog-te-combo{max-width:96px;}
+  .nav-tg{order:5;}
+  #topnav{gap:10px;}
   #topnav .nav-links{flex-direction:column;gap:0;padding:0;border:none;border-radius:0;position:absolute;top:100%;left:0;right:0;background:rgba(6,14,29,.97);border-bottom:1px solid var(--b);max-height:0;overflow:hidden;transition:max-height .35s ease;}
   #topnav.open .nav-links{max-height:380px;}
   #topnav .nav-links a{padding:17px 20px;border-radius:0;border-top:1px solid var(--b);font-size:12px;}
@@ -296,7 +314,7 @@ html.js .rv.in{opacity:1;transform:none;}
   .wa-float{left:16px;bottom:16px;width:54px;height:54px;}
   .ap-nav{width:160px;}
 }
-@media(max-width:560px){.pst{grid-template-columns:1fr 1fr;}.nav-cta{display:none;}.fpr{flex-direction:column;align-items:flex-start;}.fb3,.fdc{padding:24px;}.sn{font-size:34px;}.oc{padding:28px 22px;}.btn-r,.btn-o{width:100%;text-align:center;}}
+@media(max-width:560px){.fll{flex-wrap:wrap;gap:12px;}.fll img{height:44px;}.fs2{white-space:normal;}.lang{padding:0 2px 0 9px;gap:4px;}.lang .goog-te-combo{max-width:72px;font-size:11px;padding-right:20px;}.nav-logo img,#topnav.scrolled .nav-logo img{height:32px;}#google_translate_element:empty::before{content:"Lang";}.pst{grid-template-columns:1fr 1fr;}.nav-cta{display:none;}.fpr{flex-direction:column;align-items:flex-start;}.fb3,.fdc{padding:24px;}.sn{font-size:34px;}.oc{padding:28px 22px;}.btn-r,.btn-o{width:100%;text-align:center;}}
 </style>
 </head>
 <body>
@@ -304,6 +322,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="nav-logo"><img id="site-logo" src="assets/logo-3d-horizontal.webp" width="900" height="215" alt="JR Textile Machineries"></div>
 <button class="nav-tg" id="nav-tg" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 <div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#machines">Machines</a><a href="#process">How to Buy</a><a href="#offices">Offices</a><a href="#contact">Contact</a></div>
+<div class="lang notranslate" translate="no" title="Translate this website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><div id="google_translate_element"></div></div>
 <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </nav>
 <section class="hero">
@@ -443,7 +462,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div><div class="fnm2" id="footer-name">JR Textile Machineries</div><div class="fs2" id="footer-ceo">Founder &amp; CEO: Junaed Ahmed Antor</div></div></div>
 <p id="footer-copy">&copy; 2025 JR Textile Machineries. All rights reserved.<br>Chinese Textile Machinery Sales &amp; Complete Import Solutions for Bangladesh</p></footer>
 
-<div id="lm">
+<div id="lm" class="notranslate" translate="no">
   <div class="lbox">
     <h2>&#128274; Admin Login</h2>
     <p class="lsub">JR Textile Machineries &mdash; Website Editor</p>
@@ -455,7 +474,7 @@ html.js .rv.in{opacity:1;transform:none;}
   </div>
 </div>
 
-<div id="ap">
+<div id="ap" class="notranslate" translate="no">
 <div class="ap-h"><h1>&#9998; JR Textile &mdash; Website Editor</h1>
   <button class="xb g" id="btn-save">&#128190; Save &amp; Download</button>
   <button class="xb r" id="btn-close">&#10005; Close</button>
@@ -587,6 +606,14 @@ html.js .rv.in{opacity:1;transform:none;}
 </div></div></div>
 <a class="wa-float" href="https://wa.me/8619505274754" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <button class="ap-btn" id="open-ap">&#9998; admin</button>
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element');
+  var t=setInterval(function(){var c=document.querySelector('.goog-te-combo');if(c&&c.options.length>1){c.options[0].text=window.innerWidth<560?'Lang':'Language';clearInterval(t);}},300);
+  setTimeout(function(){clearInterval(t);},15000);
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -801,12 +828,17 @@ function pickFile(cb){
 }
 
 G('btn-save').addEventListener('click',function(){
+  var hc=document.documentElement.className;
+  if(/translated-(ltr|rtl)/.test(hc)){ alert('Please switch the Language menu back to English before saving, otherwise the translated text would be saved.'); return; }
   G('ap').classList.remove('open');
   setTimeout(function(){
     var clone=document.documentElement.cloneNode(true);
     clone.classList.remove('js');
     clone.querySelectorAll('.rv').forEach(function(el){ el.classList.remove('rv','in'); el.style.transitionDelay=''; if(!el.getAttribute('style')) el.removeAttribute('style'); });
     var tn=clone.querySelector('#topnav'); if(tn){ tn.classList.remove('scrolled','open'); }
+    var gte=clone.querySelector('#google_translate_element'); if(gte) gte.innerHTML='';
+    clone.querySelectorAll('body>.skiptranslate,iframe.skiptranslate,#goog-gt-tt,.goog-te-spinner-pos,script[src*="translate"]:not([src*="element.js"])').forEach(function(el){ el.remove(); });
+    var cb=clone.querySelector('body'); if(cb){ cb.style.top=''; cb.style.position=''; if(!cb.getAttribute('style')) cb.removeAttribute('style'); }
     var html='<!DOCTYPE html>\n'+clone.outerHTML;
     var blob=new Blob([html],{type:'text/html'});
     var a=document.createElement('a');a.href=URL.createObjectURL(blob);
