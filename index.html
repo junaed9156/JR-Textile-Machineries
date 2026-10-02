@@ -15,7 +15,7 @@
 <link rel="alternate" hreflang="ur" href="https://www.jrtextiles.com/?lang=ur">
 <link rel="alternate" hreflang="zh" href="https://www.jrtextiles.com/?lang=zh">
 <link rel="alternate" hreflang="tr" href="https://www.jrtextiles.com/?lang=tr">
-<script src="assets/i18n.js?v=4" defer></script>
+<script src="assets/i18n.js?v=5" defer></script>
 <script>try{if(localStorage.getItem("jrTheme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <meta property="og:site_name" content="JR Textile Machineries">
 <meta property="og:url" content="https://www.jrtextiles.com/">
@@ -495,6 +495,48 @@ html[data-theme="light"] #process .xp-tg{background:rgba(255,255,255,.06);}
 html[data-theme="light"] #process .xp-tg::before,html[data-theme="light"] #process .xp-tg::after{background:#ff8a8f;}
 html[data-theme="light"] .xp-more{background:#fff;}
 
+/* ===== COMPACT ABOUT: tabs (What we do / Why us / How to buy) ===== */
+#about .atag,#about-cta{display:none;}
+#about .agr{grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start;}
+.tabs-wrap{min-width:0;}
+.tabs{position:relative;display:flex;gap:4px;padding:5px;margin-bottom:18px;border:1px solid var(--b);border-radius:14px;background:rgba(255,255,255,.03);overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{position:relative;z-index:1;flex:1;white-space:nowrap;padding:12px 16px;border:none;border-radius:10px;background:none;color:var(--li);font-family:var(--hf);font-size:12.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;transition:color .25s;}
+.tab:hover{color:var(--w);}
+.tab[aria-selected="true"]{color:#fff;}
+.tab:focus-visible{outline:2px solid var(--red2);outline-offset:2px;}
+.tab-ink{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:10px;background:var(--redg);box-shadow:0 8px 20px -8px rgba(211,37,46,.7);transition:left .35s cubic-bezier(.2,.7,.2,1),width .35s cubic-bezier(.2,.7,.2,1);}
+.tabp{animation:tabIn .4s ease both;}
+@keyframes tabIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.tabp .ips{gap:10px;}
+.tabp .ipt{padding:16px 18px;}
+.tabp .wgr{grid-template-columns:1fr 1fr;gap:10px;margin-top:0;}
+.tabp .wc{display:flex;align-items:center;gap:14px;padding:16px 18px;flex-wrap:wrap;}
+.tabp .wc::before{display:none;}
+.tabp .wc .wi{margin:0;width:44px;height:44px;}
+.tabp .wc h3{flex:1;font-size:14.5px;}
+.tabp .wc .xp-body{flex-basis:100%;}
+.tabp .wc.xp .xp-tg{top:50%;margin-top:-15px;}
+.tabp .wc.xp.open .xp-tg{top:22px;margin-top:0;}
+.tabp .pst{grid-template-columns:1fr;gap:10px;margin-top:0;}
+.tabp .pst::before{top:8px;bottom:8px;left:34px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,rgba(255,90,96,.6),rgba(255,255,255,.15));}
+html[dir="rtl"] .tabp .pst::before{left:auto;right:34px;}
+.tabp .ps{display:grid;grid-template-columns:48px 1fr;align-items:center;column-gap:16px;text-align:start;padding:12px 16px;border:1px solid var(--b);border-radius:14px;background:var(--glass);}
+.tabp .ps .pd{width:44px;height:44px;margin:0;font-size:15px;box-shadow:0 0 0 4px rgba(211,37,46,.12);}
+.tabp .ps h4{margin:0;font-size:14.5px;padding-inline-end:40px;}
+.tabp .ps .xp-body{grid-column:2;}
+.tabp .ps.xp .xp-tg{position:absolute;top:50%;margin:-13px 0 0;inset-inline-end:16px;}
+.tabp .ps.xp.open .xp-tg{top:20px;margin-top:0;}
+.tabp .ps:hover .pd{transform:none;}
+/* trim repeated text */
+#mc-sub,#of-sub,.faq .ss,.fab{display:none;}
+.oc .or:has(a[href^="tel:"]),.oc .or:has(a[href^="mailto:"]),.oc .or:has(a[href*="wa.me"]){display:none;}
+html[data-theme="light"] .tabs{background:#fff;box-shadow:0 1px 2px rgba(13,27,51,.06);}
+html[data-theme="light"] .tabp .ps{background:#fff;}
+html[data-theme="light"] .tabp .pst::before{background:linear-gradient(180deg,rgba(211,37,46,.5),rgba(13,27,51,.12));}
+@media(max-width:900px){#about .agr{grid-template-columns:1fr;gap:28px;}.tabp .wgr{grid-template-columns:1fr;}.tab{font-size:11.5px;padding:11px 12px;}}
+@media(max-width:560px){.tabs{overflow:visible;}.tab{flex:1 1 0;min-width:0;white-space:normal;line-height:1.25;font-size:10.5px;letter-spacing:.3px;padding:10px 6px;}.tabp .wc{padding:14px 16px;}.tabp .wc h3{font-size:14px;}}
+
 /* REVEAL */
 html.js .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
 html.js .rv.in{opacity:1;transform:none;}
@@ -596,7 +638,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <nav id="topnav">
 <div class="nav-logo"><img id="site-logo" src="assets/logo-3d-horizontal.webp" width="900" height="215" alt="JR Textile Machineries"></div>
 <button class="nav-tg" id="nav-tg" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-<div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#machines">Machines</a><a href="#process">How to Buy</a><a href="#offices">Offices</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+<div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#machines">Machines</a><a href="#about" data-tab="t-how">How to Buy</a><a href="#offices">Offices</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
 <div class="lang" id="lang"><button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang-cur">English</span><svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Choose language"></ul></div>
 <button type="button" class="theme-btn" id="theme-btn" aria-label="Light / dark theme" title="Light / dark theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
 <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
@@ -608,7 +650,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="hero-txt">
 <div id="hero-badge" class="ey">Premium Chinese Textile Machinery</div>
 <h1 class="ht"><span id="hero-l1">Your Direct</span><span class="acc" id="hero-l2"> Source</span><span class="out" id="hero-l3">for Machines</span></h1>
-<p class="hd" id="hero-desc">JR Textile Machineries sells premium Air Jet Looms, Water Jet Looms, Repair Looms and genuine Spare Parts directly from China — delivered to factories in Bangladesh, India and Pakistan. Competitive prices, no import license needed.</p>
+<p class="hd" id="hero-desc">Air jet, water jet and repair looms plus genuine spare parts — direct from China to your factory in Bangladesh, India and Pakistan. No import license needed.</p>
 <div class="hbads"><div class="badge"><div class="badge-dot"></div>Repair Loom</div><div class="badge"><div class="badge-dot"></div>Air Jet Loom</div><div class="badge"><div class="badge-dot"></div>Water Jet Loom</div><div class="badge"><div class="badge-dot"></div>Spare Parts</div></div>
 <div class="hbtns"><button class="btn-r" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Buy a Machine</button><button class="btn-o" onclick="document.getElementById('machines').scrollIntoView({behavior:'smooth'})">See All Machines</button></div>
 </div>
@@ -619,30 +661,41 @@ html.js .rv.in{opacity:1;transform:none;}
 <section id="about" class="sec">
 <div class="sec-bg" style="background-image:url('assets/img/textile-machinery-bangladesh.webp')"></div>
 <div class="sec-ov" style="background:rgba(5,13,27,.87)"></div>
-<div class="si"><div class="agr"><div>
+<div class="si"><div class="agr"><div class="ab-left">
 <div class="atag" id="about-tag">What We Do</div>
 <div class="ah"><span id="about-h1">We Sell</span> <span class="acc" id="about-h2">World-Class</span><br><span id="about-h3">Chinese Machinery</span></div>
-<p class="ap2" id="about-p1">JR Textile Machineries is your direct source for buying premium textile machines from China. We buy directly from Chinese manufacturers and sell to factories across Bangladesh at competitive prices with zero compromise on quality.</p>
+<p class="ap2" id="about-p1">We buy directly from Chinese manufacturers and deliver to your factory — best price, genuine quality.</p>
 <p class="ap2" id="about-p2">Many factory owners want to import from China but face challenges with import licenses and customs. Whether you have a license or not, just send us your requirement and we handle everything.</p>
 <button class="btn-r" style="margin-top:22px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" id="about-cta">Buy a Machine Now</button>
-</div><div class="ips">
+</div>
+<div class="tabs-wrap">
+<div class="tabs" role="tablist" aria-label="About JR Textile Machineries"><button type="button" class="tab" role="tab" id="tab-what" aria-controls="t-what" aria-selected="true">What We Do</button><button type="button" class="tab" role="tab" id="tab-why" aria-controls="t-why" aria-selected="false" tabindex="-1"><span id="why-lbl">Why Buy From Us</span></button><button type="button" class="tab" role="tab" id="tab-how" aria-controls="t-how" aria-selected="false" tabindex="-1"><span id="pr-lbl">How to Buy</span></button><span class="tab-ink" aria-hidden="true"></span></div>
+<div class="tabp" id="t-what" role="tabpanel" aria-labelledby="tab-what"><div class="ips">
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 id="pt1-t">Direct from Chinese Factory</h4><p id="pt1-d">We source all machines from verified Chinese manufacturers — no middlemen, best price, genuine quality.</p></div></div>
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div><div><h4 id="pt2-t">No Import License Needed</h4><p id="pt2-d">We handle all customs clearance, port documentation and duties under our license. You do not need your own.</p></div></div>
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-4 12H8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"></path><circle cx="18" cy="20" r="2"></circle><circle cx="10" cy="20" r="2"></circle></svg></div><div><h4 id="pt3-t">Door-to-Factory Delivery</h4><p id="pt3-d">From our Yangzhou China office straight to your factory floor in Bangladesh — fully managed end to end.</p></div></div>
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div><h4 id="pt4-t">After-Sales Technical Support</h4><p id="pt4-d">Our expert technicians support machine installation, operator training and ongoing maintenance after every sale.</p></div></div>
-</div></div></div></section>
-<section class="sec">
-<div class="sec-bg" style="background-image:url('assets/img/weaving-loom-factory.webp')"></div>
-<div class="sec-ov" style="background:rgba(5,13,27,.88)"></div><div class="si">
-<div class="sl" id="why-lbl">Why Buy From Us</div>
-<h2 class="st" id="why-ttl">Everything You Need, Nothing You Don't</h2>
-<p class="ss" id="why-sub">Direct sourcing, full import handling, genuine parts — all from one trusted partner.</p>
-<div class="wgr">
+</div></div>
+<div class="tabp" id="t-why" role="tabpanel" aria-labelledby="tab-why" hidden><div class="wgr">
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div><h3 id="wc1-t">Best Factory Prices</h3><p id="wc1-d">We buy directly from Chinese manufacturers — no middlemen, transparent pricing, maximum savings passed to you.</p></div>
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg></div><h3 id="wc2-t">Genuine Machines & Parts</h3><p id="wc2-d">Every machine and spare part is 100% genuine, sourced from verified Chinese factories with full quality inspection.</p></div>
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3 id="wc3-t">Full Import Handled</h3><p id="wc3-d">No license needed. We manage customs, port clearance and all documentation from China to your factory door.</p></div>
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3 id="wc4-t">Fast & Reliable Delivery</h3><p id="wc4-d">With our office in Yangzhou China we move fast — machines arrive at your factory on schedule, every time.</p></div>
-</div></div></section>
+</div></div>
+<div class="tabp" id="t-how" role="tabpanel" aria-labelledby="tab-how" hidden><div class="pst">
+<div class="ps"><div class="pd">01</div><h4 id="s1-t">Send Requirement</h4><p id="s1-d">WhatsApp or email us the machine type, quantity and factory details. We reply within hours.</p></div>
+<div class="ps"><div class="pd">02</div><h4 id="s2-t">Receive Quotation</h4><p id="s2-d">We send a full price quotation with machine specs, lead time and delivery cost — no hidden fees.</p></div>
+<div class="ps"><div class="pd">03</div><h4 id="s3-t">Confirm & Pay</h4><p id="s3-d">Agree on price and terms, confirm order and pay the deposit to begin sourcing from China.</p></div>
+<div class="ps"><div class="pd">04</div><h4 id="s4-t">We Handle Import</h4><p id="s4-d">We manage the full import — customs, port clearance and all documentation from China to Bangladesh.</p></div>
+<div class="ps"><div class="pd">05</div><h4 id="s5-t">Delivered & Installed</h4><p id="s5-d">Machine delivered to your factory with full installation, operator training and after-sales support.</p></div>
+</div></div>
+</div></div>
+<div class="ab-keep" hidden><h2 class="st" id="why-ttl">Everything You Need, Nothing You Don't</h2>
+<p class="ss" id="why-sub">Direct sourcing, full import handling, genuine parts — all from one trusted partner.</p>
+<h2 class="st" id="pr-ttl">Simple 5-Step Buying Process</h2>
+<p class="ss" id="pr-sub">No license required. No complicated paperwork. Just tell us what you need.</p>
+</div>
+</div></section>
 <section id="machines" class="sec">
 <div class="sec-bg" style="background-image:url('assets/img/textile-weaving-mill-hero.webp')"></div>
 <div class="sec-ov" style="background:rgba(5,13,27,.90)"></div><div class="si">
@@ -654,18 +707,6 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="mc" id="mc-m2"><div class="mc-img"><img id="mc-img-m2" loading="lazy" decoding="async" width="600" height="400" src="assets/img/air-jet-loom-for-sale.webp" alt="Air Jet Loom"></div><div class="mc-bar"></div><div class="mc-body"><div class="mc-num">02</div><h3 id="mc-n-m2">Air Jet Loom</h3><p id="mc-d-m2">High-speed air jet looms for fine and medium-weight fabrics. Direct from leading Chinese brands at the most competitive prices.</p><div class="mc-tags" id="mc-t-m2"><span class="tg">High Speed</span><span class="tg">Fine Fabric</span><span class="tg">Top Brand</span></div></div><div class="mc-foot" role="button" tabindex="0" id="mc-f-m2">Buy Now &#8594;</div></div>
 <div class="mc" id="mc-m3"><div class="mc-img"><img id="mc-img-m3" loading="lazy" decoding="async" width="600" height="400" src="assets/img/water-jet-loom-for-sale.webp" alt="Water Jet Loom"></div><div class="mc-bar"></div><div class="mc-body"><div class="mc-num">03</div><h3 id="mc-n-m3">Water Jet Loom</h3><p id="mc-d-m3">Precision water jet weaving machines for synthetic and blended yarns. Full maintenance packages included.</p><div class="mc-tags" id="mc-t-m3"><span class="tg">Synthetic Yarn</span><span class="tg">Precision</span><span class="tg">Full Support</span></div></div><div class="mc-foot" role="button" tabindex="0" id="mc-f-m3">Buy Now &#8594;</div></div>
 <div class="mc" id="mc-m4"><div class="mc-img"><img id="mc-img-m4" loading="lazy" decoding="async" width="600" height="400" src="assets/img/textile-loom-spare-parts.webp" alt="Spare Parts"></div><div class="mc-bar"></div><div class="mc-body"><div class="mc-num">04</div><h3 id="mc-n-m4">Spare Parts</h3><p id="mc-d-m4">Genuine OEM spare parts for all textile machine types. Fast dispatch — keeps your production running.</p><div class="mc-tags" id="mc-t-m4"><span class="tg">Genuine OEM</span><span class="tg">All Models</span><span class="tg">Fast Dispatch</span></div></div><div class="mc-foot" role="button" tabindex="0" id="mc-f-m4">Buy Now &#8594;</div></div>
-</div></div></section>
-<section id="process" class="sec">
-<div class="sec-bg" style="background-image:url('assets/img/textile-machinery-bangladesh.webp')"></div>
-<div class="sec-ov" style="background:rgba(5,13,27,.88)"></div><div class="si">
-<div class="sl" id="pr-lbl">How to Buy</div><h2 class="st" id="pr-ttl">Simple 5-Step Buying Process</h2>
-<p class="ss" id="pr-sub">No license required. No complicated paperwork. Just tell us what you need.</p>
-<div class="pst">
-<div class="ps"><div class="pd">01</div><h4 id="s1-t">Send Requirement</h4><p id="s1-d">WhatsApp or email us the machine type, quantity and factory details. We reply within hours.</p></div>
-<div class="ps"><div class="pd">02</div><h4 id="s2-t">Receive Quotation</h4><p id="s2-d">We send a full price quotation with machine specs, lead time and delivery cost — no hidden fees.</p></div>
-<div class="ps"><div class="pd">03</div><h4 id="s3-t">Confirm & Pay</h4><p id="s3-d">Agree on price and terms, confirm order and pay the deposit to begin sourcing from China.</p></div>
-<div class="ps"><div class="pd">04</div><h4 id="s4-t">We Handle Import</h4><p id="s4-d">We manage the full import — customs, port clearance and all documentation from China to Bangladesh.</p></div>
-<div class="ps"><div class="pd">05</div><h4 id="s5-t">Delivered & Installed</h4><p id="s5-d">Machine delivered to your factory with full installation, operator training and after-sales support.</p></div>
 </div></div></section>
 <section id="offices" class="sec">
 <div class="sec-bg" style="background-image:url('assets/img/weaving-loom-factory.webp')"></div>
@@ -1284,6 +1325,8 @@ G('btn-save').addEventListener('click',function(){
     clone.setAttribute('lang','en'); clone.removeAttribute('dir'); clone.removeAttribute('data-theme'); clone.classList.remove('theme-anim');
     clone.querySelectorAll('.xp.open').forEach(function(el){ el.classList.remove('open'); el.setAttribute('aria-expanded','false'); });
     clone.querySelectorAll('.xp-show').forEach(function(el){ el.classList.remove('xp-show'); });
+    clone.querySelectorAll('.tabs .tab').forEach(function(tb,i){ tb.setAttribute('aria-selected',i?'false':'true'); if(i) tb.setAttribute('tabindex','-1'); else tb.removeAttribute('tabindex'); var pn=clone.querySelector('#'+tb.getAttribute('aria-controls')); if(pn){ if(i) pn.setAttribute('hidden',''); else pn.removeAttribute('hidden'); } });
+    var ink=clone.querySelector('.tab-ink'); if(ink) ink.removeAttribute('style');
     var am=clone.querySelector('#about-more'); if(am){ am.setAttribute('aria-expanded','false'); am.textContent='Read more'; }
     clone.querySelectorAll('img[data-dark-src]').forEach(function(im){ im.setAttribute('src',im.getAttribute('data-dark-src')); im.removeAttribute('data-dark-src'); });
     clone.querySelectorAll('link[data-jr-font]').forEach(function(el){ el.remove(); });
@@ -1519,6 +1562,24 @@ G('machine-grid').addEventListener('keydown', function(e){
   if(!tipSeen) setTimeout(function(){ if(!jc.classList.contains('open')){ G('jc-tip').classList.add('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} } },4000);
 })();
 
+
+// ── ABOUT TABS ──────────────────────────────────────────────────────
+function moveInk(){ var ink=document.querySelector('.tab-ink'), t=document.querySelector('.tab[aria-selected="true"]'); if(!ink||!t) return; ink.style.left=t.offsetLeft+'px'; ink.style.width=t.offsetWidth+'px'; }
+function showTab(id,focus){
+  var tabs=document.querySelectorAll('.tabs .tab'); if(!tabs.length) return;
+  tabs.forEach(function(t){ var on=t.getAttribute('aria-controls')===id; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; var p=G(t.getAttribute('aria-controls')); if(p) p.hidden=!on; if(on&&focus) t.focus(); });
+  moveInk();
+}
+document.querySelectorAll('.tabs .tab').forEach(function(t,i,all){
+  t.addEventListener('click',function(){ showTab(t.getAttribute('aria-controls')); });
+  t.addEventListener('keydown',function(e){ var k=e.key, rtl=document.documentElement.dir==='rtl', n=null;
+    if(k==='ArrowRight') n=all[(i+(rtl?-1:1)+all.length)%all.length]; if(k==='ArrowLeft') n=all[(i+(rtl?1:-1)+all.length)%all.length];
+    if(n){ e.preventDefault(); showTab(n.getAttribute('aria-controls'),true); } });
+});
+document.querySelectorAll('a[data-tab]').forEach(function(a){ a.addEventListener('click',function(){ showTab(a.getAttribute('data-tab')); }); });
+window.addEventListener('resize',moveInk); document.addEventListener('jr:lang',function(){ setTimeout(moveInk,60); });
+if(location.hash==='#process'){ showTab('t-how'); var ab=G('about'); if(ab) setTimeout(function(){ ab.scrollIntoView(); },50); }
+setTimeout(moveInk,80); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(moveInk);
 
 // ── CLICK-TO-OPEN DETAILS ────────────────────────────────────────────
 function xpWrap(el){
