@@ -537,6 +537,36 @@ html[data-theme="light"] .tabp .pst::before{background:linear-gradient(180deg,rg
 @media(max-width:900px){#about .agr{grid-template-columns:1fr;gap:28px;}.tabp .wgr{grid-template-columns:1fr;}.tab{font-size:11.5px;padding:11px 12px;}}
 @media(max-width:560px){.tabs{overflow:visible;}.tab{flex:1 1 0;min-width:0;white-space:normal;line-height:1.25;font-size:10.5px;letter-spacing:.3px;padding:10px 6px;}.tabp .wc{padding:14px 16px;}.tabp .wc h3{font-size:14px;}}
 
+/* ===== ABOUT fits one screen ===== */
+#about{min-height:calc(100vh - 70px);min-height:calc(100svh - 70px);display:flex;align-items:center;padding-top:92px;padding-bottom:56px;}
+#about>.si{width:100%;}
+#about .agr{align-items:center;}
+#about .ah{margin-bottom:16px;}
+#about .ap2{margin-bottom:8px;}
+.tabp .pst{gap:8px;}
+.tabp .ps{padding:10px 14px;}
+.tabp .ps .pd{width:40px;height:40px;font-size:14px;}
+.tabp .pst::before{left:33px;}
+html[dir="rtl"] .tabp .pst::before{right:33px;}
+@media(max-height:780px) and (min-width:901px){#about{padding-top:84px;padding-bottom:32px;}.tabs{margin-bottom:12px;}.tabp .ps{padding:8px 14px;}.tabp .ps .pd{width:36px;height:36px;}#about .ah{font-size:clamp(28px,3.2vw,42px);}}
+@media(max-width:900px){
+  #about{padding-top:80px;padding-bottom:28px;}
+  #about .agr{gap:16px;}
+  #about .ah{font-size:30px;margin-bottom:10px;}
+  #about .ap2{font-size:14.5px;line-height:1.6;margin-bottom:4px;}
+  #about .xp-more{margin:0 0 2px;padding:6px 12px;font-size:11px;}
+  .tabs{margin-bottom:10px;}
+  .tabp .pst{gap:7px;}
+  .tabp .ps{grid-template-columns:38px 1fr;column-gap:12px;padding:8px 12px;}
+  .tabp .ps .pd{width:34px;height:34px;font-size:13px;box-shadow:0 0 0 3px rgba(211,37,46,.12);}
+  .tabp .ps h4{font-size:13.5px;}
+  .tabp .ps.xp .xp-tg{width:24px;height:24px;margin-top:-12px;}
+  .tabp .pst::before{left:28px;}
+  html[dir="rtl"] .tabp .pst::before{right:28px;}
+  .tabp .ipt,.tabp .wc{padding:12px 14px;}
+  .tabp .ipt-ico,.tabp .wc .wi{width:38px;height:38px;}
+}
+
 /* REVEAL */
 html.js .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
 html.js .rv.in{opacity:1;transform:none;}
@@ -669,8 +699,8 @@ html.js .rv.in{opacity:1;transform:none;}
 <button class="btn-r" style="margin-top:22px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" id="about-cta">Buy a Machine Now</button>
 </div>
 <div class="tabs-wrap">
-<div class="tabs" role="tablist" aria-label="About JR Textile Machineries"><button type="button" class="tab" role="tab" id="tab-what" aria-controls="t-what" aria-selected="true">What We Do</button><button type="button" class="tab" role="tab" id="tab-why" aria-controls="t-why" aria-selected="false" tabindex="-1"><span id="why-lbl">Why Buy From Us</span></button><button type="button" class="tab" role="tab" id="tab-how" aria-controls="t-how" aria-selected="false" tabindex="-1"><span id="pr-lbl">How to Buy</span></button><span class="tab-ink" aria-hidden="true"></span></div>
-<div class="tabp" id="t-what" role="tabpanel" aria-labelledby="tab-what"><div class="ips">
+<div class="tabs" role="tablist" aria-label="About JR Textile Machineries"><button type="button" class="tab" role="tab" id="tab-what" aria-controls="t-what" aria-selected="false" tabindex="-1">What We Do</button><button type="button" class="tab" role="tab" id="tab-why" aria-controls="t-why" aria-selected="false" tabindex="-1"><span id="why-lbl">Why Buy From Us</span></button><button type="button" class="tab" role="tab" id="tab-how" aria-controls="t-how" aria-selected="true"><span id="pr-lbl">How to Buy</span></button><span class="tab-ink" aria-hidden="true"></span></div>
+<div class="tabp" id="t-what" role="tabpanel" aria-labelledby="tab-what" hidden><div class="ips">
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><div><h4 id="pt1-t">Direct from Chinese Factory</h4><p id="pt1-d">We source all machines from verified Chinese manufacturers — no middlemen, best price, genuine quality.</p></div></div>
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div><div><h4 id="pt2-t">No Import License Needed</h4><p id="pt2-d">We handle all customs clearance, port documentation and duties under our license. You do not need your own.</p></div></div>
 <div class="ipt"><div class="ipt-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-4 12H8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"></path><circle cx="18" cy="20" r="2"></circle><circle cx="10" cy="20" r="2"></circle></svg></div><div><h4 id="pt3-t">Door-to-Factory Delivery</h4><p id="pt3-d">From our Yangzhou China office straight to your factory floor in Bangladesh — fully managed end to end.</p></div></div>
@@ -682,7 +712,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3 id="wc3-t">Full Import Handled</h3><p id="wc3-d">No license needed. We manage customs, port clearance and all documentation from China to your factory door.</p></div>
 <div class="wc"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3 id="wc4-t">Fast & Reliable Delivery</h3><p id="wc4-d">With our office in Yangzhou China we move fast — machines arrive at your factory on schedule, every time.</p></div>
 </div></div>
-<div class="tabp" id="t-how" role="tabpanel" aria-labelledby="tab-how" hidden><div class="pst">
+<div class="tabp" id="t-how" role="tabpanel" aria-labelledby="tab-how"><div class="pst">
 <div class="ps"><div class="pd">01</div><h4 id="s1-t">Send Requirement</h4><p id="s1-d">WhatsApp or email us the machine type, quantity and factory details. We reply within hours.</p></div>
 <div class="ps"><div class="pd">02</div><h4 id="s2-t">Receive Quotation</h4><p id="s2-d">We send a full price quotation with machine specs, lead time and delivery cost — no hidden fees.</p></div>
 <div class="ps"><div class="pd">03</div><h4 id="s3-t">Confirm & Pay</h4><p id="s3-d">Agree on price and terms, confirm order and pay the deposit to begin sourcing from China.</p></div>
@@ -1325,7 +1355,7 @@ G('btn-save').addEventListener('click',function(){
     clone.setAttribute('lang','en'); clone.removeAttribute('dir'); clone.removeAttribute('data-theme'); clone.classList.remove('theme-anim');
     clone.querySelectorAll('.xp.open').forEach(function(el){ el.classList.remove('open'); el.setAttribute('aria-expanded','false'); });
     clone.querySelectorAll('.xp-show').forEach(function(el){ el.classList.remove('xp-show'); });
-    clone.querySelectorAll('.tabs .tab').forEach(function(tb,i){ tb.setAttribute('aria-selected',i?'false':'true'); if(i) tb.setAttribute('tabindex','-1'); else tb.removeAttribute('tabindex'); var pn=clone.querySelector('#'+tb.getAttribute('aria-controls')); if(pn){ if(i) pn.setAttribute('hidden',''); else pn.removeAttribute('hidden'); } });
+    clone.querySelectorAll('.tabs .tab').forEach(function(tb){ var on=tb.id==='tab-how'; tb.setAttribute('aria-selected',on?'true':'false'); if(!on) tb.setAttribute('tabindex','-1'); else tb.removeAttribute('tabindex'); var pn=clone.querySelector('#'+tb.getAttribute('aria-controls')); if(pn){ if(!on) pn.setAttribute('hidden',''); else pn.removeAttribute('hidden'); } });
     var ink=clone.querySelector('.tab-ink'); if(ink) ink.removeAttribute('style');
     var am=clone.querySelector('#about-more'); if(am){ am.setAttribute('aria-expanded','false'); am.textContent='Read more'; }
     clone.querySelectorAll('img[data-dark-src]').forEach(function(im){ im.setAttribute('src',im.getAttribute('data-dark-src')); im.removeAttribute('data-dark-src'); });
