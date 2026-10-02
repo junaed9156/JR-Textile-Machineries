@@ -15,7 +15,7 @@
 <link rel="alternate" hreflang="ur" href="https://www.jrtextiles.com/?lang=ur">
 <link rel="alternate" hreflang="zh" href="https://www.jrtextiles.com/?lang=zh">
 <link rel="alternate" hreflang="tr" href="https://www.jrtextiles.com/?lang=tr">
-<script src="assets/i18n.js?v=3" defer></script>
+<script src="assets/i18n.js?v=4" defer></script>
 <script>try{if(localStorage.getItem("jrTheme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <meta property="og:site_name" content="JR Textile Machineries">
 <meta property="og:url" content="https://www.jrtextiles.com/">
@@ -457,6 +457,44 @@ body:has(.jc.open) .wa-float{opacity:0;transform:scale(.6);pointer-events:none;}
 .jc-tip{right:78px!important;bottom:4px!important;border-radius:16px 16px 4px 16px;}
 @media(max-width:560px){.jc-tip{right:66px!important;bottom:0!important;width:200px!important;}}
 
+/* ===== CLICK-TO-OPEN DETAILS (less text on screen) ===== */
+.hbads{display:none;}
+.xp{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.xp:focus-visible{outline:2px solid var(--red2);outline-offset:3px;}
+.xp-body{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .4s ease,opacity .3s ease;}
+.xp.open .xp-body,.xp-body.xp-show{grid-template-rows:1fr;opacity:1;}
+.xp-in{overflow:hidden;min-height:0;}
+.xp-in>p{padding-top:8px;}
+.xp-tg{position:absolute;top:18px;inset-inline-end:18px;width:30px;height:30px;border-radius:50%;border:1px solid var(--b2);background:rgba(255,255,255,.05);transition:transform .3s,background .3s,border-color .3s;pointer-events:none;}
+.xp-tg::before,.xp-tg::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:2px;background:#ff8a8f;transition:transform .3s,background .3s;}
+.xp-tg::after{transform:rotate(90deg);}
+.xp.open .xp-tg{transform:rotate(180deg);background:var(--redg);border-color:transparent;}
+.xp.open .xp-tg::before,.xp.open .xp-tg::after{background:#fff;}
+.xp.open .xp-tg::after{transform:rotate(0deg);}
+.xp:hover .xp-tg{border-color:rgba(255,90,96,.6);}
+.ipt.xp h4,.wc.xp h3{padding-inline-end:40px;}
+.ipt.xp{align-items:center;}
+.ipt.xp p{margin:0;}
+.wc.xp{padding-bottom:30px;}
+.wc.xp h3{margin-bottom:0;}
+.wgr,.mgr,.pst{align-items:start;}
+.mc .xp-tg{top:auto;bottom:auto;position:absolute;}
+.mc-body{position:relative;}
+.mc.xp .xp-tg{top:20px;inset-inline-end:20px;}
+.mc.xp h3{padding-inline-end:40px;}
+.mc.xp .mc-num{display:none;}
+.mc.xp .mc-tags{margin-top:12px;}
+.ps.xp .xp-tg{position:relative;top:auto;inset-inline-end:auto;display:block;margin:10px auto 0;width:26px;height:26px;}
+.ps.xp h4{margin-bottom:0;}
+.xp-more{display:inline-flex;align-items:center;gap:8px;margin:2px 0 6px;padding:8px 14px;border-radius:10px;border:1px solid var(--b2);background:rgba(255,255,255,.04);color:var(--w);font-family:var(--hf);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+.xp-more::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s;}
+.xp-more[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg);}
+html[data-theme="light"] .xp-tg{background:#fff;}
+html[data-theme="light"] .xp-tg::before,html[data-theme="light"] .xp-tg::after{background:#d3252e;}
+html[data-theme="light"] #process .xp-tg{background:rgba(255,255,255,.06);}
+html[data-theme="light"] #process .xp-tg::before,html[data-theme="light"] #process .xp-tg::after{background:#ff8a8f;}
+html[data-theme="light"] .xp-more{background:#fff;}
+
 /* REVEAL */
 html.js .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
 html.js .rv.in{opacity:1;transform:none;}
@@ -895,7 +933,7 @@ var EN={
  'c.hi':'Hello! 👋 How can we help you today? You can ask about prices, machines, spare parts, import or delivery.'
 };
 var curLang='en';
-var I18N_SKIP='#ap,#lm,script,style,noscript,.orbit,#jc-msgs,#jc-quick,.lang,#f-cc,#form-status';
+var I18N_SKIP='#ap,#lm,script,style,noscript,.orbit,#jc-msgs,#jc-quick,.lang,#f-cc,#form-status,#about-more';
 var I18N_ATTRS=['placeholder','aria-label','title','alt'];
 function norm(x){ return x.replace(/\s+/g,' ').trim(); }
 function t(k){ var d=DICT[curLang]; return (curLang!=='en'&&d&&d[k])||EN[k]||k; }
@@ -1244,6 +1282,9 @@ G('btn-save').addEventListener('click',function(){
     clone.querySelectorAll('.rv').forEach(function(el){ el.classList.remove('rv','in'); el.style.transitionDelay=''; if(!el.getAttribute('style')) el.removeAttribute('style'); });
     var tn=clone.querySelector('#topnav'); if(tn){ tn.classList.remove('scrolled','open'); }
     clone.setAttribute('lang','en'); clone.removeAttribute('dir'); clone.removeAttribute('data-theme'); clone.classList.remove('theme-anim');
+    clone.querySelectorAll('.xp.open').forEach(function(el){ el.classList.remove('open'); el.setAttribute('aria-expanded','false'); });
+    clone.querySelectorAll('.xp-show').forEach(function(el){ el.classList.remove('xp-show'); });
+    var am=clone.querySelector('#about-more'); if(am){ am.setAttribute('aria-expanded','false'); am.textContent='Read more'; }
     clone.querySelectorAll('img[data-dark-src]').forEach(function(im){ im.setAttribute('src',im.getAttribute('data-dark-src')); im.removeAttribute('data-dark-src'); });
     clone.querySelectorAll('link[data-jr-font]').forEach(function(el){ el.remove(); });
     var lm=clone.querySelector('#lang-menu'); if(lm) lm.innerHTML=''; var lb=clone.querySelector('#lang'); if(lb) lb.className='lang'; var lcur=clone.querySelector('#lang-cur'); if(lcur) lcur.textContent='English';
@@ -1476,6 +1517,46 @@ G('machine-grid').addEventListener('keydown', function(e){
   G('jc-tip').addEventListener('click',function(e){ if(e.target.id==='jc-tip-x'){ G('jc-tip').classList.remove('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} return; } open(); });
   var tipSeen=false; try{ tipSeen=!!sessionStorage.getItem('jcTip'); }catch(_){}
   if(!tipSeen) setTimeout(function(){ if(!jc.classList.contains('open')){ G('jc-tip').classList.add('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} } },4000);
+})();
+
+
+// ── CLICK-TO-OPEN DETAILS ────────────────────────────────────────────
+function xpWrap(el){
+  if(!el) return null;
+  if(el.parentElement && el.parentElement.classList.contains('xp-in')) return el.parentElement.parentElement;
+  var b=document.createElement('div'); b.className='xp-body'; var i=document.createElement('div'); i.className='xp-in';
+  el.parentNode.insertBefore(b,el); b.appendChild(i); i.appendChild(el); return b;
+}
+function makeXP(card,detail,tgAfter){
+  if(!card||!detail) return;
+  xpWrap(detail); card.classList.add('xp');
+  if(!card.querySelector('.xp-tg')){ var tg=document.createElement('span'); tg.className='xp-tg'; tg.setAttribute('aria-hidden','true');
+    if(tgAfter) tgAfter.insertAdjacentElement('afterend',tg); else card.insertBefore(tg,card.firstChild); }
+  card.setAttribute('aria-expanded','false');
+  if(!card.querySelector('a,button,.mc-foot')){ card.setAttribute('role','button'); card.setAttribute('tabindex','0'); }
+}
+function xpToggle(card){ var o=card.classList.toggle('open'); card.setAttribute('aria-expanded',o?'true':'false'); }
+function initXP(){
+  document.querySelectorAll('.ipt').forEach(function(c){ makeXP(c,c.querySelector('p')); });
+  document.querySelectorAll('.wc').forEach(function(c){ makeXP(c,c.querySelector('p')); });
+  document.querySelectorAll('.mc').forEach(function(c){ var b=c.querySelector('.mc-body'); if(!b) return; makeXP(c,b.querySelector('p')); var tg=c.querySelector('.xp-tg'); if(tg&&tg.parentElement!==b) b.insertBefore(tg,b.firstChild); });
+  document.querySelectorAll('.ps').forEach(function(c){ makeXP(c,c.querySelector('p'),c.querySelector('h4')); });
+}
+initXP();
+document.addEventListener('click',function(e){
+  var c=e.target.closest('.xp'); if(!c||e.target.closest('a,.mc-foot,button,input,select,textarea')) return;
+  if(e.target.closest('.xp-in') && c.classList.contains('open')) return;   // let people select the text they opened
+  xpToggle(c);
+});
+document.addEventListener('keydown',function(e){ var c=e.target.closest&&e.target.closest('.xp[role="button"]'); if(c&&e.target===c&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); xpToggle(c); } });
+// About: second paragraph behind "Read more"
+(function(){ var p2=G('about-p2'); if(!p2) return; var body=xpWrap(p2); var wrap=body.parentElement;
+  if(!wrap.classList.contains('xp')){ wrap.classList.add('xp-about'); }
+  var btn=G('about-more'); if(!btn){ btn=document.createElement('button'); btn.type='button'; btn.id='about-more'; btn.className='xp-more'; btn.setAttribute('aria-expanded','false'); body.insertAdjacentElement('afterend',btn); }
+  function label(){ btn.textContent=t(btn.getAttribute('aria-expanded')==='true'?'Show less':'Read more'); }
+  body.classList.add('xp-solo'); label();
+  btn.addEventListener('click',function(){ var o=btn.getAttribute('aria-expanded')!=='true'; btn.setAttribute('aria-expanded',o?'true':'false'); body.classList.toggle('xp-show',o); label(); });
+  document.addEventListener('jr:lang',label);
 })();
 
 startLang();
