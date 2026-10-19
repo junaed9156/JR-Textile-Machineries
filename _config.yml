@@ -1,0 +1,10 @@
+# GitHub Pages uses Jekyll exclusions to keep tooling and source masters out
+# of the public deployment. Repository contents remain visible on GitHub.
+exclude:
+  - brand
+  - scripts
+  - tests
+  - SECURITY.md
+  - SECURITY_AUDIT.md
+  - README.md
+  - .gitleaks.toml

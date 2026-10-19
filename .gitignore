@@ -1,0 +1,18 @@
+# Never commit credentials, database dumps, local caches or generated exports.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.sql
+*.sqlite*
+*.db
+*.bak
+*.log
+node_modules/
+coverage/
+.DS_Store
+jr-textile-machineries.html
+gitleaks-report*.json
