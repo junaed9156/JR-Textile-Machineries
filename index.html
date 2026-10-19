@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://hcaptcha.com https://*.hcaptcha.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; img-src 'self'; font-src https://fonts.gstatic.com; connect-src https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Air Jet &amp; Water Jet Loom Supplier in Bangladesh, India &amp; Pakistan | JR Textile Machineries</title>
 <meta name="description" content="Buy air jet looms, water jet looms, repair looms and genuine loom spare parts direct from China. JR Textile Machineries delivers to factories in Bangladesh, India and Pakistan. No import license needed.">
@@ -16,7 +18,7 @@
 <link rel="alternate" hreflang="zh" href="https://www.jrtextiles.com/?lang=zh">
 <link rel="alternate" hreflang="tr" href="https://www.jrtextiles.com/?lang=tr">
 <script src="assets/i18n.js?v=5" defer></script>
-<script>try{if(localStorage.getItem("jrTheme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<script src="assets/theme.js?v=security-1"></script>
 <meta property="og:site_name" content="JR Textile Machineries">
 <meta property="og:url" content="https://www.jrtextiles.com/">
 <meta property="og:locale" content="en_US">
@@ -250,8 +252,8 @@ html[data-theme="light"]{
   --sh:0 24px 60px -24px rgba(13,27,51,.28);
   color-scheme:light;
 }
-/* keep the admin, chat window and language menu in the dark style */
-html[data-theme="light"] :is(#ap,#lm,.jc-panel,.lang-menu){--w:#f3f6fa;--li:#c4d0de;--mu:#8ea2b9;--b:rgba(255,255,255,.09);--b2:rgba(255,255,255,.16);--c:rgba(255,255,255,.035);--glass:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015));--navy2:#0c1a33;--silver:linear-gradient(180deg,#ffffff 0%,#e6ebf1 45%,#aeb9c6 100%);}
+/* keep chat and language menu in the dark style */
+html[data-theme="light"] :is(.jc-panel,.lang-menu){--w:#f3f6fa;--li:#c4d0de;--mu:#8ea2b9;--b:rgba(255,255,255,.09);--b2:rgba(255,255,255,.16);--c:rgba(255,255,255,.035);--glass:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015));--navy2:#0c1a33;--silver:linear-gradient(180deg,#ffffff 0%,#e6ebf1 45%,#aeb9c6 100%);}
 html[data-theme="light"] body{background:var(--bg);}
 html[data-theme="light"] #topnav{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,0));}
 html[data-theme="light"] #topnav.scrolled{background:rgba(255,255,255,.88);box-shadow:0 10px 30px rgba(13,27,51,.10);}
@@ -571,58 +573,6 @@ html[dir="rtl"] .tabp .pst::before{right:33px;}
 html.js .rv{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
 html.js .rv.in{opacity:1;transform:none;}
 
-/* LOGIN MODAL */
-#lm{display:none;position:fixed;inset:0;z-index:99999;background:rgba(4,10,20,0.97);align-items:center;justify-content:center;}
-#lm.open{display:flex;}
-.lbox{background:#0c1828;border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--red);padding:40px 36px;width:100%;max-width:360px;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
-.lbox h2{font-family:"Montserrat",sans-serif;font-size:26px;letter-spacing:2px;color:var(--w);margin-bottom:4px;}
-.lbox .lsub{font-size:12px;color:var(--mu);margin-bottom:28px;}
-.lf{margin-bottom:16px;}
-.lf label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:6px;font-weight:700;}
-.lf input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:12px 14px;color:var(--w);font-family:"Inter",sans-serif;font-size:14px;outline:none;border-radius:3px;}
-.lf input:focus{border-color:var(--red);background:rgba(192,32,42,.05);}
-.lerr{background:rgba(192,32,42,.15);border:1px solid rgba(192,32,42,.4);color:#ff6b6b;font-size:12.5px;padding:10px 14px;margin-bottom:14px;display:none;border-radius:3px;font-family:"Inter",sans-serif;}
-.lerr.show{display:block;}
-.lbtn{width:100%;background:var(--red);color:#fff;border:none;padding:13px;cursor:pointer;font-family:"Montserrat",sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-radius:3px;margin-top:4px;}
-.lbtn:hover{background:#e03040;}
-.lcancel{width:100%;background:none;color:var(--mu);border:1px solid rgba(255,255,255,.12);padding:10px;cursor:pointer;font-family:"Inter",sans-serif;font-size:12px;border-radius:3px;margin-top:8px;}
-.lcancel:hover{background:rgba(255,255,255,.05);}
-
-/* ADMIN PANEL */
-#ap{display:none;position:fixed;inset:0;z-index:9999;flex-direction:column;background:#07101e;}
-#ap.open{display:flex;}
-.ap-h{background:#0c1828;border-bottom:3px solid var(--red);padding:12px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.ap-h h1{font-family:"Montserrat",sans-serif;font-size:22px;letter-spacing:2px;color:var(--w);flex:1;}
-.ap-b{display:flex;flex:1;overflow:hidden;}
-.ap-nav{width:195px;background:#080f1c;border-right:1px solid var(--b);overflow-y:auto;padding:14px 0;flex-shrink:0;}
-.ap-nb{display:block;width:100%;text-align:left;background:none;border:none;border-left:3px solid transparent;color:var(--mu);font-family:"Inter",sans-serif;font-size:13px;font-weight:600;padding:11px 18px;cursor:pointer;transition:all .15s;}
-.ap-nb:hover{color:var(--w);background:rgba(255,255,255,.04);}
-.ap-nb.on{color:var(--red);border-left-color:var(--red);background:rgba(192,32,42,.08);}
-.ap-c{flex:1;overflow-y:auto;padding:28px;}
-.ap-s{display:none;}
-.ap-s.on{display:block;}
-.ap-s h2{font-family:"Montserrat",sans-serif;font-size:26px;letter-spacing:2px;color:var(--w);margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--b);}
-.af{margin-bottom:16px;}
-.af label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:5px;font-weight:700;font-family:"Inter",sans-serif;}
-.af input,.af textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid var(--b);padding:10px 13px;color:var(--w);font-family:"Inter",sans-serif;font-size:13.5px;outline:none;border-radius:3px;}
-.af input:focus,.af textarea:focus{border-color:var(--red);background:rgba(192,32,42,.05);}
-.af textarea{resize:vertical;min-height:80px;}
-.a2c{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.ac{background:rgba(255,255,255,.04);border:1px solid var(--b);border-left:3px solid var(--red);padding:18px;margin-bottom:12px;border-radius:3px;}
-.ac-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.ac-h span{font-family:"Montserrat",sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--w);}
-.xb{background:rgba(255,255,255,.08);color:var(--w);border:1px solid rgba(255,255,255,.18);font-family:"Inter",sans-serif;font-size:12px;font-weight:600;padding:7px 13px;cursor:pointer;border-radius:3px;display:inline-flex;align-items:center;gap:5px;}
-.xb:hover{background:rgba(255,255,255,.14);}
-.xb.g{background:#1a7a3a;border-color:#1a7a3a;}.xb.g:hover{background:#228844;}
-.xb.r{background:var(--red);border-color:var(--red);}
-.ipb{width:100%;height:140px;background:rgba(0,0,0,.3);border:2px dashed rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;cursor:pointer;margin-bottom:8px;overflow:hidden;border-radius:3px;position:relative;}
-.ipb img{width:100%;height:100%;object-fit:contain;padding:8px;}
-.ipb span{color:var(--mu);font-size:13px;}
-.ipb::after{content:"Click to change";position:absolute;inset:0;background:rgba(192,32,42,.75);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;opacity:0;transition:opacity .2s;}
-.ipb:hover::after{opacity:1;}
-.ap-btn{display:none!important;position:fixed;bottom:30px;left:96px;z-index:9998;background:rgba(255,255,255,.07);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:4px;}
-.ap-btn:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);}
-
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}.orbit{animation:spin 48s linear infinite!important;}.orbit .bn b{animation:spinBack 48s linear infinite!important;}html.js .rv{opacity:1;transform:none;}html{scroll-behavior:auto;}}
 @media(max-width:1100px){.pst{grid-template-columns:repeat(3,1fr);row-gap:44px;}.pst::before{display:none;}.nav-links a{padding:9px 11px;}}
 @media(max-width:1280px){
@@ -671,7 +621,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#machines">Machines</a><a href="#about" data-tab="t-how">How to Buy</a><a href="#offices">Offices</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
 <div class="lang" id="lang"><button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choose language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span id="lang-cur">English</span><svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Choose language"></ul></div>
 <button type="button" class="theme-btn" id="theme-btn" aria-label="Light / dark theme" title="Light / dark theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-<button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+<button class="nav-cta" data-scroll-to="contact">Get a Quote</button>
 </nav>
 <section class="hero">
 <div class="hero-bg" style="background-image:url('assets/img/textile-weaving-mill-hero.webp')"></div>
@@ -682,7 +632,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <h1 class="ht"><span id="hero-l1">Your Direct</span><span class="acc" id="hero-l2"> Source</span><span class="out" id="hero-l3">for Machines</span></h1>
 <p class="hd" id="hero-desc">Air jet, water jet and repair looms plus genuine spare parts — direct from China to your factory in Bangladesh, India and Pakistan. No import license needed.</p>
 <div class="hbads"><div class="badge"><div class="badge-dot"></div>Repair Loom</div><div class="badge"><div class="badge-dot"></div>Air Jet Loom</div><div class="badge"><div class="badge-dot"></div>Water Jet Loom</div><div class="badge"><div class="badge-dot"></div>Spare Parts</div></div>
-<div class="hbtns"><button class="btn-r" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Buy a Machine</button><button class="btn-o" onclick="document.getElementById('machines').scrollIntoView({behavior:'smooth'})">See All Machines</button></div>
+<div class="hbtns"><button class="btn-r" data-scroll-to="contact">Buy a Machine</button><button class="btn-o" data-scroll-to="machines">See All Machines</button></div>
 </div>
 <div class="hero-vis" aria-label="Brands we supply: Toyota, Somet, Sulzer, Picanol, Dornier, Itema, Smit, Tsudakoma, Stäubli" role="img"><div class="hv-ring r3"></div><div class="hv-ring r1"></div><div class="hv-ring r2"></div><div class="orbit notranslate" translate="no"><span class="bn" style="--a:0.0deg"><b class="lg" role="img" aria-label="Toyota" style="background-image:url(assets/brands/toyota.webp?v=6)"></b></span><span class="bn" style="--a:40.0deg"><b class="lg" role="img" aria-label="Somet" style="background-image:url(assets/brands/somet.webp?v=6)"></b></span><span class="bn" style="--a:80.0deg"><b class="lg" role="img" aria-label="Sulzer" style="background-image:url(assets/brands/sulzer.webp?v=6)"></b></span><span class="bn" style="--a:120.0deg"><b class="lg" role="img" aria-label="Picanol" style="background-image:url(assets/brands/picanol.webp?v=6)"></b></span><span class="bn" style="--a:160.0deg"><b class="lg" role="img" aria-label="Dornier" style="background-image:url(assets/brands/dornier.webp?v=6)"></b></span><span class="bn" style="--a:200.0deg"><b class="lg" role="img" aria-label="Itema" style="background-image:url(assets/brands/itema.webp?v=6)"></b></span><span class="bn" style="--a:240.0deg"><b class="lg big" role="img" aria-label="Smit" style="background-image:url(assets/brands/smit.webp?v=6)"></b></span><span class="bn" style="--a:280.0deg"><b class="lg big" role="img" aria-label="Tsudakoma" style="background-image:url(assets/brands/tsudakoma.webp?v=6)"></b></span><span class="bn" style="--a:320.0deg"><b class="lg" role="img" aria-label="Stäubli" style="background-image:url(assets/brands/staubli.webp?v=6)"></b></span></div><img src="assets/emblem-3d.webp" alt="" width="1200" height="714"></div>
 <div class="hsts"><div><div class="sn" id="stat1n">10+</div><div class="slb" id="stat1l">Years Experience</div></div><div><div class="sn" id="stat2n">3</div><div class="slb" id="stat2l">Offices in 2 Countries</div></div><div><div class="sn" id="stat3n">100%</div><div class="slb" id="stat3l">Genuine Parts</div></div><div><div class="sn" id="stat4n">4</div><div class="slb" id="stat4l">Machine Types</div></div></div>
@@ -696,7 +646,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="ah"><span id="about-h1">We Sell</span> <span class="acc" id="about-h2">World-Class</span><br><span id="about-h3">Chinese Machinery</span></div>
 <p class="ap2" id="about-p1">We buy directly from Chinese manufacturers and deliver to your factory — best price, genuine quality.</p>
 <p class="ap2" id="about-p2">Many factory owners want to import from China but face challenges with import licenses and customs. Whether you have a license or not, just send us your requirement and we handle everything.</p>
-<button class="btn-r" style="margin-top:22px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" id="about-cta">Buy a Machine Now</button>
+<button class="btn-r" style="margin-top:22px" data-scroll-to="contact" id="about-cta">Buy a Machine Now</button>
 </div>
 <div class="tabs-wrap">
 <div class="tabs" role="tablist" aria-label="About JR Textile Machineries"><button type="button" class="tab" role="tab" id="tab-what" aria-controls="t-what" aria-selected="false" tabindex="-1">What We Do</button><button type="button" class="tab" role="tab" id="tab-why" aria-controls="t-why" aria-selected="false" tabindex="-1"><span id="why-lbl">Why Buy From Us</span></button><button type="button" class="tab" role="tab" id="tab-how" aria-controls="t-how" aria-selected="true"><span id="pr-lbl">How to Buy</span></button><span class="tab-ink" aria-hidden="true"></span></div>
@@ -745,13 +695,13 @@ html.js .rv.in{opacity:1;transform:none;}
 <p class="ss" id="of-sub">Offices in Bangladesh and Yangzhou, China — we operate at the source to get you the best machines fast.</p>
 <div class="ogr">
 <div class="oc"><div class="oc-hd"><svg class="flag" viewBox="0 0 20 12" role="img" aria-label="Flag of Bangladesh"><rect width="20" height="12" fill="#006A4E"/><circle cx="9" cy="6" r="4" fill="#F42A41"/></svg><h3>Bangladesh Office</h3></div>
-<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><span class="or-n">01</span><a id="bd-addr" href="https://www.google.com/maps/search/?api=1&amp;query=175+Court+Road%2C+Bilashdi%2C+Narsingdi+Sadar%2C+Narsingdi" target="_blank" rel="noopener">175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi</a></p></div>
-<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><span class="or-n">02</span><a id="bd-addr2" href="https://www.google.com/maps/search/?api=1&amp;query=Adla%2C+Atlapur+Bazar%2C+Rupganj%2C+Narayanganj" target="_blank" rel="noopener">Adla, Atlapur Bazar, Rupganj, Narayanganj</a></p></div>
+<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><span class="or-n">01</span><a id="bd-addr" href="https://www.google.com/maps/search/?api=1&amp;query=175+Court+Road%2C+Bilashdi%2C+Narsingdi+Sadar%2C+Narsingdi" target="_blank" rel="noopener noreferrer">175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi</a></p></div>
+<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><span class="or-n">02</span><a id="bd-addr2" href="https://www.google.com/maps/search/?api=1&amp;query=Adla%2C+Atlapur+Bazar%2C+Rupganj%2C+Narayanganj" target="_blank" rel="noopener noreferrer">Adla, Atlapur Bazar, Rupganj, Narayanganj</a></p></div>
 <div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.17 11.91 19.79 19.79 0 0 1 1.1 3.23 2 2 0 0 1 3.08 1H6a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"></path></svg><p><a href="tel:+8801876284203" id="bd-phone">+880 1876 284203</a></p></div>
 <div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><p><a href="https://wa.me/8619505274754" id="wa-link">+86 195 0527 4754 (WhatsApp)</a></p></div>
 <div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><p><a href="mailto:junaedm333@gmail.com" id="co-email">junaedm333@gmail.com</a></p></div></div>
 <div class="oc"><div class="oc-hd"><svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Flag of China"><rect width="30" height="20" fill="#EE1C25"/><polygon fill="#FFDE00" points="5.000,2.000 5.674,4.073 7.853,4.073 6.090,5.354 6.763,7.427 5.000,6.146 3.237,7.427 3.910,5.354 2.147,4.073 4.326,4.073"/><polygon fill="#FFDE00" points="9.143,2.514 9.619,1.966 9.246,1.343 9.914,1.628 10.391,1.080 10.328,1.803 10.996,2.088 10.288,2.251 10.224,2.975 9.851,2.352"/><polygon fill="#FFDE00" points="11.010,4.141 11.662,3.821 11.560,3.102 12.065,3.624 12.718,3.304 12.378,3.946 12.884,4.467 12.168,4.343 11.829,4.985 11.726,4.266"/><polygon fill="#FFDE00" points="11.038,6.725 11.765,6.699 11.964,6.001 12.213,6.683 12.939,6.657 12.367,7.105 12.616,7.787 12.014,7.382 11.442,7.830 11.641,7.131"/><polygon fill="#FFDE00" points="9.219,8.375 9.899,8.632 10.353,8.064 10.319,8.790 10.999,9.046 10.298,9.239 10.265,9.964 9.865,9.357 9.165,9.550 9.618,8.982"/></svg><h3>China Office</h3></div>
-<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><a id="cn-addr" href="https://www.google.com/maps/search/?api=1&amp;query=196+Yangzijin%2C+Hanjiang+District%2C+Yangzhou+City%2C+Jiangsu" target="_blank" rel="noopener">196 Yangzijin, Hanjiang District, Yangzhou City, Jiangsu</a></p></div>
+<div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><p><a id="cn-addr" href="https://www.google.com/maps/search/?api=1&amp;query=196+Yangzijin%2C+Hanjiang+District%2C+Yangzhou+City%2C+Jiangsu" target="_blank" rel="noopener noreferrer">196 Yangzijin, Hanjiang District, Yangzhou City, Jiangsu</a></p></div>
 <div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg><p><a href="https://wa.me/8619505274754" id="cn-phone">+86 195 0527 4754 (WhatsApp)</a></p></div>
 <div class="or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><p><a href="mailto:junaedm333@gmail.com" id="cn-email">junaedm333@gmail.com</a></p></div></div>
 </div></div></section>
@@ -768,17 +718,17 @@ html.js .rv.in{opacity:1;transform:none;}
 <div style="text-align:center;margin-bottom:52px;"><div class="sl" style="justify-content:center">Get In Touch</div>
 <h2 class="st" id="con-ttl">Ready to Buy? Let's Talk</h2>
 <p class="ss" style="margin:0 auto;text-align:center" id="con-sub">Tell us which machine you need and we will send you a full quote within 24 hours.</p></div>
-<div class="cgr"><div><div class="fb3">
+<div class="cgr"><div><form class="fb3" id="enquiry-form" novalidate>
 <div class="ft3" id="form-ttl">Send Your Enquiry</div>
 <input type="hidden" id="w3-key" value="a93a4b8b-4485-44e5-8233-6385db650f14">
-<input type="hidden" id="w3-subj" value="New Machine Inquiry — JR Textile Machineries">
+<input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
 <div class="frow2">
-  <div class="fg"><label>Your Name</label><input type="text" id="f-name" placeholder="Full name"></div>
-  <div class="fg"><label>Company / Factory</label><input type="text" id="f-company" placeholder="Factory name"></div>
+  <div class="fg"><label for="f-name">Your Name</label><input type="text" id="f-name" name="name" maxlength="100" autocomplete="name" required placeholder="Full name"></div>
+  <div class="fg"><label for="f-company">Company / Factory</label><input type="text" id="f-company" name="company" maxlength="150" autocomplete="organization" placeholder="Factory name"></div>
 </div>
-<div class="fg"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"></div>
-<div class="fg"><label for="f-phone">Phone / WhatsApp</label><div class="ph"><select id="f-cc" aria-label="Country"></select><input type="tel" id="f-phone" placeholder="Phone number" inputmode="tel" autocomplete="tel-national"></div></div>
-<div class="fg"><label>Machine Type</label>
+<div class="fg"><label for="f-email">Email Address</label><input type="email" id="f-email" name="email" maxlength="254" autocomplete="email" placeholder="your@email.com"></div>
+<div class="fg"><label for="f-phone">Phone / WhatsApp</label><div class="ph"><select id="f-cc" aria-label="Country"></select><input type="tel" id="f-phone" name="phone" maxlength="32" placeholder="Phone number" inputmode="tel" autocomplete="tel-national"></div></div>
+<div class="fg"><label for="f-machine">Machine Type</label>
   <select id="f-machine">
     <option value="">Select machine type...</option>
     <option value="Repair Loom">Repair Loom</option><option value="Air Jet Loom">Air Jet Loom</option>
@@ -786,7 +736,7 @@ html.js .rv.in{opacity:1;transform:none;}
     <option value="Multiple / Not Sure">Multiple / Not Sure</option>
   </select>
 </div>
-<div class="fg"><label>Import License?</label>
+<div class="fg"><label for="f-license">Import License?</label>
   <select id="f-license">
     <option value="">Select...</option>
     <option value="Yes, I have my own license">Yes, I have my own license</option>
@@ -794,18 +744,20 @@ html.js .rv.in{opacity:1;transform:none;}
     <option value="Not sure, need guidance">Not sure, need guidance</option>
   </select>
 </div>
-<div class="fg"><label>Your Message</label>
-  <textarea id="f-message" placeholder="Describe what you need, quantity, budget..."></textarea>
+<div class="fg"><label for="f-message">Your Message</label>
+  <textarea id="f-message" name="message" maxlength="4000" placeholder="Describe what you need, quantity, budget..."></textarea>
 </div>
-<div id="form-status" style="display:none;padding:12px 14px;border-radius:3px;font-size:13px;font-family:'Inter',sans-serif;margin-bottom:10px;"></div>
-<button class="fsub" id="form-submit-btn" onclick="submitEnquiry()">Send Enquiry &#8594;</button>
-</div></div>
+<div id="form-status" role="status" aria-live="polite" style="display:none;padding:12px 14px;border-radius:3px;font-size:13px;font-family:'Inter',sans-serif;margin-bottom:10px;"></div>
+<div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark" data-size="compact"></div><!-- gitleaks:allow -- Web3Forms shared public CAPTCHA site identifier, not a secret. -->
+<noscript>Please use WhatsApp, email or phone to contact us when JavaScript is disabled.</noscript>
+<button class="fsub" id="form-submit-btn" type="submit">Send Enquiry &#8594;</button>
+</form></div>
 <div><div class="fdc">
 <img id="site-logo2" class="fli" src="assets/logo-3d.webp" width="900" height="715" alt="JR Textile Machineries">
 <p class="fab" id="founder-about">JR Textile Machineries sells premium Chinese textile machines and spare parts directly to Bangladesh factories. Whether you have an import license or not, we manage the full process.</p>
 <div class="fpr"><img id="founder-photo" class="fph" loading="lazy" decoding="async" src="assets/img/junaed-ahmed-antor-founder-jr-textile.webp" alt="Junaed Ahmed Antor">
 <div><div class="fnm" id="founder-name">Junaed Ahmed Antor</div><div class="fti" id="founder-title">Founder &amp; CEO</div><p class="fbi" id="founder-bio">With offices in Bangladesh and Yangzhou, China, Junaed leads the full machine supply chain from factory sourcing to your doorstep delivery.</p></div></div>
-<div class="sor"><a id="wa-btn" href="https://wa.me/8619505274754" class="sb wa-b" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a id="fb-btn" href="https://www.facebook.com/jrmachines0056" class="sb fb-b" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a></div>
+<div class="sor"><a id="wa-btn" href="https://wa.me/8619505274754" class="sb wa-b" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a id="fb-btn" href="https://www.facebook.com/jrmachines0056" class="sb fb-b" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a></div>
 </div>
 <div class="chs">
 <a href="tel:+8801876284203" class="ch"><div class="ch-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.17 11.91 19.79 19.79 0 0 1 1.1 3.23 2 2 0 0 1 3.08 1H6a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"></path></svg></div><div><h4>Bangladesh Direct</h4><p id="ch-bd">+880 1876 284203</p></div></a>
@@ -816,149 +768,7 @@ html.js .rv.in{opacity:1;transform:none;}
 <div><div class="fnm2" id="footer-name">JR Textile Machineries</div><div class="fs2" id="footer-ceo">Founder &amp; CEO: Junaed Ahmed Antor</div></div></div>
 <p id="footer-copy">&copy; 2025 JR Textile Machineries. All rights reserved.<br>Chinese Textile Machinery Sales &amp; Complete Import Solutions for Bangladesh</p></footer>
 
-<div id="lm" class="notranslate" translate="no">
-  <div class="lbox">
-    <h2>&#128274; Admin Login</h2>
-    <p class="lsub">JR Textile Machineries &mdash; Website Editor</p>
-    <div class="lf"><label>Username</label><input type="text" id="l-user" placeholder="Enter username" autocomplete="username"></div>
-    <div class="lf"><label>Password</label><input type="password" id="l-pass" placeholder="Enter password" autocomplete="current-password"></div>
-    <div class="lerr" id="l-err">&#10005; Wrong username or password. Try again.</div>
-    <button class="lbtn" id="l-submit">Login &#8594;</button>
-    <button class="lcancel" id="l-cancel">Cancel</button>
-  </div>
-</div>
-
-<div id="ap" class="notranslate" translate="no">
-<div class="ap-h"><h1>&#9998; JR Textile &mdash; Website Editor</h1>
-  <button class="xb g" id="btn-save">&#128190; Save &amp; Download</button>
-  <button class="xb r" id="btn-close">&#10005; Close</button>
-</div>
-<div class="ap-b">
-<nav class="ap-nav">
-  <button class="ap-nb on" data-tab="t-co">&#127970; Company Info</button>
-  <button class="ap-nb" data-tab="t-he">&#128444; Hero</button>
-  <button class="ap-nb" data-tab="t-ab">&#128203; About Us</button>
-  <button class="ap-nb" data-tab="t-wh">&#11088; Why Choose Us</button>
-  <button class="ap-nb" data-tab="t-mc">&#128295; Machines</button>
-  <button class="ap-nb" data-tab="t-pr">&#128230; Process Steps</button>
-  <button class="ap-nb" data-tab="t-of">&#128506; Offices</button>
-  <button class="ap-nb" data-tab="t-fo">&#128100; Founder</button>
-  <button class="ap-nb" data-tab="t-ft">&#128196; Footer</button>
-  <button class="ap-nb" data-tab="t-fm">&#128231; Form / Email</button>
-</nav>
-<div class="ap-c">
-<div class="ap-s on" id="t-co"><h2>Company Info</h2>
-  <div class="a2c"><div class="af"><label>Company Name</label><input id="f-co-name"></div><div class="af"><label>Email</label><input id="f-co-email"></div></div>
-  <div class="a2c"><div class="af"><label>Bangladesh Phone</label><input id="f-co-pbd"></div><div class="af"><label>China Phone (WhatsApp)</label><input id="f-co-pcn"></div></div>
-  <div class="a2c"><div class="af"><label>Bangladesh Address 1</label><input id="f-co-abd"></div><div class="af"><label>Bangladesh Address 2</label><input id="f-co-abd2"></div></div>
-  <div class="af"><label>China Address</label><input id="f-co-acn"></div>
-  <div class="a2c"><div class="af"><label>WhatsApp Link</label><input id="f-co-wa"></div><div class="af"><label>Facebook Link</label><input id="f-co-fb"></div></div>
-  <div class="af"><label>Company Logo</label><div class="ipb" id="p-logo"><span>Click to change</span></div></div>
-  <button class="xb g" id="co-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-he"><h2>Hero Section</h2>
-  <div class="af"><label>Badge Text</label><input id="f-he-badge"></div>
-  <div class="a2c"><div class="af"><label>Title Line 1</label><input id="f-he-l1"></div><div class="af"><label>Title Line 2 (Red)</label><input id="f-he-l2"></div></div>
-  <div class="af"><label>Title Line 3 (Outline)</label><input id="f-he-l3"></div>
-  <div class="af"><label>Description</label><textarea id="f-he-desc"></textarea></div>
-  <div class="a2c"><div class="af"><label>Stat 1 Number</label><input id="f-s1n"></div><div class="af"><label>Stat 1 Label</label><input id="f-s1l"></div></div>
-  <div class="a2c"><div class="af"><label>Stat 2 Number</label><input id="f-s2n"></div><div class="af"><label>Stat 2 Label</label><input id="f-s2l"></div></div>
-  <div class="a2c"><div class="af"><label>Stat 3 Number</label><input id="f-s3n"></div><div class="af"><label>Stat 3 Label</label><input id="f-s3l"></div></div>
-  <div class="a2c"><div class="af"><label>Stat 4 Number</label><input id="f-s4n"></div><div class="af"><label>Stat 4 Label</label><input id="f-s4l"></div></div>
-  <button class="xb g" id="he-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-ab"><h2>About Us</h2>
-  <div class="af"><label>Section Tag</label><input id="f-ab-tag"></div>
-  <div class="a2c"><div class="af"><label>Heading 1</label><input id="f-ab-h1"></div><div class="af"><label>Heading 2 (Red)</label><input id="f-ab-h2"></div></div>
-  <div class="af"><label>Heading 3</label><input id="f-ab-h3"></div>
-  <div class="af"><label>Paragraph 1</label><textarea id="f-ab-p1"></textarea></div>
-  <div class="af"><label>Paragraph 2</label><textarea id="f-ab-p2"></textarea></div>
-  <div class="af"><label>Button Text</label><input id="f-ab-cta"></div>
-  <hr style="border-color:rgba(255,255,255,.1);margin:20px 0;">
-  <div class="ac"><div class="ac-h"><span>Point 1</span></div><div class="af"><label>Title</label><input id="f-pt1-t"></div><div class="af"><label>Description</label><textarea id="f-pt1-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Point 2</span></div><div class="af"><label>Title</label><input id="f-pt2-t"></div><div class="af"><label>Description</label><textarea id="f-pt2-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Point 3</span></div><div class="af"><label>Title</label><input id="f-pt3-t"></div><div class="af"><label>Description</label><textarea id="f-pt3-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Point 4</span></div><div class="af"><label>Title</label><input id="f-pt4-t"></div><div class="af"><label>Description</label><textarea id="f-pt4-d"></textarea></div></div>
-  <button class="xb g" id="ab-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-wh"><h2>Why Choose Us</h2>
-  <div class="af"><label>Section Label</label><input id="f-wh-lbl"></div>
-  <div class="af"><label>Section Title</label><input id="f-wh-ttl"></div>
-  <div class="af"><label>Section Subtitle</label><textarea id="f-wh-sub" style="min-height:60px"></textarea></div>
-  <hr style="border-color:rgba(255,255,255,.1);margin:20px 0;">
-  <div class="ac"><div class="ac-h"><span>Card 1</span></div><div class="af"><label>Title</label><input id="f-wc1-t"></div><div class="af"><label>Description</label><textarea id="f-wc1-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Card 2</span></div><div class="af"><label>Title</label><input id="f-wc2-t"></div><div class="af"><label>Description</label><textarea id="f-wc2-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Card 3</span></div><div class="af"><label>Title</label><input id="f-wc3-t"></div><div class="af"><label>Description</label><textarea id="f-wc3-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Card 4</span></div><div class="af"><label>Title</label><input id="f-wc4-t"></div><div class="af"><label>Description</label><textarea id="f-wc4-d"></textarea></div></div>
-  <button class="xb g" id="wh-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-mc"><h2>Machines</h2>
-  <div class="af"><label>Section Label</label><input id="f-mc-lbl"></div>
-  <div class="af"><label>Section Title</label><input id="f-mc-ttl"></div>
-  <div class="af"><label>Section Subtitle</label><input id="f-mc-sub"></div>
-  <hr style="border-color:rgba(255,255,255,.1);margin:20px 0;">
-  <div class="ac"><div class="ac-h"><span>Machine 1 — Repair Loom</span></div><div class="af"><label>Photo</label><div class="ipb" id="p-m1"><span>Click to change</span></div></div><div class="af"><label>Name</label><input id="f-m1-n"></div><div class="af"><label>Description</label><textarea id="f-m1-d"></textarea></div><div class="af"><label>Tags (comma separated)</label><input id="f-m1-t"></div></div>
-  <div class="ac"><div class="ac-h"><span>Machine 2 — Air Jet Loom</span></div><div class="af"><label>Photo</label><div class="ipb" id="p-m2"><span>Click to change</span></div></div><div class="af"><label>Name</label><input id="f-m2-n"></div><div class="af"><label>Description</label><textarea id="f-m2-d"></textarea></div><div class="af"><label>Tags (comma separated)</label><input id="f-m2-t"></div></div>
-  <div class="ac"><div class="ac-h"><span>Machine 3 — Water Jet Loom</span></div><div class="af"><label>Photo</label><div class="ipb" id="p-m3"><span>Click to change</span></div></div><div class="af"><label>Name</label><input id="f-m3-n"></div><div class="af"><label>Description</label><textarea id="f-m3-d"></textarea></div><div class="af"><label>Tags (comma separated)</label><input id="f-m3-t"></div></div>
-  <div class="ac"><div class="ac-h"><span>Machine 4 — Spare Parts</span></div><div class="af"><label>Photo</label><div class="ipb" id="p-m4"><span>Click to change</span></div></div><div class="af"><label>Name</label><input id="f-m4-n"></div><div class="af"><label>Description</label><textarea id="f-m4-d"></textarea></div><div class="af"><label>Tags (comma separated)</label><input id="f-m4-t"></div></div>
-  <button class="xb g" id="mc-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-  <hr style="border-color:rgba(255,255,255,.1);margin:24px 0;">
-  <div style="background:rgba(192,32,42,.08);border:1px dashed rgba(192,32,42,.4);padding:22px;border-radius:3px;">
-    <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:16px;">&#10133; Add New Machine</p>
-    <div class="af"><label>Photo</label><div class="ipb" id="nm-img"><span>Click to upload</span></div></div>
-    <div class="af"><label>Machine Name *</label><input id="nm-n" placeholder="e.g. Rapier Loom"></div>
-    <div class="af"><label>Description</label><textarea id="nm-d" placeholder="Describe this machine..."></textarea></div>
-    <div class="af"><label>Tags (comma separated)</label><input id="nm-t" placeholder="High Speed, Fine Fabric"></div>
-    <button class="xb g" id="nm-add" style="margin-top:4px">&#10003; Add Machine</button>
-  </div>
-</div>
-<div class="ap-s" id="t-pr"><h2>Process Steps</h2>
-  <div class="af"><label>Section Label</label><input id="f-pr-lbl"></div>
-  <div class="af"><label>Section Title</label><input id="f-pr-ttl"></div>
-  <div class="af"><label>Section Subtitle</label><textarea id="f-pr-sub" style="min-height:60px"></textarea></div>
-  <hr style="border-color:rgba(255,255,255,.1);margin:20px 0;">
-  <div class="ac"><div class="ac-h"><span>Step 1</span></div><div class="af"><label>Title</label><input id="f-s1-t"></div><div class="af"><label>Description</label><textarea id="f-s1-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Step 2</span></div><div class="af"><label>Title</label><input id="f-s2-t"></div><div class="af"><label>Description</label><textarea id="f-s2-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Step 3</span></div><div class="af"><label>Title</label><input id="f-s3-t"></div><div class="af"><label>Description</label><textarea id="f-s3-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Step 4</span></div><div class="af"><label>Title</label><input id="f-s4-t"></div><div class="af"><label>Description</label><textarea id="f-s4-d"></textarea></div></div>
-  <div class="ac"><div class="ac-h"><span>Step 5</span></div><div class="af"><label>Title</label><input id="f-s5-t"></div><div class="af"><label>Description</label><textarea id="f-s5-d"></textarea></div></div>
-  <button class="xb g" id="pr-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-of"><h2>Offices</h2>
-  <div class="af"><label>Section Label</label><input id="f-of-lbl"></div>
-  <div class="af"><label>Section Title</label><input id="f-of-ttl"></div>
-  <div class="af"><label>Section Subtitle</label><textarea id="f-of-sub" style="min-height:60px"></textarea></div>
-  <p style="color:var(--mu);font-size:13px;margin-top:8px;">&#128204; Phone, email and addresses: edit in <strong style="color:var(--w)">Company Info</strong> tab.</p>
-  <button class="xb g" id="of-apply" style="margin-top:16px">&#10003; Apply Changes</button>
-</div>
-<div class="ap-s" id="t-fo"><h2>Founder &amp; CEO</h2>
-  <div class="af"><label>Profile Photo</label><div class="ipb" id="p-founder"><span>Click to change</span></div></div>
-  <div class="a2c"><div class="af"><label>Full Name</label><input id="f-fo-name"></div><div class="af"><label>Title</label><input id="f-fo-title"></div></div>
-  <div class="af"><label>Short Bio</label><textarea id="f-fo-bio"></textarea></div>
-  <div class="af"><label>About Company Text</label><textarea id="f-fo-about"></textarea></div>
-  <button class="xb g" id="fo-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-
-<div class="ap-s" id="t-fm"><h2>Form &amp; Email Settings</h2>
-  <div style="background:rgba(192,32,42,.1);border:1px solid rgba(192,32,42,.3);padding:18px;border-radius:3px;margin-bottom:22px;">
-    <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:10px;">&#9888; Email Setup Required</p>
-    <p style="font-size:13px;color:var(--li);line-height:1.7;margin-bottom:10px;">To receive enquiry emails at <strong style="color:var(--w)">junaedm333@gmail.com</strong>, you need a free Web3Forms key:</p>
-    <p style="font-size:13px;color:var(--li);line-height:1.7;">1. Go to <strong style="color:var(--w)">web3forms.com</strong><br>2. Enter <strong style="color:var(--w)">junaedm333@gmail.com</strong><br>3. Check your email for the Access Key<br>4. Paste it below and click Apply</p>
-  </div>
-  <div class="af"><label>Web3Forms Access Key (from web3forms.com)</label><input id="f-w3key" placeholder="Paste your access key here..."></div>
-  <div class="af"><label>Email Subject Line</label><input id="f-w3subj" value="New Machine Inquiry — JR Textile Machineries"></div>
-  <button class="xb g" id="fm-apply" style="margin-top:8px">&#10003; Apply &amp; Activate Email</button>
-  <p style="color:var(--mu);font-size:12px;margin-top:12px;">After applying, Save &amp; Download your website. Emails will then be sent automatically to your Gmail.</p>
-</div>
-
-<div class="ap-s" id="t-ft"><h2>Footer</h2>
-  <div class="af"><label>Company Name</label><input id="f-ft-name"></div>
-  <div class="af"><label>CEO Line</label><input id="f-ft-ceo"></div>
-  <div class="af"><label>Copyright Text</label><textarea id="f-ft-copy" style="min-height:60px"></textarea></div>
-  <button class="xb g" id="ft-apply" style="margin-top:8px">&#10003; Apply Changes</button>
-</div>
-</div></div></div>
-<a class="wa-float" href="https://wa.me/8619505274754" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a class="wa-float" href="https://wa.me/8619505274754" target="_blank" aria-label="Chat on WhatsApp" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <div id="jc" class="jc">
 <div class="jc-tip" id="jc-tip" role="status"><button class="jc-tip-x" id="jc-tip-x" aria-label="Dismiss">&times;</button><b>Hi there! 👋</b>Need a price for a loom or spare parts? Chat with us.</div>
 <button class="jc-launch" id="jc-launch" aria-label="Open chat" aria-expanded="false" aria-controls="jc-panel">
@@ -970,688 +780,12 @@ html.js .rv.in{opacity:1;transform:none;}
 <div class="jc-msgs" id="jc-msgs" aria-live="polite"></div>
 <div class="jc-quick" id="jc-quick"></div>
 <form class="jc-form" id="jc-form" autocomplete="off"><input id="jc-in" type="text" placeholder="Type your question…" aria-label="Type your question" maxlength="400"><button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></form>
-<div class="jc-foot"><a id="jc-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a id="jc-mail">✉ Email</a><a id="jc-call">✆ Call</a></div>
+<div class="jc-foot"><a id="jc-wa" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a id="jc-mail">✉ Email</a><a id="jc-call">✆ Call</a></div>
 </div>
 </div>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
+<script src="assets/security.js?v=security-1" defer></script>
+<script src="assets/app.js?v=security-1" defer></script>
+<script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>
 
-function G(id){ return document.getElementById(id); }
-function T(id){ var el=G(id); return el ? el.textContent : ''; }
-function S(id,val){ var el=G(id); if(el && val !== undefined && val !== null) el.textContent=val; }
-function V(id){ var el=G(id); return el ? el.value.trim() : ''; }
-
-// ── LANGUAGES (hand-written translations in assets/i18n.js) ─────────
-var DICT=window.JR_I18N||{};
-var LANGS=[['en','English','EN'],['bn','বাংলা','BN'],['hi','हिन्दी','HI'],['ur','اردو','UR'],['zh','中文','ZH'],['tr','Türkçe','TR']];
-var FONTS={bn:'Hind+Siliguri:wght@400;500;600;700',hi:'Hind:wght@400;500;600;700',ur:'Noto+Naskh+Arabic:wght@400;500;600;700',zh:'Noto+Sans+SC:wght@400;500;700;900'};
-var EN={
- 'c.hello1':'Assalamu Alaikum! 👋 Welcome to JR Textile Machineries.',
- 'c.hello2':'We supply Air Jet Looms, Water Jet Looms, Repair Looms and genuine spare parts from China to Bangladesh, India and Pakistan.\n\nAsk a question below, or tap a quick option.',
- 'c.remind':'📞 For more details, WhatsApp or call us:','c.wa':'WhatsApp:','c.call':'Call:','c.email':'Email:','c.still':'Still there? 😊 ',
- 'c.fallback':'Thanks for your message! Our team will get back to you shortly.\n\nFor the fastest reply, continue on WhatsApp or email us:',
- 'c.price':'We give a full quotation within 24 hours — price, specifications, lead time and delivery cost, with no hidden fees.\n\nTell us the machine type, width/model and quantity. The quickest way is WhatsApp:',
- 'c.airjet':'Yes, we supply high-speed Air Jet Looms for fine and medium-weight fabrics, sourced directly from leading Chinese manufacturers, with installation and training.\n\nWhich reed width and quantity do you need?',
- 'c.waterjet':'We supply precision Water Jet Looms for synthetic and blended yarns, with full maintenance support.\n\nShare your reed width and quantity and we will quote quickly.',
- 'c.repair':'We supply heavy-duty Repair Looms with spare parts and installation support. Send us the model you are looking for and we will check availability.',
- 'c.spare':'We stock genuine spare parts for all major loom brands — Toyota, Tsudakoma, Picanol, Dornier, Itema, Somet, Sulzer, Smit and Stäubli.\n\nSend a photo or part number on WhatsApp for the fastest answer.',
- 'c.license':'No import license needed. We handle customs clearance, port documentation and duties under our license — from China right to your factory.',
- 'c.country':'Yes — besides Bangladesh we supply looms and spare parts to textile factories in India and Pakistan. Tell us your city and requirement and we will quote with delivery.',
- 'c.delivery':'Delivery time depends on the machine and stock. We confirm the exact lead time in your quotation, and our Yangzhou (China) office keeps shipments moving fast.',
- 'c.address':'Our offices:\n• Bangladesh: 175 Court Road, Bilashdi, Narsingdi Sadar, Narsingdi\n• Bangladesh: Adla, Atlapur Bazar, Rupganj, Narayanganj\n• China: 196 Yangzijin, Hanjiang District, Yangzhou, Jiangsu',
- 'c.install':'Our technicians support installation, operator training and after-sales maintenance for every machine we sell.',
- 'c.contact':'Of course! You can reach our team directly:',
- 'c.hi':'Hello! 👋 How can we help you today? You can ask about prices, machines, spare parts, import or delivery.'
-};
-var curLang='en';
-var I18N_SKIP='#ap,#lm,script,style,noscript,.orbit,#jc-msgs,#jc-quick,.lang,#f-cc,#form-status,#about-more';
-var I18N_ATTRS=['placeholder','aria-label','title','alt'];
-function norm(x){ return x.replace(/\s+/g,' ').trim(); }
-function t(k){ var d=DICT[curLang]; return (curLang!=='en'&&d&&d[k])||EN[k]||k; }
-function applyLang(code,opt){
-  opt=opt||{};
-  if(code!=='en' && !DICT[code]) code='en';
-  var fromEn=(curLang==='en');
-  var d=DICT[code]||{};
-  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){ var p=n.parentElement; return (!p||!n.nodeValue.trim()||p.closest(I18N_SKIP))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT; }});
-  var n; while((n=w.nextNode())){
-    if(fromEn||n.__jrEn===undefined) n.__jrEn=n.nodeValue;
-    var en=n.__jrEn, tr=(code!=='en')?d[norm(en)]:null;
-    if(tr){ var m=en.match(/^(\s*)[\s\S]*?(\s*)$/); n.nodeValue=m[1]+tr+m[2]; } else if(n.nodeValue!==en) n.nodeValue=en;
-  }
-  document.querySelectorAll('['+I18N_ATTRS.join('],[')+']').forEach(function(el){
-    if(el.closest(I18N_SKIP)) return; el.__jrA=el.__jrA||{};
-    I18N_ATTRS.forEach(function(a){ if(!el.hasAttribute(a)) return;
-      if(fromEn||el.__jrA[a]===undefined) el.__jrA[a]=el.getAttribute(a);
-      var en=el.__jrA[a], tr=(code!=='en')?d[norm(en)]:null; el.setAttribute(a,tr||en); });
-  });
-  curLang=code;
-  var h=document.documentElement; h.setAttribute('lang',code);
-  if(code==='ur') h.setAttribute('dir','rtl'); else h.removeAttribute('dir');
-  if(FONTS[code] && !document.querySelector('link[data-jr-font="'+code+'"]')){
-    var l=document.createElement('link'); l.rel='stylesheet'; l.setAttribute('data-jr-font',code);
-    l.href='https://fonts.googleapis.com/css2?family='+FONTS[code]+'&display=swap'; document.head.appendChild(l);
-  }
-  var cur=LANGS.filter(function(x){return x[0]===code;})[0];
-  var lc=G('lang-cur'); if(lc) lc.textContent=(window.innerWidth<560?cur[2]:cur[1]);
-  document.querySelectorAll('#lang-menu li').forEach(function(li){ li.setAttribute('aria-selected',li.getAttribute('data-l')===code?'true':'false'); });
-  if(!opt.temp){ try{ localStorage.setItem('jrLang',code); }catch(_){} }
-  document.dispatchEvent(new CustomEvent('jr:lang',{detail:code}));
-}
-(function(){
-  var box=G('lang'), btn=G('lang-btn'), menu=G('lang-menu'); if(!box) return;
-  LANGS.forEach(function(L){ var li=document.createElement('li'); li.setAttribute('role','option'); li.setAttribute('tabindex','0'); li.setAttribute('data-l',L[0]); li.setAttribute('lang',L[0]);
-    if(L[0]==='ur') li.setAttribute('dir','rtl');
-    li.innerHTML='<span></span><small>'+L[2]+'</small>'; li.firstChild.textContent=L[1];
-    function pick(){ applyLang(L[0]); box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-    li.addEventListener('click',pick); li.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
-    menu.appendChild(li); });
-  btn.addEventListener('click',function(e){ e.stopPropagation(); var o=box.classList.toggle('open'); btn.setAttribute('aria-expanded',o?'true':'false'); });
-  document.addEventListener('click',function(e){ if(!box.contains(e.target)){ box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ box.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
-})();
-function startLang(){
-  var pick=null, q=(location.search.match(/[?&]lang=([a-z]{2})/)||[])[1];
-  if(q && (q==='en'||DICT[q])) pick=q;
-  if(!pick){ try{ pick=localStorage.getItem('jrLang'); }catch(_){} }
-  if(!pick){ (navigator.languages||[navigator.language||'en']).some(function(l){ l=(l||'').slice(0,2).toLowerCase(); if(DICT[l]){ pick=l; return true; } return l==='en'; }); }
-  applyLang(pick||'en',{temp:!q && !pick});
-}
-
-
-// ── LIGHT / DARK THEME ───────────────────────────────────────────────
-var LOGO_LIGHT={'assets/logo-3d-horizontal.webp':'assets/logo-3d-horizontal-light.webp?v=darkgold','assets/logo-3d.webp':'assets/logo-3d-light.webp?v=darkgold'};
-function swapLogos(light){
-  ['site-logo','site-logo2'].forEach(function(id){ var im=G(id); if(!im) return;
-    var src=im.getAttribute('src'), dark=im.getAttribute('data-dark-src');
-    if(light){ if(LOGO_LIGHT[src]){ im.setAttribute('data-dark-src',src); im.setAttribute('src',LOGO_LIGHT[src]); } }
-    else if(dark){ im.setAttribute('src',dark); im.removeAttribute('data-dark-src'); } });
-}
-function setTheme(th,save){
-  var h=document.documentElement;
-  if(th==='light') h.setAttribute('data-theme','light'); else h.removeAttribute('data-theme');
-  swapLogos(th==='light');
-  var mc=document.querySelector('meta[name="theme-color"]'); if(mc) mc.setAttribute('content',th==='light'?'#f4f6fa':'#07101e');
-  if(save){ try{ localStorage.setItem('jrTheme',th); }catch(_){} }
-}
-setTheme(document.documentElement.getAttribute('data-theme')==='light'?'light':'dark',false);
-(function(){ var b=G('theme-btn'); if(!b) return;
-  b.addEventListener('click',function(){
-    var h=document.documentElement; h.classList.add('theme-anim');
-    setTheme(h.getAttribute('data-theme')==='light'?'dark':'light',true);
-    setTimeout(function(){ h.classList.remove('theme-anim'); },400);
-  });
-})();
-
-// ── PHONE: country picker fills the code ─────────────────────────────
-var COUNTRIES=[['BD','880','Bangladesh'],['IN','91','India'],['PK','92','Pakistan'],['CN','86','China'],['TR','90','Turkey'],['LK','94','Sri Lanka'],['NP','977','Nepal'],['VN','84','Vietnam'],['ID','62','Indonesia'],['EG','20','Egypt'],['AE','971','United Arab Emirates'],['SA','966','Saudi Arabia'],['UZ','998','Uzbekistan'],['XX','','Other']];
-var LANG_CC={en:'BD',bn:'BD',hi:'IN',ur:'PK',zh:'CN',tr:'TR'}, ccTouched=false;
-function buildCountries(){
-  var sel=G('f-cc'); if(!sel) return; var v=sel.value; sel.innerHTML='';
-  COUNTRIES.forEach(function(c){ var o=document.createElement('option'); o.value=c[0]; o.textContent=t(c[2])+(c[1]?'  +'+c[1]:''); sel.appendChild(o); });
-  sel.value=(!ccTouched && LANG_CC[curLang])||v||'BD';
-  updatePhoneHint();
-}
-function updatePhoneHint(){ var sel=G('f-cc'), ph=G('f-phone'); if(!sel||!ph) return; var c=COUNTRIES.filter(function(x){return x[0]===sel.value;})[0]; ph.placeholder=(c&&c[1]?'+'+c[1]+' ':'+')+t('Phone number'); }
-(function(){ var sel=G('f-cc'); if(!sel) return; sel.addEventListener('change',function(){ ccTouched=true; updatePhoneHint(); }); })();
-document.addEventListener('jr:lang',buildCountries);
-function fullPhone(){
-  var raw=(G('f-phone').value||'').trim(); if(!raw) return {num:'',country:''};
-  var c=COUNTRIES.filter(function(x){return x[0]===G('f-cc').value;})[0]||COUNTRIES[0];
-  var digits=raw.replace(/[^\d+]/g,'');
-  if(digits.charAt(0)==='+'||!c[1]) return {num:digits,country:c[2]};
-  digits=digits.replace(/^00/,'+'); if(digits.charAt(0)==='+') return {num:digits,country:c[2]};
-  if(digits.indexOf(c[1])===0 && digits.length>c[1].length+6) return {num:'+'+digits,country:c[2]};
-  return {num:'+'+c[1]+' '+digits.replace(/^0+/,''),country:c[2]};
-}
-
-// Only a SHA-256 hash of "jrtm-v1|username|password" is stored — the password itself is not in this file.
-var ADMIN_HASH = 'aa6fe967d9f09320229087092e542d943488fd333651de1f40a37ebc7cee3614';
-function sha256hex(str){
-  var bytes=new TextEncoder().encode(str);
-  if(window.crypto && crypto.subtle && window.isSecureContext){
-    return crypto.subtle.digest('SHA-256',bytes).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2);}).join('');});
-  }
-  // fallback for browsers without WebCrypto (e.g. an old browser or a plain-http copy)
-  var K=[],H=[],i,j; function f(x){return (x-Math.floor(x))*4294967296|0;}
-  for(var n=2,c=0;c<64;n++){var p=true;for(j=2;j*j<=n;j++)if(n%j===0){p=false;break;} if(p){if(c<8)H[c]=f(Math.pow(n,1/2));K[c++]=f(Math.pow(n,1/3));}}
-  var l=bytes.length,m=new Uint8Array(((l+9+63)>>6)<<6);m.set(bytes);m[l]=0x80;var bl=l*8;m[m.length-4]=bl>>>24;m[m.length-3]=bl>>>16;m[m.length-2]=bl>>>8;m[m.length-1]=bl;
-  var w=new Array(64),r=function(x,y){return (x>>>y)|(x<<(32-y));};
-  for(i=0;i<m.length;i+=64){
-    for(j=0;j<16;j++)w[j]=(m[i+4*j]<<24)|(m[i+4*j+1]<<16)|(m[i+4*j+2]<<8)|m[i+4*j+3];
-    for(j=16;j<64;j++){var s0=r(w[j-15],7)^r(w[j-15],18)^(w[j-15]>>>3),s1=r(w[j-2],17)^r(w[j-2],19)^(w[j-2]>>>10);w[j]=(w[j-16]+s0+w[j-7]+s1)|0;}
-    var a=H[0],b=H[1],c2=H[2],d=H[3],e=H[4],g=H[5],h2=H[6],k=H[7];
-    for(j=0;j<64;j++){var t1=(k+(r(e,6)^r(e,11)^r(e,25))+((e&g)^(~e&h2))+K[j]+w[j])|0,t2=((r(a,2)^r(a,13)^r(a,22))+((a&b)^(a&c2)^(b&c2)))|0;k=h2;h2=g;g=e;e=(d+t1)|0;d=c2;c2=b;b=a;a=(t1+t2)|0;}
-    H[0]=(H[0]+a)|0;H[1]=(H[1]+b)|0;H[2]=(H[2]+c2)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+g)|0;H[6]=(H[6]+h2)|0;H[7]=(H[7]+k)|0;
-  }
-  return Promise.resolve(H.map(function(x){return ('00000000'+(x>>>0).toString(16)).slice(-8);}).join(''));
-}
-
-// TAB SWITCHING
-document.querySelectorAll('.ap-nb').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('.ap-nb').forEach(function(b){ b.classList.remove('on'); });
-    document.querySelectorAll('.ap-s').forEach(function(s){ s.classList.remove('on'); });
-    this.classList.add('on');
-    var tab = G(this.getAttribute('data-tab'));
-    if(tab) tab.classList.add('on');
-  });
-});
-
-// LOGIN FLOW
-function openLogin(){
-  G('l-user').value=''; G('l-pass').value='';
-  G('l-err').classList.remove('show');
-  G('lm').classList.add('open');
-  setTimeout(function(){ G('l-user').focus(); }, 150);
-}
-// Hidden ways in: open the site with #admin, or tap the copyright line 5 times quickly.
-function checkAdminHash(){
-  if(location.hash.toLowerCase()==='#admin'){
-    try{ history.replaceState(null,'',location.pathname+location.search); }catch(_){}
-    openLogin();
-  }
-}
-window.addEventListener('hashchange',checkAdminHash); checkAdminHash();
-(function(){ var fc=G('footer-copy'), n=0, t=null; if(!fc) return;
-  fc.addEventListener('click',function(){ n++; clearTimeout(t); t=setTimeout(function(){ n=0; },2500); if(n>=5){ n=0; openLogin(); } });
-})();
-G('l-submit').addEventListener('click', function(){
-  var u=G('l-user').value.trim(), p=G('l-pass').value;
-  sha256hex('jrtm-v1|'+u+'|'+p).then(function(h){
-    if(h===ADMIN_HASH){
-      G('lm').classList.remove('open');
-      adminPrevLang=curLang; if(curLang!=='en') applyLang('en',{temp:true});
-      populateForms();
-      G('ap').classList.add('open');
-    } else {
-      G('l-err').classList.add('show');
-      G('l-pass').value=''; G('l-pass').focus();
-    }
-  });
-});
-G('l-pass').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-submit').click(); });
-G('l-user').addEventListener('keydown', function(e){ if(e.key==='Enter') G('l-pass').focus(); });
-G('l-cancel').addEventListener('click', function(){ G('lm').classList.remove('open'); });
-var adminPrevLang='en';
-G('btn-close').addEventListener('click', function(){ G('ap').classList.remove('open'); if(adminPrevLang!=='en') applyLang(adminPrevLang,{temp:true}); });
-
-// POPULATE FORMS
-function populateForms(){
-  G('f-co-name').value=T('footer-name');
-  G('f-co-email').value=T('co-email')||'junaedm333@gmail.com';
-  G('f-co-pbd').value=T('bd-phone')||'+880 1876 284203';
-  G('f-co-pcn').value=T('cn-phone')||'+86 195 0527 4754';
-  G('f-co-abd').value=T('bd-addr');
-  G('f-co-abd2').value=T('bd-addr2');
-  G('f-co-acn').value=T('cn-addr');
-  var wab=G('wa-btn'); G('f-co-wa').value=wab?wab.href:'';
-  var fbb=G('fb-btn'); G('f-co-fb').value=fbb?fbb.href:'';
-  var lg=G('site-logo'); if(lg) G('p-logo').innerHTML='<img src="'+lg.src+'">';
-  G('f-he-badge').value=T('hero-badge');
-  G('f-he-l1').value=T('hero-l1');
-  G('f-he-l2').value=T('hero-l2').trim();
-  G('f-he-l3').value=T('hero-l3');
-  G('f-he-desc').value=T('hero-desc');
-  G('f-s1n').value=T('stat1n'); G('f-s1l').value=T('stat1l');
-  G('f-s2n').value=T('stat2n'); G('f-s2l').value=T('stat2l');
-  G('f-s3n').value=T('stat3n'); G('f-s3l').value=T('stat3l');
-  G('f-s4n').value=T('stat4n'); G('f-s4l').value=T('stat4l');
-  G('f-ab-tag').value=T('about-tag'); G('f-ab-h1').value=T('about-h1');
-  G('f-ab-h2').value=T('about-h2'); G('f-ab-h3').value=T('about-h3');
-  G('f-ab-p1').value=T('about-p1'); G('f-ab-p2').value=T('about-p2');
-  G('f-ab-cta').value=T('about-cta');
-  G('f-pt1-t').value=T('pt1-t'); G('f-pt1-d').value=T('pt1-d');
-  G('f-pt2-t').value=T('pt2-t'); G('f-pt2-d').value=T('pt2-d');
-  G('f-pt3-t').value=T('pt3-t'); G('f-pt3-d').value=T('pt3-d');
-  G('f-pt4-t').value=T('pt4-t'); G('f-pt4-d').value=T('pt4-d');
-  G('f-wh-lbl').value=T('why-lbl'); G('f-wh-ttl').value=T('why-ttl'); G('f-wh-sub').value=T('why-sub');
-  G('f-wc1-t').value=T('wc1-t'); G('f-wc1-d').value=T('wc1-d');
-  G('f-wc2-t').value=T('wc2-t'); G('f-wc2-d').value=T('wc2-d');
-  G('f-wc3-t').value=T('wc3-t'); G('f-wc3-d').value=T('wc3-d');
-  G('f-wc4-t').value=T('wc4-t'); G('f-wc4-d').value=T('wc4-d');
-  G('f-mc-lbl').value=T('mc-lbl'); G('f-mc-ttl').value=T('mc-ttl'); G('f-mc-sub').value=T('mc-sub');
-  ['m1','m2','m3','m4'].forEach(function(id){
-    G('f-'+id+'-n').value=T('mc-n-'+id);
-    G('f-'+id+'-d').value=T('mc-d-'+id);
-    var tags=[]; var tc=G('mc-t-'+id);
-    if(tc) tc.querySelectorAll('.tg').forEach(function(t){ tags.push(t.textContent); });
-    G('f-'+id+'-t').value=tags.join(', ');
-    var mi=G('mc-img-'+id); if(mi) G('p-'+id).innerHTML='<img src="'+mi.src+'">';
-  });
-  G('f-pr-lbl').value=T('pr-lbl'); G('f-pr-ttl').value=T('pr-ttl'); G('f-pr-sub').value=T('pr-sub');
-  ['s1','s2','s3','s4','s5'].forEach(function(id){
-    G('f-'+id+'-t').value=T(id+'-t');
-    G('f-'+id+'-d').value=T(id+'-d');
-  });
-  G('f-of-lbl').value=T('of-lbl'); G('f-of-ttl').value=T('of-ttl'); G('f-of-sub').value=T('of-sub');
-  var fp=G('founder-photo'); if(fp) G('p-founder').innerHTML='<img src="'+fp.src+'">';
-  G('f-fo-name').value=T('founder-name'); G('f-fo-title').value=T('founder-title');
-  G('f-fo-bio').value=T('founder-bio'); G('f-fo-about').value=T('founder-about');
-  G('f-ft-name').value=T('footer-name'); var w3k2=G('w3-key'); if(w3k2) G('f-w3key').value=w3k2.value; var w3s2=G('w3-subj'); if(w3s2) G('f-w3subj').value=w3s2.value; G('f-ft-ceo').value=T('footer-ceo');
-  var fc=G('footer-copy'); if(fc) G('f-ft-copy').value=fc.innerHTML;
-}
-
-// APPLY BUTTONS
-G('co-apply').addEventListener('click', function(){
-  var name=V('f-co-name'),email=V('f-co-email'),pbd=V('f-co-pbd'),pcn=V('f-co-pcn');
-  var abd=V('f-co-abd'),abd2=V('f-co-abd2'),acn=V('f-co-acn'),wa=V('f-co-wa'),fb=V('f-co-fb');
-  S('footer-name',name);
-  if(email){S('co-email',email);S('cn-email',email);S('ch-em',email);
-    var ce=G('co-email');if(ce)ce.href='mailto:'+email;
-    var cne=G('cn-email');if(cne)cne.href='mailto:'+email;}
-  if(pbd){S('bd-phone',pbd);S('ch-bd',pbd);var bp=G('bd-phone');if(bp)bp.href='tel:'+pbd;}
-  if(pcn){S('cn-phone',pcn);S('ch-wa',pcn);var wl=G('wa-link');if(wl)wl.textContent=pcn+' (WhatsApp)';}
-  [['bd-addr',abd],['bd-addr2',abd2],['cn-addr',acn]].forEach(function(p){
-    var el=G(p[0]); if(el && p[1]){ el.textContent=p[1]; el.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p[1]); }
-  });
-  if(wa){var wb=G('wa-btn');if(wb)wb.href=wa;var wll=G('wa-link');if(wll)wll.href=wa;}
-  if(fb){var fbb=G('fb-btn');if(fbb)fbb.href=fb;}
-  var li=G('p-logo').querySelector('img');
-  if(li){['site-logo','site-logo2','site-logo3'].forEach(function(id){var el=G(id);if(el){el.removeAttribute('data-dark-src');el.src=li.src;}});}
-  alert('Company info updated!');
-});
-
-G('he-apply').addEventListener('click', function(){
-  S('hero-badge',V('f-he-badge'));
-  S('hero-l1',V('f-he-l1')); S('hero-l2',' '+V('f-he-l2')); S('hero-l3',V('f-he-l3'));
-  S('hero-desc',V('f-he-desc'));
-  S('stat1n',V('f-s1n'));S('stat1l',V('f-s1l'));S('stat2n',V('f-s2n'));S('stat2l',V('f-s2l'));
-  S('stat3n',V('f-s3n'));S('stat3l',V('f-s3l'));S('stat4n',V('f-s4n'));S('stat4l',V('f-s4l'));
-  alert('Hero updated!');
-});
-
-G('ab-apply').addEventListener('click', function(){
-  S('about-tag',V('f-ab-tag'));S('about-h1',V('f-ab-h1'));S('about-h2',V('f-ab-h2'));S('about-h3',V('f-ab-h3'));
-  S('about-p1',V('f-ab-p1'));S('about-p2',V('f-ab-p2'));S('about-cta',V('f-ab-cta'));
-  S('pt1-t',V('f-pt1-t'));S('pt1-d',V('f-pt1-d'));S('pt2-t',V('f-pt2-t'));S('pt2-d',V('f-pt2-d'));
-  S('pt3-t',V('f-pt3-t'));S('pt3-d',V('f-pt3-d'));S('pt4-t',V('f-pt4-t'));S('pt4-d',V('f-pt4-d'));
-  alert('About updated!');
-});
-
-G('wh-apply').addEventListener('click', function(){
-  S('why-lbl',V('f-wh-lbl'));S('why-ttl',V('f-wh-ttl'));S('why-sub',V('f-wh-sub'));
-  S('wc1-t',V('f-wc1-t'));S('wc1-d',V('f-wc1-d'));S('wc2-t',V('f-wc2-t'));S('wc2-d',V('f-wc2-d'));
-  S('wc3-t',V('f-wc3-t'));S('wc3-d',V('f-wc3-d'));S('wc4-t',V('f-wc4-t'));S('wc4-d',V('f-wc4-d'));
-  alert('Why Choose Us updated!');
-});
-
-G('mc-apply').addEventListener('click', function(){
-  S('mc-lbl',V('f-mc-lbl'));S('mc-ttl',V('f-mc-ttl'));S('mc-sub',V('f-mc-sub'));
-  ['m1','m2','m3','m4'].forEach(function(id){
-    S('mc-n-'+id,V('f-'+id+'-n'));
-    S('mc-d-'+id,V('f-'+id+'-d'));
-    var raw=V('f-'+id+'-t');
-    if(raw){var html='';raw.split(',').forEach(function(t){html+='<span class="tg">'+t.trim()+'</span>';});
-      var tc=G('mc-t-'+id);if(tc)tc.innerHTML=html;}
-    var pi=G('p-'+id).querySelector('img');
-    var mi=G('mc-img-'+id);if(pi&&mi)mi.src=pi.src;
-  });
-  alert('Machines updated!');
-});
-
-['m1','m2','m3','m4'].forEach(function(id){
-  G('p-'+id).addEventListener('click',function(){var b=this;pickFile(function(s){b.innerHTML='<img src="'+s+'">';});});
-});
-
-var nmImg='';
-G('nm-img').addEventListener('click',function(){var b=this;pickFile(function(s){nmImg=s;b.innerHTML='<img src="'+s+'">';});});
-G('nm-add').addEventListener('click',function(){
-  var name=G('nm-n').value.trim();if(!name){alert('Enter machine name!');return;}
-  var num=document.querySelectorAll('.mc').length+1;
-  var th='';if(G('nm-t').value)G('nm-t').value.split(',').forEach(function(t){th+='<span class="tg">'+t.trim()+'</span>';});
-  var imgH=nmImg?'<img src="'+nmImg+'" style="width:100%;height:100%;object-fit:contain;padding:12px;">':'';
-  var card=document.createElement('div');card.className='mc';
-  card.innerHTML='<div class="mc-img">'+imgH+'</div><div class="mc-bar"></div><div class="mc-body"><div class="mc-num">0'+num+'</div><h3>'+name+'</h3><p>'+G('nm-d').value+'</p><div class="mc-tags">'+th+'</div></div><div class="mc-foot">Buy Now &#8594;</div>';
-  G('machine-grid').appendChild(card);
-  G('nm-n').value='';G('nm-d').value='';G('nm-t').value='';
-  G('nm-img').innerHTML='<span>Click to upload</span>';nmImg='';
-  alert(name+' added!');
-});
-
-G('pr-apply').addEventListener('click',function(){
-  S('pr-lbl',V('f-pr-lbl'));S('pr-ttl',V('f-pr-ttl'));S('pr-sub',V('f-pr-sub'));
-  ['s1','s2','s3','s4','s5'].forEach(function(id){S(id+'-t',V('f-'+id+'-t'));S(id+'-d',V('f-'+id+'-d'));});
-  alert('Process updated!');
-});
-
-G('of-apply').addEventListener('click',function(){
-  S('of-lbl',V('f-of-lbl'));S('of-ttl',V('f-of-ttl'));S('of-sub',V('f-of-sub'));
-  alert('Offices updated!');
-});
-
-G('fo-apply').addEventListener('click',function(){
-  var pi=G('p-founder').querySelector('img');
-  var fp=G('founder-photo');if(pi&&fp)fp.src=pi.src;
-  S('founder-name',V('f-fo-name'));S('founder-title',V('f-fo-title'));
-  S('founder-bio',V('f-fo-bio'));S('founder-about',V('f-fo-about'));
-  alert('Founder updated!');
-});
-
-G('ft-apply').addEventListener('click',function(){
-  S('footer-name',V('f-ft-name'));S('footer-ceo',V('f-ft-ceo'));
-  var fc=G('footer-copy');if(fc&&V('f-ft-copy'))fc.innerHTML=V('f-ft-copy');
-  alert('Footer updated!');
-});
-
-G('p-logo').addEventListener('click',function(){var b=this;pickFile(function(s){b.innerHTML='<img src="'+s+'">';});});
-G('p-founder').addEventListener('click',function(){var b=this;pickFile(function(s){b.innerHTML='<img src="'+s+'">';});});
-
-function pickFile(cb){
-  var inp=document.createElement('input');inp.type='file';inp.accept='image/*';
-  inp.onchange=function(e){var file=e.target.files[0];if(!file)return;
-    var r=new FileReader();r.onload=function(ev){cb(ev.target.result);};r.readAsDataURL(file);};
-  inp.click();
-}
-
-G('btn-save').addEventListener('click',function(){
-  G('ap').classList.remove('open');
-  var keepLang=curLang; if(curLang!=='en') applyLang('en',{temp:true});
-  setTimeout(function(){
-    var clone=document.documentElement.cloneNode(true);
-    clone.classList.remove('js');
-    clone.querySelectorAll('.rv').forEach(function(el){ el.classList.remove('rv','in'); el.style.transitionDelay=''; if(!el.getAttribute('style')) el.removeAttribute('style'); });
-    var tn=clone.querySelector('#topnav'); if(tn){ tn.classList.remove('scrolled','open'); }
-    clone.setAttribute('lang','en'); clone.removeAttribute('dir'); clone.removeAttribute('data-theme'); clone.classList.remove('theme-anim');
-    clone.querySelectorAll('.xp.open').forEach(function(el){ el.classList.remove('open'); el.setAttribute('aria-expanded','false'); });
-    clone.querySelectorAll('.xp-show').forEach(function(el){ el.classList.remove('xp-show'); });
-    clone.querySelectorAll('.tabs .tab').forEach(function(tb){ var on=tb.id==='tab-how'; tb.setAttribute('aria-selected',on?'true':'false'); if(!on) tb.setAttribute('tabindex','-1'); else tb.removeAttribute('tabindex'); var pn=clone.querySelector('#'+tb.getAttribute('aria-controls')); if(pn){ if(!on) pn.setAttribute('hidden',''); else pn.removeAttribute('hidden'); } });
-    var ink=clone.querySelector('.tab-ink'); if(ink) ink.removeAttribute('style');
-    var am=clone.querySelector('#about-more'); if(am){ am.setAttribute('aria-expanded','false'); am.textContent='Read more'; }
-    clone.querySelectorAll('img[data-dark-src]').forEach(function(im){ im.setAttribute('src',im.getAttribute('data-dark-src')); im.removeAttribute('data-dark-src'); });
-    clone.querySelectorAll('link[data-jr-font]').forEach(function(el){ el.remove(); });
-    var lm=clone.querySelector('#lang-menu'); if(lm) lm.innerHTML=''; var lb=clone.querySelector('#lang'); if(lb) lb.className='lang'; var lcur=clone.querySelector('#lang-cur'); if(lcur) lcur.textContent='English';
-    var fcc=clone.querySelector('#f-cc'); if(fcc) fcc.innerHTML='';
-    var cm=clone.querySelector('#jc-msgs'); if(cm) cm.innerHTML=''; var cq=clone.querySelector('#jc-quick'); if(cq) cq.innerHTML='';
-    var cj=clone.querySelector('#jc'); if(cj) cj.className='jc'; var ct=clone.querySelector('#jc-tip'); if(ct) ct.className='jc-tip';
-    var html='<!DOCTYPE html>\n'+clone.outerHTML;
-    var blob=new Blob([html],{type:'text/html'});
-    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
-    a.download='jr-textile-machineries.html';a.click();URL.revokeObjectURL(a.href);
-    var back=(adminPrevLang!=='en')?adminPrevLang:keepLang; adminPrevLang='en';
-    if(back!=='en') applyLang(back,{temp:true});
-  },200);
-});
-
-// ── FORM SUBMISSION (Web3Forms) ────────────────────────────────────
-window.submitEnquiry = function(){
-  var key = document.getElementById('w3-key').value.trim();
-  var name = document.getElementById('f-name').value.trim();
-  var email = document.getElementById('f-email').value.trim();
-  var ph = fullPhone(), phone = ph.num, country = ph.country;
-  var company = document.getElementById('f-company').value.trim();
-  var machine = document.getElementById('f-machine').value;
-  var license = document.getElementById('f-license').value;
-  var message = document.getElementById('f-message').value.trim();
-  var btn = document.getElementById('form-submit-btn');
-  var status = document.getElementById('form-status');
-
-  if(!name){ alert(t('Please enter your name.')); return; }
-  if(!email && !phone){ alert(t('Please enter email or phone number.')); return; }
-
-  // If no Web3Forms key, use mailto fallback
-  if(!key){
-    var body = 'Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nCountry: '+country+'\nPhone: '+phone+'\nMachine: '+machine+'\nLicense: '+license+'\nMessage: '+message;
-    window.location.href = 'mailto:junaedm333@gmail.com?subject=New Machine Inquiry&body='+encodeURIComponent(body);
-    return;
-  }
-
-  // Send via Web3Forms API
-  btn.disabled = true;
-  btn.textContent = t('Sending...');
-
-  var data = {
-    access_key: key,
-    subject: document.getElementById('w3-subj').value || 'New Machine Inquiry — JR Textile Machineries',
-    from_name: 'JR Textile Website',
-    name: name,
-    email: email || 'no-email@provided.com',
-    phone: phone,
-    country: country,
-    company: company,
-    machine_type: machine,
-    import_license: license,
-    message: message || '(no message)'
-  };
-
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify(data)
-  })
-  .then(function(res){ return res.json(); })
-  .then(function(data){
-    if(data.success){
-      status.style.display = 'block';
-      status.style.background = 'rgba(26,122,58,0.2)';
-      status.style.border = '1px solid rgba(26,122,58,0.4)';
-      status.style.color = '#4ade80';
-      status.textContent = t('✓ Enquiry sent! We will contact you within 24 hours.');
-      btn.textContent = t('✓ Sent!');
-      btn.style.background = '#1a7a3a';
-      document.getElementById('f-name').value='';
-      document.getElementById('f-email').value='';
-      document.getElementById('f-phone').value='';
-      document.getElementById('f-company').value='';
-      document.getElementById('f-machine').value='';
-      document.getElementById('f-license').value='';
-      document.getElementById('f-message').value='';
-    } else {
-      throw new Error(data.message || 'Failed');
-    }
-  })
-  .catch(function(err){
-    status.style.display = 'block';
-    status.style.background = 'rgba(192,32,42,0.15)';
-    status.style.border = '1px solid rgba(192,32,42,0.4)';
-    status.style.color = '#ff6b6b';
-    status.textContent = '✗ ' + t('Could not send. Please contact us directly via WhatsApp.') + ' (' + err.message + ')';
-    btn.disabled = false;
-    btn.textContent = t('Send Enquiry →');
-  });
-}
-
-// ── FORM/EMAIL ADMIN SETTINGS ──────────────────────────────────────
-document.getElementById('fm-apply').addEventListener('click', function(){
-  var key = document.getElementById('f-w3key').value.trim();
-  var subj = document.getElementById('f-w3subj').value.trim();
-  var w3k = document.getElementById('w3-key');
-  var w3s = document.getElementById('w3-subj');
-  if(w3k && key) w3k.value = key;
-  if(w3s && subj) w3s.value = subj;
-  if(key){
-    alert('Email activated! Save & Download now.\n\nAll future enquiries will be sent to your Gmail automatically.');
-  } else {
-    alert('No key entered. Enquiries will open your email app as fallback.');
-  }
-});
-
-
-// ── POLISH: nav, mobile menu, reveal, Buy Now ──────────────────────
-document.documentElement.classList.add('js');
-var topnav=G('topnav');
-function onScroll(){ if(topnav) topnav.classList.toggle('scrolled', window.scrollY>40); }
-window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-var ntg=G('nav-tg');
-if(ntg){
-  ntg.addEventListener('click', function(){
-    var open=topnav.classList.toggle('open');
-    ntg.setAttribute('aria-expanded', open?'true':'false');
-  });
-  document.querySelectorAll('#nav-links a').forEach(function(a){
-    a.addEventListener('click', function(){ topnav.classList.remove('open'); ntg.setAttribute('aria-expanded','false'); });
-  });
-}
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ var t=e.target; t.classList.add('in'); io.unobserve(t);
-      setTimeout(function(){ t.classList.remove('rv','in'); t.style.transitionDelay=''; }, 1300); } });
-  },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.sec .st,.sec .ss,.ah,.ap2,.ipt,.wc,.mc,.ps,.oc,.fb3,.fdc,.ch,.fq').forEach(function(el){
-    var sib=el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-    el.style.transitionDelay=(Math.min(sib,5)*0.08)+'s';
-    el.classList.add('rv'); io.observe(el);
-  });
-}
-function buyNow(card){
-  var sel=G('f-machine');
-  var MAP={'mc-m1':'Repair Loom','mc-m2':'Air Jet Loom','mc-m3':'Water Jet Loom','mc-m4':'Spare Parts Only'};
-  if(sel) sel.value=MAP[card.id]||'Multiple / Not Sure';
-  G('contact').scrollIntoView({behavior:'smooth'});
-}
-G('machine-grid').addEventListener('click', function(e){
-  var f=e.target.closest('.mc-foot'); if(f) buyNow(f.closest('.mc'));
-});
-G('machine-grid').addEventListener('keydown', function(e){
-  var f=e.target.closest && e.target.closest('.mc-foot');
-  if(f && (e.key==='Enter' || e.key===' ')){ e.preventDefault(); buyNow(f.closest('.mc')); }
-});
-
-// ── LIVE CHAT with auto replies ─────────────────────────────────────
-(function(){
-  var jc=G('jc'); if(!jc) return;
-  var msgs=G('jc-msgs'), quick=G('jc-quick'), inp=G('jc-in'), started=false, lastQ='', answers=0, nudges=0, idleT=null;
-  function waNum(){ var a=G('wa-btn'); var m=a&&a.href.match(/wa\.me\/(\d+)/); return m?m[1]:'8619505274754'; }
-  function email(){ return (T('co-email')||'junaedm333@gmail.com').trim(); }
-  function phone(){ return (T('bd-phone')||'+880 1876 284203').trim(); }
-  function waLink(q){ return 'https://wa.me/'+waNum()+'?text='+encodeURIComponent('Hello JR Textile Machineries! '+(q?('I have a question: '+q):'I would like a quotation.')); }
-  function mailLink(q){ return 'mailto:'+email()+'?subject='+encodeURIComponent('Enquiry from website')+'&body='+encodeURIComponent((q?'My question: '+q+'\n\n':'')+'Name:\nCompany / Factory:\nCountry:\nMachine type & quantity:\n'); }
-  function telLink(){ return 'tel:'+phone().replace(/[^\d+]/g,''); }
-  var WAICON=G('jc-wa').innerHTML.split('WhatsApp')[0];
-  function refreshFoot(){ G('jc-wa').href=waLink(lastQ); G('jc-mail').href=mailLink(lastQ); G('jc-call').href=telLink(); }
-  function scroll(){ msgs.scrollTop=msgs.scrollHeight; }
-  function add(text,who,acts){
-    var d=document.createElement('div'); d.className='jc-m '+who; d.textContent=text;
-    if(acts){ var w=document.createElement('div'); w.className='jc-acts';
-      if(acts.indexOf('wa')>-1) w.insertAdjacentHTML('beforeend','<a class="a-wa" target="_blank" rel="noopener" href="'+waLink(lastQ)+'">'+WAICON+'WhatsApp '+('+'+waNum()).replace(/^\+(\d{2})(\d{3})(\d{4})(\d+)$/,'+$1 $2 $3 $4')+'</a>');
-      if(acts.indexOf('mail')>-1) w.insertAdjacentHTML('beforeend','<a class="a-mail" href="'+mailLink(lastQ)+'">✉ '+email()+'</a>');
-      if(acts.indexOf('call')>-1) w.insertAdjacentHTML('beforeend','<a class="a-call" href="'+telLink()+'">✆ '+phone()+'</a>');
-      d.appendChild(w); }
-    msgs.appendChild(d); scroll();
-  }
-  function botSay(text,acts,delay){
-    var t=document.createElement('div'); t.className='jc-typing'; t.innerHTML='<i></i><i></i><i></i>'; msgs.appendChild(t); scroll();
-    setTimeout(function(){ t.remove(); add(text,'bot',acts); }, delay||Math.min(1400,500+text.length*6));
-  }
-  var R=[
-    {id:'price',  k:/(price|cost|quot|rate|dam|daam|koto|কত|দাম|budget|कीमत|दाम|कितन|قیمت|ریٹ|کتنے|价格|价钱|报价|多少钱|fiyat|teklif|ücret|kaça)/i, x:['wa','mail']},
-    {id:'country',k:/(india|pakistan|kolkata|surat|faisalabad|karachi|lahore|delhi|mumbai|ভারত|পাকিস্তান|भारत|पाकिस्तान|بھارت|پاکستان|印度|巴基斯坦|hindistan)/i, x:['wa','mail']},
-    {id:'airjet', k:/(air ?jet|এয়ার জেট|एयर जेट|ایئر جیٹ|喷气|hava jet)/i, x:['wa']},
-    {id:'waterjet',k:/(water ?jet|ওয়াটার জেট|वॉटर जेट|واٹر جیٹ|喷水|su jet)/i, x:['wa']},
-    {id:'repair', k:/(repair|rapier|used|second|রেপিয়ার|रेपियर|ریپیئر|剑杆)/i, x:['wa']},
-    {id:'spare',  k:/(spare|parts?\b|nozzle|reed|heald|motor|board|স্পেয়ার|পার্টস|স্পেয়ার|स्पेयर|पार्ट|اسپیئر|پارٹ|配件|零件|yedek|parça)/i, x:['wa']},
-    {id:'license',k:/(licen|import|custom|\blc\b|duty|\bport\b|লাইসেন্স|আমদানি|কাস্টমস|लाइसेंस|इम्पोर्ट|आयात|لائسنس|امپورٹ|کسٹم|许可证|进口|清关|lisans|ithalat|gümrük)/i, x:['wa','mail']},
-    {id:'delivery',k:/(deliver|ship|\btime\b|kobe|days|lead|ডেলিভারি|কবে|কতদিন|डिलीवरी|कब तक|ڈیلیوری|کب تک|交货|发货|多久|teslim|kargo|ne zaman)/i, x:['wa']},
-    {id:'address',k:/(address|office|location|where|thikana|ঠিকানা|অফিস|কোথায়|पता|ऑफिस|कहाँ|پتہ|دفتر|کہاں|地址|办公室|在哪|adres|ofis|nerede|narsingdi|rupganj|narayanganj|yangzhou)/i, x:['call','wa']},
-    {id:'install',k:/(install|training|service|support|technician|warranty|ইনস্টল|ট্রেনিং|इंस्टॉल|ट्रेनिंग|انسٹال|ٹریننگ|安装|培训|售后|kurulum|eğitim|servis)/i, x:['wa']},
-    {id:'contact',k:/(human|person|agent|talk|call|phone|number|contact|whats|email|mail|ফোন|নম্বর|যোগাযোগ|फ़ोन|फोन|नंबर|संपर्क|فون|نمبر|رابطہ|电话|联系|人工|telefon|iletişim)/i, x:['wa','mail','call']},
-    {id:'hi',     k:/^(hi|hello|hey|salam|assalam|aslam|hlw|helo|good|হ্যালো|আসসালামু|नमस्ते|हैलो|السلام|سلام|你好|您好|merhaba|selam)/i, x:null}
-  ];
-  var RID={}; R.forEach(function(r){ RID[r.id]=r; });
-  function remindText(){ return t('c.remind')+'\n'+t('c.wa')+' +'+waNum().replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/,'$1 $2 $3 $4')+'\n'+t('c.call')+' '+phone()+'\n'+t('c.email')+' '+email(); }
-  function remind(delay){ setTimeout(function(){ botSay(remindText(),['wa','call','mail']); },delay); }
-  function armIdle(){
-    clearTimeout(idleT);
-    if(nudges>=2) return;
-    idleT=setTimeout(function(){ if(jc.classList.contains('open')){ nudges++; botSay(t('c.still')+remindText(),['wa','call']); } },30000);
-  }
-  function answer(q,forceId){
-    lastQ=q; refreshFoot(); answers++;
-    var hit=forceId?RID[forceId]:null;
-    if(!hit) for(var i=0;i<R.length;i++){ if(R[i].k.test(q)){ hit=R[i]; break; } }
-    if(hit){ botSay(t('c.'+hit.id),hit.x); }
-    else botSay(t('c.fallback'),['wa','mail']);
-    // every second answer, remind visitors how to reach a person
-    if(answers%2===0 && !(hit && hit.x && hit.x.length>=3)) remind(1800);
-    armIdle();
-  }
-  var QUICK=[['💰 Get a price','price'],['Air Jet Loom','airjet'],['Water Jet Loom','waterjet'],['Spare parts','spare'],['No import license?','license'],['Office address','address'],['Talk to a person','contact']];
-  function buildQuick(){ quick.innerHTML='';
-    QUICK.forEach(function(q){ var b=document.createElement('button'); b.type='button'; b.textContent=t(q[0]);
-      b.addEventListener('click',function(){ add(t(q[0]),'me'); answer(q[0],q[1]); }); quick.appendChild(b); }); }
-  buildQuick(); document.addEventListener('jr:lang',buildQuick);
-  function open(){
-    jc.classList.add('open','seen'); G('jc-launch').setAttribute('aria-expanded','true'); G('jc-tip').classList.remove('show');
-    refreshFoot();
-    if(!started){ started=true;
-      botSay(t('c.hello1'),null,500);
-      setTimeout(function(){ botSay(t('c.hello2'),null,900); },700);
-      setTimeout(function(){ botSay(remindText(),['wa','call'],700); },2700);
-      armIdle();
-    }
-    setTimeout(function(){ if(window.innerWidth>560) inp.focus(); },350);
-  }
-  function close(){ jc.classList.remove('open'); G('jc-launch').setAttribute('aria-expanded','false'); }
-  G('jc-launch').addEventListener('click',function(){ jc.classList.contains('open')?close():open(); });
-  G('jc-close').addEventListener('click',close);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
-  G('jc-form').addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; add(q,'me'); answer(q); });
-  inp.addEventListener('input',armIdle);
-  G('jc-tip').addEventListener('click',function(e){ if(e.target.id==='jc-tip-x'){ G('jc-tip').classList.remove('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} return; } open(); });
-  var tipSeen=false; try{ tipSeen=!!sessionStorage.getItem('jcTip'); }catch(_){}
-  if(!tipSeen) setTimeout(function(){ if(!jc.classList.contains('open')){ G('jc-tip').classList.add('show'); try{sessionStorage.setItem('jcTip','1');}catch(_){} } },4000);
-})();
-
-
-// ── ABOUT TABS ──────────────────────────────────────────────────────
-function moveInk(){ var ink=document.querySelector('.tab-ink'), t=document.querySelector('.tab[aria-selected="true"]'); if(!ink||!t) return; ink.style.left=t.offsetLeft+'px'; ink.style.width=t.offsetWidth+'px'; }
-function showTab(id,focus){
-  var tabs=document.querySelectorAll('.tabs .tab'); if(!tabs.length) return;
-  tabs.forEach(function(t){ var on=t.getAttribute('aria-controls')===id; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; var p=G(t.getAttribute('aria-controls')); if(p) p.hidden=!on; if(on&&focus) t.focus(); });
-  moveInk();
-}
-document.querySelectorAll('.tabs .tab').forEach(function(t,i,all){
-  t.addEventListener('click',function(){ showTab(t.getAttribute('aria-controls')); });
-  t.addEventListener('keydown',function(e){ var k=e.key, rtl=document.documentElement.dir==='rtl', n=null;
-    if(k==='ArrowRight') n=all[(i+(rtl?-1:1)+all.length)%all.length]; if(k==='ArrowLeft') n=all[(i+(rtl?1:-1)+all.length)%all.length];
-    if(n){ e.preventDefault(); showTab(n.getAttribute('aria-controls'),true); } });
-});
-document.querySelectorAll('a[data-tab]').forEach(function(a){ a.addEventListener('click',function(){ showTab(a.getAttribute('data-tab')); }); });
-window.addEventListener('resize',moveInk); document.addEventListener('jr:lang',function(){ setTimeout(moveInk,60); });
-if(location.hash==='#process'){ showTab('t-how'); var ab=G('about'); if(ab) setTimeout(function(){ ab.scrollIntoView(); },50); }
-setTimeout(moveInk,80); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(moveInk);
-
-// ── CLICK-TO-OPEN DETAILS ────────────────────────────────────────────
-function xpWrap(el){
-  if(!el) return null;
-  if(el.parentElement && el.parentElement.classList.contains('xp-in')) return el.parentElement.parentElement;
-  var b=document.createElement('div'); b.className='xp-body'; var i=document.createElement('div'); i.className='xp-in';
-  el.parentNode.insertBefore(b,el); b.appendChild(i); i.appendChild(el); return b;
-}
-function makeXP(card,detail,tgAfter){
-  if(!card||!detail) return;
-  xpWrap(detail); card.classList.add('xp');
-  if(!card.querySelector('.xp-tg')){ var tg=document.createElement('span'); tg.className='xp-tg'; tg.setAttribute('aria-hidden','true');
-    if(tgAfter) tgAfter.insertAdjacentElement('afterend',tg); else card.insertBefore(tg,card.firstChild); }
-  card.setAttribute('aria-expanded','false');
-  if(!card.querySelector('a,button,.mc-foot')){ card.setAttribute('role','button'); card.setAttribute('tabindex','0'); }
-}
-function xpToggle(card){ var o=card.classList.toggle('open'); card.setAttribute('aria-expanded',o?'true':'false'); }
-function initXP(){
-  document.querySelectorAll('.ipt').forEach(function(c){ makeXP(c,c.querySelector('p')); });
-  document.querySelectorAll('.wc').forEach(function(c){ makeXP(c,c.querySelector('p')); });
-  document.querySelectorAll('.mc').forEach(function(c){ var b=c.querySelector('.mc-body'); if(!b) return; makeXP(c,b.querySelector('p')); var tg=c.querySelector('.xp-tg'); if(tg&&tg.parentElement!==b) b.insertBefore(tg,b.firstChild); });
-  document.querySelectorAll('.ps').forEach(function(c){ makeXP(c,c.querySelector('p'),c.querySelector('h4')); });
-}
-initXP();
-document.addEventListener('click',function(e){
-  var c=e.target.closest('.xp'); if(!c||e.target.closest('a,.mc-foot,button,input,select,textarea')) return;
-  if(e.target.closest('.xp-in') && c.classList.contains('open')) return;   // let people select the text they opened
-  xpToggle(c);
-});
-document.addEventListener('keydown',function(e){ var c=e.target.closest&&e.target.closest('.xp[role="button"]'); if(c&&e.target===c&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); xpToggle(c); } });
-// About: second paragraph behind "Read more"
-(function(){ var p2=G('about-p2'); if(!p2) return; var body=xpWrap(p2); var wrap=body.parentElement;
-  if(!wrap.classList.contains('xp')){ wrap.classList.add('xp-about'); }
-  var btn=G('about-more'); if(!btn){ btn=document.createElement('button'); btn.type='button'; btn.id='about-more'; btn.className='xp-more'; btn.setAttribute('aria-expanded','false'); body.insertAdjacentElement('afterend',btn); }
-  function label(){ btn.textContent=t(btn.getAttribute('aria-expanded')==='true'?'Show less':'Read more'); }
-  body.classList.add('xp-solo'); label();
-  btn.addEventListener('click',function(){ var o=btn.getAttribute('aria-expanded')!=='true'; btn.setAttribute('aria-expanded',o?'true':'false'); body.classList.toggle('xp-show',o); label(); });
-  document.addEventListener('jr:lang',label);
-})();
-
-startLang();
-}); // end DOMContentLoaded
-</script>
 </body>
 </html>
